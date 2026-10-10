@@ -123,6 +123,14 @@ replay 3.4 -> 2.1 s per turn). Its output is the fused path's, which reads of 1,
 under `STRATA_PF_SWITCH_MIN_T`, which gates only the hyper-connection and padding switches. A UD-Q4_K_XL or other K-quant
 pack takes the fused experts only with `STRATA_PF_FUSED_KQ=1` as well.
 
+`STRATA_W11_PREFETCH=1` is an additional experimental switch on top of `STRATA_PF_FUSED=1`. It changes the gfx11
+IQ3_S gate/up and IQ4_NL down kernels' load scheduling, keeping their int8 arithmetic and accumulation order. It is off
+unless set. Other expert formats and the CUDA kernels keep their existing loads. The buffer-load path uses 32-bit byte
+offsets; chunks whose routed-row activation-size bound exceeds 2 GiB keep the pointer-load path. The switch requires a
+HIP compiler based on clang 21 or newer. Older compilers exclude these builtins and report an error if the switch is
+requested. Build and performance checks use gfx1151 with the ROCm 7.14.1 SDK's clang 23; other HIP SDKs and gfx11 cards
+have not been checked.
+
 Two engine flags help on long contexts and are not Strix-specific: `--mtp-window 8192` (the draft layer attends to the last 8,192
 cells: 64K output +3.5%, 32K -0.4%) and `--spec`, `--lookup-chain`, `--mtp-q4` (see [DETAILS.md](DETAILS.md)).
 
