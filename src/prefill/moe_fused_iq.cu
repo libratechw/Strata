@@ -37,6 +37,14 @@
 #include <cstring>
 #include <mutex>
 
+// Typed buffer loads and address-space-specific fences are available in clang 21 and newer.
+// Older HIP toolchains keep building the ordinary kernels; requesting this switch reports an error.
+#if defined(__HIPCC__) && defined(__clang_major__) && __clang_major__ >= 21
+#define STRATA_W11_PREFETCH_BUILTINS 1
+#else
+#define STRATA_W11_PREFETCH_BUILTINS 0
+#endif
+
 namespace strata::prefill::fused {
 namespace {
 
@@ -291,8 +299,31 @@ template <int T, int NW> __device__ __forceinline__ void load_unit(const uint8_t
     }
 }
 
-// The sub-block as 32 int8 (q[0..7], natural order) and its scales (s0: values 0-15, s1: 16-31).
+#if STRATA_W11_PREFETCH_BUILTINS
+// gfx11 prefetch: the thread's fixed weight-row offset and the scalar stage offset are separate buffer operands.
+// IQ3_S's d, high bits and scale byte stay separate until convert, so packing them cannot drain the loads early.
 template <int T, int NW>
+__device__ __forceinline__ void load_unit_buf(__amdgpu_buffer_rsrc_t r, uint32_t vrow, int sblk, int c, int j,
+                                          uint32_t (&w)[NW]) {
+    static_assert(NW >= raw_words(T) + (T == T_IQ3_S ? 2 : 0) && (T == T_IQ3_S || T == T_IQ4_NL), "raw words");
+    if constexpr (T == T_IQ3_S) {
+        w[0] = __builtin_amdgcn_raw_buffer_load_b32(r, vrow + 2 + 8 * j, sblk + 16 * c, 0);
+        w[1] = __builtin_amdgcn_raw_buffer_load_b32(r, vrow + 6 + 8 * j, sblk + 16 * c, 0);
+        w[2] = __builtin_amdgcn_raw_buffer_load_b32(r, vrow + 74 + 4 * j, sblk + 8 * c, 0);
+        w[3] = __builtin_amdgcn_raw_buffer_load_b16(r, vrow, sblk, 0);
+        w[4] = __builtin_amdgcn_raw_buffer_load_b8(r, vrow + 66 + j, sblk + 2 * c, 0);
+        w[5] = __builtin_amdgcn_raw_buffer_load_b8(r, vrow + 106, sblk + c, 0);
+        w[6] = 4 * j;
+    } else {   // IQ4_NL
+#pragma unroll
+        for (int k = 0; k < 4; ++k) w[k] = __builtin_amdgcn_raw_buffer_load_b32(r, vrow + 2 + 4 * k, sblk, 0);
+        w[4] = __builtin_amdgcn_raw_buffer_load_b16(r, vrow, sblk, 0);
+    }
+}
+#endif
+
+// The sub-block as 32 int8 (q[0..7], natural order) and its scales (s0: values 0-15, s1: 16-31).
+template <int T, int NW, bool PREFETCH = false>
 __device__ __forceinline__ void convert(const uint32_t (&w)[NW], const uint8_t* grid, const uint32_t (&kv)[4],
                                         uint32_t (&q)[8], float& s0, float& s1, const uint4* sgn = nullptr) {
     if constexpr (T == T_Q4_K || T == T_Q5_K) {
@@ -381,7 +412,9 @@ __device__ __forceinline__ void convert(const uint32_t (&w)[NW], const uint8_t* 
         s0 = s1 = half_at(w[3]) * (float) (2 * (w[2] >> 28) + 1) * 0.25f;
     } else if constexpr (T == T_IQ3_S) {
         const uint32_t* g = (const uint32_t*) grid;
-        const uint32_t qh = (w[3] >> 16) & 255;
+        uint32_t qh, scale;
+        if constexpr (PREFETCH) { qh = w[4]; scale = (w[5] >> w[6]) & 15; }
+        else { qh = (w[3] >> 16) & 255; scale = w[3] >> 24; }
 #pragma unroll
         for (int l = 0; l < 4; ++l) {
             const uint32_t i0 = (w[l >> 1] >> (16 * (l & 1))) & 255, i1 = (w[l >> 1] >> (16 * (l & 1) + 8)) & 255;
@@ -393,7 +426,7 @@ __device__ __forceinline__ void convert(const uint32_t (&w)[NW], const uint8_t* 
                     ((w[2] >> (8 * l)) & 255) * 0x01010101u, q[2 * l], q[2 * l + 1]);
 #endif
         }
-        s0 = s1 = half_at(w[3]) * (float) (1 + 2 * (w[3] >> 24));
+        s0 = s1 = half_at(w[3]) * (float) (1 + 2 * scale);
     } else if constexpr (T == T_IQ4_XS || T == T_IQ4_NL) {
 #pragma unroll
         for (int k = 0; k < 4; ++k) table16(w[k], kv, q[k], q[4 + k]);
@@ -673,6 +706,13 @@ native_kernel(const Batch b, const NativeGeom geo, const Tables tb, const uint8_
 #define STRATA_NAT_W12 0
 #endif
 #define STRATA_NAT_WMMA (STRATA_NAT_W11 || STRATA_NAT_W12)
+// The prefetch loads (STRATA_W11_PREFETCH=1) are written for gfx11's fragments: a gfx12 pass builds those kernel
+// instances with the ordinary loads (the host never launches them there).
+#if STRATA_W11_PREFETCH_BUILTINS && !STRATA_NAT_W12
+#define STRATA_NW_PREFETCH 1
+#else
+#define STRATA_NW_PREFETCH 0
+#endif
 #if STRATA_NAT_W12
 #define NW_DROW(i, hi) (8 * (hi) + (i))
 #else
@@ -714,13 +754,29 @@ __device__ __forceinline__ nw_i8 nw_wmma(nw_ab a, nw_ab b, nw_i8 c) {
 #endif
 }
 
+// Prefetch orders only LDS at stage barriers: a global-memory fence would drain the next stage's loads.
+// The ordinary specialization keeps the release kernel's __syncthreads().
+template <bool PREFETCH> __device__ __forceinline__ void nw_sync() {
+#if STRATA_W11_PREFETCH_BUILTINS
+    if constexpr (PREFETCH) {
+        __builtin_amdgcn_fence(__ATOMIC_RELEASE, "workgroup", "local");
+        __builtin_amdgcn_s_barrier();
+        __builtin_amdgcn_fence(__ATOMIC_ACQUIRE, "workgroup", "local");
+    } else
+#endif
+    __syncthreads();
+}
+
 // W (X1): ALIAS = the H tile lives on the weight buffers (one extra barrier); LB > 0 = amdgpu_waves_per_eu(LB) (VGPR cap).
 // Disable both with -DSTRATA_W_NO_OCC (the launch sites then use <WT, GU, false, 0> and grid factor wgp_blocks).
-template <int WT, bool GU, bool ALIAS = false, int LB = 0>
+template <int WT, bool GU, bool ALIAS = false, int LB = 0, bool PREFETCH = false>
 __global__ void __launch_bounds__(NW_THREADS) __attribute__((amdgpu_waves_per_eu(LB > 0 ? LB : 1)))
 native_w11_kernel(const Batch b, const NativeGeom geo, const Tables tb, const uint8_t* __restrict__ act,
                   const int32_t* __restrict__ src, uint8_t* __restrict__ out, float* __restrict__ dm) {
 #if STRATA_NAT_WMMA
+    constexpr bool PF = PREFETCH && STRATA_NW_PREFETCH;
+    static_assert(!PF || (GU ? WT == T_IQ3_S : WT == T_IQ4_NL), "prefetch formats");
+    constexpr int RW = raw_words(WT) + (PF && WT == T_IQ3_S ? 2 : 0);
     constexpr int NS = (GU ? GU_ROWS_K : D_ROWS_K) / 64;  // 64-value stages along K
     constexpr int NFB = (GU ? 1280 : 2560) / NW_ROWS;     // work items per tile
     constexpr int ACT_LD = NS * AB;
@@ -766,29 +822,51 @@ native_w11_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
             return (WT == T_IQ4_NL || WT == T_Q5_1 || WT == T_Q8_0) ? wrow + (2 * s + uj) * BS : wrow + s * BS;
         };
         auto sub = [&](int s) { return GU ? 2 * (s & 3) + uj : uj; };
-        auto put = [&](const uint32_t (&raw)[raw_words(WT)], int buf) {
+        // The ordinary path keeps load_unit's packed fields and pointer loads.
+#if STRATA_NW_PREFETCH
+        const __amdgpu_buffer_rsrc_t wrsrc = __builtin_amdgcn_make_buffer_rsrc((void*) blob, (short) 0, 0x7fffffff, 0x31004000);
+        const uint32_t wvrow = (uint32_t) (wrow - blob) + (GU ? 0u : (uint32_t) (uj * BS));
+#endif
+        auto load = [&](int s, uint32_t (&rw)[RW]) {
+#if STRATA_NW_PREFETCH
+            if constexpr (PF) load_unit_buf<WT>(wrsrc, wvrow, GU ? (s >> 2) * BS : 2 * s * BS, GU ? (s & 3) : 0, uj, rw);
+            else
+#endif
+            load_unit<WT>(unit(s), sub(s), rw);
+        };
+        auto put = [&](const uint32_t (&raw)[RW], int buf) {
             uint32_t q[8];
             float s0, s1;
-            convert<WT>(raw, sgrid, kv, q, s0, s1, ssign);
+            convert<WT, RW, PF>(raw, sgrid, kv, q, s0, s1, ssign);
             uint4* d = (uint4*) &wt[buf][ur][32 * uj];
             d[0] = make_uint4(q[0], q[1], q[2], q[3]);
             d[1] = make_uint4(q[4], q[5], q[6], q[7]);
             *(float2*) &ws[buf][ur][2 * uj] = make_float2(s0, s1);
         };
-        __syncthreads();                                          // the previous item is done with the buffers
+        nw_sync<PF>();                                      // the previous item is done with the buffers
         if (tid < kTileRows) {
             const int r = row0 + min(tid, nrows - 1);             // rows past the tile's end repeat its last one
             srow[tid] = GU ? src[r] : r;
         }
-        uint32_t raw[raw_words(WT)] = {};
-        load_unit<WT>(unit(0), sub(0), raw);
+        uint32_t raw[RW] = {};
+        load(0, raw);
         put(raw, 0);
-        if (NS > 1) load_unit<WT>(unit(1), sub(1), raw);
-        __syncthreads();                                          // srow
+        if (NS > 1) load(1, raw);
+        nw_sync<PF>();                                      // srow
         const bool on = 32 * wn < nrows;
+        // Buffer loads separate the lane's fixed row offset from the scalar stage offset; advancing the stage
+        // cannot overwrite an address register still used by an outstanding load.
+#if STRATA_NW_PREFETCH
+        const __amdgpu_buffer_rsrc_t arsrc = __builtin_amdgcn_make_buffer_rsrc((void*) act, (short) 0, 0x7fffffff, 0x31004000);
+#endif
+        uint32_t boff[2];
         const uint8_t* brow[2];
 #pragma unroll
-        for (int nt = 0; nt < 2; ++nt) brow[nt] = act + (size_t) srow[32 * wn + 16 * nt + l16] * ACT_LD;
+        for (int nt = 0; nt < 2; ++nt) {
+            const int r = srow[32 * wn + 16 * nt + l16];
+            if constexpr (PF) boff[nt] = (uint32_t) r * ACT_LD;
+            else brow[nt] = act + (size_t) r * ACT_LD;
+        }
         float acc[2][2][8];
 #pragma unroll
         for (int mt = 0; mt < 2; ++mt)
@@ -796,28 +874,44 @@ native_w11_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
             for (int nt = 0; nt < 2; ++nt)
 #pragma unroll
                 for (int i = 0; i < 8; ++i) acc[mt][nt][i] = 0.0f;
-        nw_frag bq[2][4];        // B per 16-value k-step: bq[nt][2 h + kk] = k 32 h + 16 kk .. (gfx12: this lane's 8 of them)
-        float2 bx[2], bsum[2];   // the activation scales, and (the formats with a minimum) the codes' sums per 32 values
+        // The stages run in pairs on two register sets (A: even stages, B: odd ones), so the activations fetched for the
+        // next stage never share registers with the ones the products read and need no copy at the stage's end.
+        // B per 16-value k-step: bq[nt][2 h + kk] = k 32 h + 16 kk .. (gfx12: this lane's 8 of them)
+        nw_frag bqA[2][4], bqB[2][4];
+        float2 bxA[2], bxB[2], bsA[2], bsB[2];   // the activation scales, and (the formats with a minimum) the codes' sums per 32 values
         auto fetch_b = [&](int s, nw_frag (&q)[2][4], float2 (&x)[2], float2 (&sm)[2]) {
 #pragma unroll
             for (int nt = 0; nt < 2; ++nt) {
-#if STRATA_NAT_W12
-                const uint2* p = reinterpret_cast<const uint2*>(brow[nt] + s * AB + 8 * hi);   // k 16 j + 8 hi .. + 7
-                q[nt][0] = p[0]; q[nt][1] = p[2]; q[nt][2] = p[4]; q[nt][3] = p[6];
-#else
-                const uint4* p = reinterpret_cast<const uint4*>(brow[nt] + s * AB);
-                q[nt][0] = p[0]; q[nt][1] = p[1]; q[nt][2] = p[2]; q[nt][3] = p[3];
+#if STRATA_NW_PREFETCH
+                if constexpr (PF) {
+#pragma unroll
+                    for (int k = 0; k < 4; ++k)
+                        q[nt][k] = __builtin_bit_cast(uint4, __builtin_amdgcn_raw_buffer_load_b128(arsrc, boff[nt] + 16 * k, s * AB, 0));
+                    x[nt] = __builtin_bit_cast(float2, __builtin_amdgcn_raw_buffer_load_b64(arsrc, boff[nt] + 64, s * AB, 0));
+                    sm[nt] = make_float2(0.0f, 0.0f);   // neither prefetch format has a minimum
+                } else
 #endif
-                x[nt] = *reinterpret_cast<const float2*>(brow[nt] + s * AB + 64);
-                if constexpr (has_min(WT)) sm[nt] = *reinterpret_cast<const float2*>(brow[nt] + s * AB + 72);
-                else sm[nt] = make_float2(0.0f, 0.0f);
+                {
+                    const uint8_t* row = brow[nt] + s * AB;
+#if STRATA_NAT_W12
+                    const uint2* p = reinterpret_cast<const uint2*>(row + 8 * hi);   // k 16 j + 8 hi .. + 7
+                    q[nt][0] = p[0]; q[nt][1] = p[2]; q[nt][2] = p[4]; q[nt][3] = p[6];
+#else
+                    const uint4* p = reinterpret_cast<const uint4*>(row);
+                    q[nt][0] = p[0]; q[nt][1] = p[1]; q[nt][2] = p[2]; q[nt][3] = p[3];
+#endif
+                    x[nt] = *reinterpret_cast<const float2*>(row + 64);
+                    if constexpr (has_min(WT)) sm[nt] = *reinterpret_cast<const float2*>(row + 72);
+                    else sm[nt] = make_float2(0.0f, 0.0f);
+                }
             }
         };
-        if (on) fetch_b(0, bq, bx, bsum);
-        for (int s = 0; s < NS; ++s) {
-            __syncthreads();                                      // stage s's weights are in buffer s & 1
-            nw_frag nbq[2][4];
-            float2 nbx[2], nbsum[2];
+        if (on) fetch_b(0, bqA, bxA, bsA);
+        // Same accumulation order in both specializations. The paired loop avoids copying the next stage's
+        // activation registers onto registers whose loads may still be outstanding.
+        auto stage = [&](int s, const nw_frag (&bq)[2][4], const float2 (&bx)[2], const float2 (&bsum)[2], nw_frag (&nbq)[2][4],
+                         float2 (&nbx)[2], float2 (&nbsum)[2]) {
+            nw_sync<PF>();                                            // stage s's weights are in buffer s & 1
             if (on && s + 1 < NS) fetch_b(s + 1, nbq, nbx, nbsum);
             if (on) {
                 const int bf = s & 1;
@@ -865,22 +959,32 @@ native_w11_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
                 }
             }
             if (s + 1 < NS) {
-                put(raw, (s + 1) & 1);                            // the other buffer: its readers passed this barrier
-                __syncthreads();                                      // the writes of every thread are in LDS before the next stage reads them (#1180)
-                if (s + 2 < NS) load_unit<WT>(unit(s + 2), sub(s + 2), raw);
-                if (on) {
+                put(raw, (s + 1) & 1);                       // the other buffer: its readers passed this barrier
+                nw_sync<PF>();                                  // the writes of every thread are in LDS before the next stage reads them (#1180)
+                if (s + 2 < NS) load(s + 2, raw);
+            }
+        };
+        if constexpr (PF) {
+            static_assert(NS % 2 == 0, "the stages run in pairs");
+            for (int s = 0; s < NS; s += 2) {
+                stage(s, bqA, bxA, bsA, bqB, bxB, bsB);
+                stage(s + 1, bqB, bxB, bsB, bqA, bxA, bsA);
+            }
+        } else {
+            for (int s = 0; s < NS; ++s) {
+                stage(s, bqA, bxA, bsA, bqB, bxB, bsB);
+                if (on && s + 1 < NS) {
 #pragma unroll
                     for (int nt = 0; nt < 2; ++nt) {
-                        bx[nt] = nbx[nt];
-                        bsum[nt] = nbsum[nt];
+                        bxA[nt] = bxB[nt]; bsA[nt] = bsB[nt];
 #pragma unroll
-                        for (int j = 0; j < 4; ++j) bq[nt][j] = nbq[nt][j];
+                        for (int j = 0; j < 4; ++j) bqA[nt][j] = bqB[nt][j];
                     }
                 }
             }
         }
         if constexpr (GU) {
-            if constexpr (ALIAS) __syncthreads();                 // every wave is done reading the weight buffers
+            if constexpr (ALIAS) nw_sync<PF>();                 // every wave is done reading the weight buffers
             if (on) {
 #pragma unroll
                 for (int mt = 0; mt < 2; ++mt)
@@ -903,7 +1007,7 @@ native_w11_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
 #endif
                     }
             }
-            __syncthreads();
+            nw_sync<PF>();
             // H block fb (features 64 fb ..) to int8 per 32, natural order: a thread per (tile row, half)
             if (tid < 2 * kTileRows) {
                 const int r = tid >> 1, hh = tid & 1;
@@ -1178,7 +1282,32 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
                                                           (int64_t) d.sms * (occ_d ? occ_blocks(d.w12, g.d_type, false) : wgp_blocks(d.occ)));
         const uint8_t* xa8 = (const uint8_t*) xa;
         uint8_t* ha8 = (uint8_t*) ha;
-#define STRATA_NW_GU(T) do { if (occ_gu) native_w11_kernel<T, true, true, NW_LB><<<g_gu, NW_THREADS, 0, s>>>(b, g, tb, xa8, src, ha8, nullptr); else native_w11_kernel<T, true><<<g_gu, NW_THREADS, 0, s>>>(b, g, tb, xa8, src, ha8, nullptr); } while (0)
+        static const bool prefetch = [] {
+            const char* v = std::getenv("STRATA_W11_PREFETCH");
+            return v != nullptr && v[0] == '1';
+        }();
+#if !STRATA_W11_PREFETCH_BUILTINS
+        if (prefetch) {
+            std::fprintf(stderr, "STRATA_W11_PREFETCH=1 requires a HIP compiler based on clang 21 or newer\n");
+            std::exit(1);
+        }
+#endif
+        // Buffer instructions have 32-bit byte offsets and a 2 GiB range. n bounds source row ids too;
+        // larger chunks retain the ordinary pointer loads rather than truncating an offset.
+        // gfx12 keeps the ordinary loads: the prefetch kernels are written for gfx11's fragments (STRATA_NW_PREFETCH).
+        const bool use_prefetch = prefetch && !d.w12 && (uint64_t) n * (GU_ROWS_K / 64) * AB <= 0x7fffffff;
+#define STRATA_NW_LAUNCH(T, GU, GRID, ACT, OUT, DM) do { \
+    if constexpr (STRATA_W11_PREFETCH_BUILTINS && ((GU) ? (T) == T_IQ3_S : (T) == T_IQ4_NL)) { \
+        if (use_prefetch) { \
+            if ((GU) ? occ_gu : occ_d) native_w11_kernel<T, GU, true, NW_LB, true><<<GRID, NW_THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
+            else native_w11_kernel<T, GU, false, 0, true><<<GRID, NW_THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
+            break; \
+        } \
+    } \
+    if ((GU) ? occ_gu : occ_d) native_w11_kernel<T, GU, true, NW_LB><<<GRID, NW_THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
+    else native_w11_kernel<T, GU><<<GRID, NW_THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
+} while (0)
+#define STRATA_NW_GU(T) STRATA_NW_LAUNCH(T, true, g_gu, xa8, ha8, nullptr)
         switch (g.gu_type) {
             case T_IQ2_XXS: STRATA_NW_GU(T_IQ2_XXS); break;
             case T_IQ2_XS: STRATA_NW_GU(T_IQ2_XS); break;
@@ -1190,12 +1319,13 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
             default: STRATA_NW_GU(T_IQ4_XS); break;
         }
 #undef STRATA_NW_GU
-#define STRATA_NW_D(T) do { if (occ_d) native_w11_kernel<T, false, true, NW_LB><<<g_d, NW_THREADS, 0, s>>>(b, g, tb, ha8, src, nullptr, dm); else native_w11_kernel<T, false><<<g_d, NW_THREADS, 0, s>>>(b, g, tb, ha8, src, nullptr, dm); } while (0)
+#define STRATA_NW_D(T) STRATA_NW_LAUNCH(T, false, g_d, ha8, nullptr, dm)
         if (g.d_type == T_Q2_0) STRATA_NW_D(T_Q2_0);
         else if (g.d_type == T_Q5_1) STRATA_NW_D(T_Q5_1);
         else if (g.d_type == T_Q8_0) STRATA_NW_D(T_Q8_0);
         else STRATA_NW_D(T_IQ4_NL);
 #undef STRATA_NW_D
+#undef STRATA_NW_LAUNCH
         ck(cudaGetLastError(), "experts_native");
         return;
     }
