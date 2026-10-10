@@ -97,6 +97,14 @@ they change speed, not answers. Nothing here applies to CUDA or to another AMD a
 | `STRATA_GDN_SPLIT`, `STRATA_QFUSE`, `STRATA_PLE_BATCH` | the GDN step over four blocks per head, activation images written by their producers, the PLE key / value projections of a verify window at once |
 | `STRATA_SH_STREAM=1` | the shared expert on a second stream beside the routed experts. It is off by default on other AMD cards (#816), but it pays on gfx1151: decode +1.8% (UD-IQ4_XS) and +6.7% (UD-Q4_K_XL) at 8K |
 
+`STRATA_W11_PREFETCH=1` (with `STRATA_PF_FUSED=1`) is exact as well but not on by default yet: it changes how the gfx11
+IQ3_S gate/up and IQ4_NL down prompt-expert kernels load their weights and activations (buffer loads, two activation
+register sets, barriers that order shared memory only), and keeps their int8 arithmetic and accumulation order, so the
+output bits are the same. Other expert formats and the CUDA kernels keep their loads. The buffer loads take 32-bit byte
+offsets: a chunk whose activations or H would pass 2 GiB keeps the pointer loads for that kernel. It needs a HIP
+compiler based on clang 21 or newer; an older one leaves it out and stops with an error if it is set. Checked on
+gfx1151 with the ROCm 7.14.1 SDK's clang 23 only.
+
 ## 5. What is not on by default (it changes bits)
 
 These are faster on gfx1151 and **round differently** from the default path (a different summation order or a half-precision
@@ -123,14 +131,6 @@ tokens on a cached conversation - read in 3.1-6.0 s at 1,024 and 0.9-2.5 s at 12
 replay 3.4 -> 2.1 s per turn). Its output is the fused path's, which reads of 1,024 tokens or more already take; it is not
 under `STRATA_PF_SWITCH_MIN_T`, which gates only the hyper-connection and padding switches. A UD-Q4_K_XL or other K-quant
 pack takes the fused experts only with `STRATA_PF_FUSED_KQ=1` as well.
-
-`STRATA_W11_PREFETCH=1` is an additional experimental switch on top of `STRATA_PF_FUSED=1`. It changes the gfx11
-IQ3_S gate/up and IQ4_NL down kernels' load scheduling, keeping their int8 arithmetic and accumulation order. It is off
-unless set. Other expert formats and the CUDA kernels keep their existing loads. The buffer-load path uses 32-bit byte
-offsets; chunks whose routed-row activation-size bound exceeds 2 GiB keep the pointer-load path. The switch requires a
-HIP compiler based on clang 21 or newer. Older compilers exclude these builtins and report an error if the switch is
-requested. Build and performance checks use gfx1151 with the ROCm 7.14.1 SDK's clang 23; other HIP SDKs and gfx11 cards
-have not been checked.
 
 Two engine flags help on long contexts and are not Strix-specific: `--mtp-window 8192` (the draft layer attends to the last 8,192
 cells: 64K output +3.5%, 32K -0.4%) and `--spec`, `--lookup-chain`, `--mtp-q4` (see [DETAILS.md](DETAILS.md)).

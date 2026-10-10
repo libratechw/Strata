@@ -300,6 +300,12 @@ template <int T, int NW> __device__ __forceinline__ void load_unit(const uint8_t
 }
 
 #if STRATA_W11_PREFETCH_BUILTINS
+// A raw (stride 0) buffer over p for the gfx11 prefetch loads: word 3 is composable_kernel's
+// CK_BUFFER_RESOURCE_3RD_DWORD for gfx11, and the range is the 2 GiB that experts_native checks before choosing it.
+__device__ __forceinline__ __amdgpu_buffer_rsrc_t nw_rsrc(const void* p) {
+    return __builtin_amdgcn_make_buffer_rsrc(const_cast<void*>(p), (short) 0, 0x7fffffff, 0x31004000);
+}
+
 // gfx11 prefetch: the thread's fixed weight-row offset and the scalar stage offset are separate buffer operands.
 // IQ3_S's d, high bits and scale byte stay separate until convert, so packing them cannot drain the loads early.
 template <int T, int NW>
@@ -824,7 +830,7 @@ native_w11_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
         auto sub = [&](int s) { return GU ? 2 * (s & 3) + uj : uj; };
         // The ordinary path keeps load_unit's packed fields and pointer loads.
 #if STRATA_NW_PREFETCH
-        const __amdgpu_buffer_rsrc_t wrsrc = __builtin_amdgcn_make_buffer_rsrc((void*) blob, (short) 0, 0x7fffffff, 0x31004000);
+        const __amdgpu_buffer_rsrc_t wrsrc = nw_rsrc(blob);
         const uint32_t wvrow = (uint32_t) (wrow - blob) + (GU ? 0u : (uint32_t) (uj * BS));
 #endif
         auto load = [&](int s, uint32_t (&rw)[RW]) {
@@ -857,7 +863,7 @@ native_w11_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
         // Buffer loads separate the lane's fixed row offset from the scalar stage offset; advancing the stage
         // cannot overwrite an address register still used by an outstanding load.
 #if STRATA_NW_PREFETCH
-        const __amdgpu_buffer_rsrc_t arsrc = __builtin_amdgcn_make_buffer_rsrc((void*) act, (short) 0, 0x7fffffff, 0x31004000);
+        const __amdgpu_buffer_rsrc_t arsrc = nw_rsrc(act);
 #endif
         uint32_t boff[2];
         const uint8_t* brow[2];
@@ -1292,13 +1298,15 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
             std::exit(1);
         }
 #endif
-        // Buffer instructions have 32-bit byte offsets and a 2 GiB range. n bounds source row ids too;
-        // larger chunks retain the ordinary pointer loads rather than truncating an offset.
+        // Buffer instructions have 32-bit byte offsets and a 2 GiB range; a larger operand keeps the ordinary pointer
+        // loads rather than truncating an offset.  Down reads H, n rows of D_ROWS_K / 64 blocks; gate/up reads the
+        // activations at token ids, which n (the routed rows, the tokens times the experts per token) bounds.
         // gfx12 keeps the ordinary loads: the prefetch kernels are written for gfx11's fragments (STRATA_NW_PREFETCH).
-        const bool use_prefetch = prefetch && !d.w12 && (uint64_t) n * (GU_ROWS_K / 64) * AB <= 0x7fffffff;
+        const bool prefetch_gu = prefetch && !d.w12 && (uint64_t) n * (GU_ROWS_K / 64) * AB <= 0x7fffffff;
+        const bool prefetch_d = prefetch && !d.w12 && (uint64_t) n * (D_ROWS_K / 64) * AB <= 0x7fffffff;
 #define STRATA_NW_LAUNCH(T, GU, GRID, ACT, OUT, DM) do { \
     if constexpr (STRATA_W11_PREFETCH_BUILTINS && ((GU) ? (T) == T_IQ3_S : (T) == T_IQ4_NL)) { \
-        if (use_prefetch) { \
+        if ((GU) ? prefetch_gu : prefetch_d) { \
             if ((GU) ? occ_gu : occ_d) native_w11_kernel<T, GU, true, NW_LB, true><<<GRID, NW_THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
             else native_w11_kernel<T, GU, false, 0, true><<<GRID, NW_THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
             break; \

@@ -1471,6 +1471,11 @@ if(STRATA_NATIVE_EXPERTS)
     add_test(NAME hip_prefill_fused_iq COMMAND hip_prefill_fused_iq)
     set_tests_properties(hip_prefill_fused_iq PROPERTIES SKIP_RETURN_CODE 77 TIMEOUT 600)
     list(APPEND _strata_hip_tests hip_prefill_fused_iq)
+    # The same checks on the gfx11 IQ3_S / IQ4_NL prefetch loads (STRATA_W11_PREFETCH=1); other pairs keep their loads.
+    add_test(NAME hip_prefill_fused_iq_prefetch COMMAND hip_prefill_fused_iq)
+    set_tests_properties(hip_prefill_fused_iq_prefetch PROPERTIES ENVIRONMENT "STRATA_W11_PREFETCH=1"
+                         SKIP_RETURN_CODE 77 TIMEOUT 600)
+    list(APPEND _strata_hip_tests hip_prefill_fused_iq_prefetch)
 
     # Numerical diagnostic: synthetic layouts by default, optional first-expert IQ3_XXS/IQ4_NL check with a pack.
     add_executable(hip_prefill_mmq_parity tests/hip/prefill_mmq_parity.cpp)
