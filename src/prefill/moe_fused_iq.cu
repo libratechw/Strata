@@ -21,6 +21,10 @@
 // (SwiGLU, H to int8 per 32 features; down into the per-slot rows) are moe_fused.cu's.
 #include "strata/prefill/moe_fused_iq.hpp"
 
+#if defined(__HIPCC__)
+#include "moe_f16_kq.hpp"
+#endif
+
 #include <cuda_fp16.h>
 #include <cuda_runtime.h>
 
@@ -1226,7 +1230,9 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
     else native_w11_kernel<T, GU><<<GRID, NW_THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
 } while (0)
 #define STRATA_NW_GU(T) STRATA_NW_LAUNCH(T, true, g_gu, xa8, ha8, nullptr)
-        switch (g.gu_type) {
+        // STRATA_PF_F16_KQ=1: the K-quant gate/up on the F16 matrix cores (moe_f16_kq.cu); down stays below
+        if (f16kq::requested() && f16kq::covers(g.gu_type)) f16kq::gate_up(b, g, tb.ts, tb.tiles, tb.off, n, n_expert, tiles, xa8, src, ha8, s);
+        else switch (g.gu_type) {
             case T_IQ2_XXS: STRATA_NW_GU(T_IQ2_XXS); break;
             case T_IQ2_XS: STRATA_NW_GU(T_IQ2_XS); break;
             case T_IQ2_S: STRATA_NW_GU(T_IQ2_S); break;
