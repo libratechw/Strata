@@ -1341,8 +1341,9 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
     else native_w11_kernel<T, GU><<<GRID, NW_THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
 } while (0)
 #define STRATA_NW_GU(T) STRATA_NW_LAUNCH(T, true, g_gu, xa8, ha8, nullptr)
-        // STRATA_PF_F16_KQ=1: the K-quant gate/up and Q5_1 down on the F16 matrix cores (moe_f16_kq.cu)
-        if (f16kq::requested() && f16kq::covers(g.gu_type)) f16kq::gate_up(b, g, tb.ts, tb.tiles, tb.off, n, n_expert, tiles, xa8, src, ha8, s);
+        // STRATA_PF_F16_KQ=1: the K-quant gate/up and Q5_1 down on gfx11's F16 matrix cores (moe_f16_kq.cu; gfx12's
+        // WMMA layout differs, so it keeps the int8 kernels)
+        if (!d.w12 && f16kq::requested() && f16kq::covers(g.gu_type)) f16kq::gate_up(b, g, tb.ts, tb.tiles, tb.off, n, n_expert, tiles, xa8, src, ha8, s);
         else switch (g.gu_type) {
             case T_IQ2_XXS: STRATA_NW_GU(T_IQ2_XXS); break;
             case T_IQ2_XS: STRATA_NW_GU(T_IQ2_XS); break;
@@ -1355,7 +1356,7 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
         }
 #undef STRATA_NW_GU
 #define STRATA_NW_D(T) STRATA_NW_LAUNCH(T, false, g_d, ha8, nullptr, dm)
-        if (f16kq::requested() && f16kq::covers_down(g.d_type)) f16kq::down(b, g, tb.ts, tb.tiles, tb.off, n, n_expert, tiles, ha8, dm, s);
+        if (!d.w12 && f16kq::requested() && f16kq::covers_down(g.d_type)) f16kq::down(b, g, tb.ts, tb.tiles, tb.off, n, n_expert, tiles, ha8, dm, s);
         else if (g.d_type == T_Q2_0) STRATA_NW_D(T_Q2_0);
         else if (g.d_type == T_Q5_1) STRATA_NW_D(T_Q5_1);
         else if (g.d_type == T_Q8_0) STRATA_NW_D(T_Q8_0);
