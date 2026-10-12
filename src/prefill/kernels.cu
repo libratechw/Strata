@@ -1630,7 +1630,7 @@ __global__ void moe_combine4h_kernel(const uint16_t* __restrict__ Dm, const int3
     }
 #pragma unroll
     for (int k = 0; k < 10; ++k) {
-        const float2 lo = __half22float2(__builtin_bit_cast(__half2, v[k].x)), hi = __half22float2(__builtin_bit_cast(__half2, v[k].y));
+        const float2 lo = __half22float2(*reinterpret_cast<const __half2*>(&v[k].x)), hi = __half22float2(*reinterpret_cast<const __half2*>(&v[k].y));
         s.x = fmaf(ww[k], lo.x, s.x); s.y = fmaf(ww[k], lo.y, s.y);
         s.z = fmaf(ww[k], hi.x, s.z); s.w = fmaf(ww[k], hi.y, s.w);
     }
