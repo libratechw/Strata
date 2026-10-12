@@ -132,6 +132,12 @@ It rounds differently from the int8 kernels. First-token KL against a run with n
 0.0031 (0.0024) for `STRATA_PF_FUSED=1 STRATA_PF_FUSED_KQ=1` without it; UD-IQ4_XS 0.0085 (0.0036) against 0.0068 (0.0032). One
 1.5K prompt carries most of the Q4_K_XL mean (0.049).
 
+`STRATA_PF_DM16=1` (with `STRATA_PF_F16=1`) writes those down kernels' outputs as FP16 instead of FP32 and combines them from FP16:
+half the bytes of the 1.7 GB per chunk and layer that the down kernels write and the combine reads back. The FP16 rows are the FP32
+rows rounded once (saturated at +-65504). Prompt tokens/s against `STRATA_PF_F16=1` alone: UD-Q4_K_XL 4K / 32K / 128K +2.0% /
++2.0% / +1.9%, UD-IQ4_XS +2.2% / +1.9% / +1.7%; first-token KL against the no-switch run unchanged (UD-Q4_K_XL mean 0.0058,
+UD-IQ4_XS 0.0064, top-1 the same in 12 of 12).
+
 Two engine flags help on long contexts and are not Strix-specific: `--mtp-window 8192` (the draft layer attends to the last 8,192
 cells: 64K output +3.5%, 32K -0.4%) and `--spec`, `--lookup-chain`, `--mtp-q4` (see [DETAILS.md](DETAILS.md)).
 

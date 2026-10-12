@@ -214,7 +214,7 @@ __global__ void __launch_bounds__(THREADS) gate_up_kernel(const Batch b, const N
 }
 
 // Q5_1 down: 128 of the 2560 output rows against a tile's (or pair's) H rows, K = 640 in 10 stages; the routed rows'
-// FP32 outputs in `dm` (native_w11_kernel<T_Q5_1, false>'s).
+// outputs in `dm`: FP32 (native_w11_kernel<T_Q5_1, false>'s), or FP16 with DM16.
 template <int BN, bool DM16>
 __global__ void __launch_bounds__(THREADS) down_kernel(const Batch b, const NativeGeom geo, const int32_t* __restrict__ ts,
                                                        const int2* __restrict__ tiles, const int32_t* __restrict__ off,
