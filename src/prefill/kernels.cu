@@ -1484,6 +1484,7 @@ __global__ void __launch_bounds__(S) gdn_out_norm_loop_kernel(const float* __res
 #endif
 constexpr int GW_CK = 16;          // tokens per chunk (a WMMA tile)
 constexpr int GW_NW = S / 16;      // the scan's waves per block: one per 16 value columns
+constexpr int GW_VPK = HV / HK;    // value heads per key head: the prep's waves per block
 constexpr int GW_KP = S + 8;       // the scan's padded FP16 k / q rows
 constexpr int GW_AHEAD = 3;        // the scan warms the cache this many chunks ahead
 constexpr int64_t kGdnWmmaMin = 64;   // STRATA_GDN_CHUNKED=1 takes prompt chunks of this many tokens and more
@@ -1534,10 +1535,10 @@ __device__ __forceinline__ void gw_lds_barrier() { __asm__ volatile("s_waitcnt l
 // A block per (key head, chunk) - the grid's x the key head, so the blocks in flight read the same token rows (blocks
 // that walked the key heads' slices of far-apart rows ran 6x slower) - and a wave per value head of the key head.
 // T then P, FP16 row-major (1 KB), at tp[(chunk * HV + value head) * 512].
-__global__ void __launch_bounds__(32 * VPK) gdn_wmma_prep_kernel(const float* __restrict__ h, const float* __restrict__ gate,
+__global__ void __launch_bounds__(32 * GW_VPK) gdn_wmma_prep_kernel(const float* __restrict__ h, const float* __restrict__ gate,
                                                                  const float* __restrict__ beta, _Float16* __restrict__ tp,
                                                                  int64_t T) {
-    __shared__ float sa[VPK][GW_CK * GW_CK], sg[VPK][GW_CK], sb[VPK][GW_CK];
+    __shared__ float sa[GW_VPK][GW_CK * GW_CK], sg[GW_VPK][GW_CK], sb[GW_VPK][GW_CK];
     const int qh = blockIdx.x, ch = blockIdx.y, w = threadIdx.x >> 5, l = threadIdx.x & 31, c = l & 15, hi = l >> 4;
     const int vh = qh + w * HK;
     const int64_t t0 = (int64_t) ch * GW_CK;
@@ -1781,7 +1782,7 @@ bool gdn_rec_wmma(float* state, const float* h, const float* gate, const float* 
     if (!gfx11 || T < kGdnWmmaMin || ld16 % 8 != 0) return false;   // (the rows are stored 16 bytes at a time)
     const int64_t nch = (T + GW_CK - 1) / GW_CK;
     _Float16* tp = reinterpret_cast<_Float16*>(y);
-    gdn_wmma_prep_kernel<<<dim3(HK, (unsigned) nch), 32 * VPK, 0, s>>>(h, gate, beta, tp, T);
+    gdn_wmma_prep_kernel<<<dim3(HK, (unsigned) nch), 32 * GW_VPK, 0, s>>>(h, gate, beta, tp, T);
     gdn_wmma_scan_kernel<<<HV, GW_NW * 32, 0, s>>>(state, h, gate, beta, z, gamma, reinterpret_cast<const unsigned*>(tp),
                                                    eps, y16, T, ld16);
     return true;
