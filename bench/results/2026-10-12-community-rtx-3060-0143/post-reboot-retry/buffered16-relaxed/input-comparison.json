@@ -1,0 +1,70 @@
+[
+  {
+    "label": "warmup",
+    "same_request_sha256": true
+  },
+  {
+    "label": "preparation",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-4096-0",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-32768-0",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-60000-0",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-60000-1",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-32768-1",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-4096-1",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-4096-2",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-32768-2",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-60000-2",
+    "same_request_sha256": true
+  },
+  {
+    "label": "conversation-0",
+    "same_request_sha256": true
+  },
+  {
+    "label": "conversation-1",
+    "same_request_sha256": false
+  },
+  {
+    "label": "conversation-2",
+    "same_request_sha256": false
+  },
+  {
+    "label": "conversation-3",
+    "same_request_sha256": false
+  },
+  {
+    "label": "needle-10",
+    "same_request_sha256": true
+  },
+  {
+    "label": "needle-50",
+    "same_request_sha256": true
+  }
+]

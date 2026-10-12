@@ -1,0 +1,9 @@
+{
+  "speed_attempts": 45,
+  "speed_successes": 45,
+  "recall_attempts": 12,
+  "recall_passes": 12,
+  "failed_requests": 0,
+  "fresh_successful_speed_and_recall": true,
+  "daily_config_unchanged": true
+}

@@ -1,0 +1,9 @@
+{
+  "expert_quantization": "Q2_0",
+  "expert_count": 512,
+  "draft_vocab_tokens": 106299,
+  "draft_vocab_sha256": "b1e1d3a7a9e4bf862dcd5923ce661fb59bbd07907e594df5cf86a62ac235cb91",
+  "matches_v0143_shipped_vocab": true,
+  "draft_prepared_before_this_run": true,
+  "upstream_bf16_revision_revalidated_this_run": false
+}

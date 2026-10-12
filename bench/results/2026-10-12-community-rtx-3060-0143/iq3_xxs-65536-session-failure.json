@@ -1,0 +1,5 @@
+{
+  "type": "ProtectionError",
+  "error": "available RAM <3 GiB for >=5 s",
+  "utc": "2026-10-12T06:52:56.125259+00:00"
+}

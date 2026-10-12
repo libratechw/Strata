@@ -1,0 +1,1013 @@
+{
+  "speed": [
+    {
+      "session": "iq2_xs-262144-native",
+      "model": "iq2_xs",
+      "context": 262144,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 829.5192190854226,
+        "min": 829.4352307474231,
+        "max": 874.9706278170594
+      },
+      "decode_tok_s": {
+        "median": 57.2,
+        "min": 56.1,
+        "max": 58.3
+      },
+      "ttft_s": {
+        "median": 4.997044599998844,
+        "min": 4.733492000001206,
+        "max": 4.999190999998973
+      },
+      "latency_s": {
+        "median": 13.755852199999936,
+        "min": 13.667157900001257,
+        "max": 14.100198399999499
+      },
+      "draft_accept_fraction": {
+        "median": 0.7303664921465969,
+        "min": 0.7242268041237113,
+        "max": 0.7395577395577395
+      }
+    },
+    {
+      "session": "iq2_xs-262144-native",
+      "model": "iq2_xs",
+      "context": 262144,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 952.414169951054,
+        "min": 945.4862323377758,
+        "max": 994.1053870634026
+      },
+      "decode_tok_s": {
+        "median": 55.9,
+        "min": 52.6,
+        "max": 59.7
+      },
+      "ttft_s": {
+        "median": 34.47955399999955,
+        "min": 33.03721069999847,
+        "max": 34.733933600000455
+      },
+      "latency_s": {
+        "median": 43.029994700000316,
+        "min": 42.159447799998816,
+        "max": 44.43808469999931
+      },
+      "draft_accept_fraction": {
+        "median": 0.7146666666666667,
+        "min": 0.7146341463414634,
+        "max": 0.8519480519480519
+      }
+    },
+    {
+      "session": "iq2_xs-262144-native",
+      "model": "iq2_xs",
+      "context": 262144,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 896.3411354849504,
+        "min": 889.4884700057075,
+        "max": 896.3853261722105
+      },
+      "decode_tok_s": {
+        "median": 53.5,
+        "min": 52.7,
+        "max": 54.6
+      },
+      "ttft_s": {
+        "median": 134.00408210000023,
+        "min": 133.99336800000128,
+        "max": 135.0309685000011
+      },
+      "latency_s": {
+        "median": 143.68804330000057,
+        "min": 143.33419680000043,
+        "max": 144.57308980000016
+      },
+      "draft_accept_fraction": {
+        "median": 0.7284263959390863,
+        "min": 0.7132530120481928,
+        "max": 0.7648514851485149
+      }
+    },
+    {
+      "session": "iq2_xs-262144-native",
+      "model": "iq2_xs",
+      "context": 262144,
+      "target": 260000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        260000,
+        260000,
+        260000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 826.3299223917294,
+        "min": 825.6851598971069,
+        "max": 828.8067732639686
+      },
+      "decode_tok_s": {
+        "median": 47.4,
+        "min": 47.1,
+        "max": 48.7
+      },
+      "ttft_s": {
+        "median": 314.8480803000002,
+        "min": 313.9107637999987,
+        "max": 315.0978218
+      },
+      "latency_s": {
+        "median": 325.32345949999944,
+        "min": 324.74814759999936,
+        "max": 325.8677992000012
+      },
+      "draft_accept_fraction": {
+        "median": 0.7049608355091384,
+        "min": 0.6962025316455697,
+        "max": 0.7084398976982097
+      }
+    },
+    {
+      "session": "iq3_xxs-131072-resident16",
+      "model": "iq3_xxs",
+      "context": 131072,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 693.4732921357826,
+        "min": 684.7208291541291,
+        "max": 697.4645393090061
+      },
+      "decode_tok_s": {
+        "median": 34.0,
+        "min": 31.3,
+        "max": 36.7
+      },
+      "ttft_s": {
+        "median": 5.962377399999241,
+        "min": 5.937066000000414,
+        "max": 6.0466868999992585
+      },
+      "latency_s": {
+        "median": 21.06669829999919,
+        "min": 19.886863699999594,
+        "max": 22.275109899999734
+      },
+      "draft_accept_fraction": {
+        "median": 0.7031963470319634,
+        "min": 0.6820652173913043,
+        "max": 0.7093596059113301
+      }
+    },
+    {
+      "session": "iq3_xxs-131072-resident16",
+      "model": "iq3_xxs",
+      "context": 131072,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 903.8725177847841,
+        "min": 895.6406941434042,
+        "max": 914.8447293407523
+      },
+      "decode_tok_s": {
+        "median": 34.1,
+        "min": 33.9,
+        "max": 37.1
+      },
+      "ttft_s": {
+        "median": 36.33437629999935,
+        "min": 35.89950510000017,
+        "max": 36.66906109999945
+      },
+      "latency_s": {
+        "median": 50.89736600000106,
+        "min": 50.449155000000246,
+        "max": 51.41137449999951
+      },
+      "draft_accept_fraction": {
+        "median": 0.7169811320754716,
+        "min": 0.6882217090069284,
+        "max": 0.7395348837209302
+      }
+    },
+    {
+      "session": "iq3_xxs-131072-resident16",
+      "model": "iq3_xxs",
+      "context": 131072,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 862.0875449901938,
+        "min": 856.5677330934943,
+        "max": 865.3669336083277
+      },
+      "decode_tok_s": {
+        "median": 33.2,
+        "min": 32.2,
+        "max": 34.0
+      },
+      "ttft_s": {
+        "median": 139.32599870000013,
+        "min": 138.81271369999922,
+        "max": 140.22224509999978
+      },
+      "latency_s": {
+        "median": 154.3414550999987,
+        "min": 154.19406649999837,
+        "max": 156.06282250000004
+      },
+      "draft_accept_fraction": {
+        "median": 0.7026378896882494,
+        "min": 0.6682027649769585,
+        "max": 0.7406483790523691
+      }
+    },
+    {
+      "session": "iq3_xxs-262144-resident16",
+      "model": "iq3_xxs",
+      "context": 262144,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 689.1330316133049,
+        "min": 687.9062190349831,
+        "max": 704.397324115634
+      },
+      "decode_tok_s": {
+        "median": 34.2,
+        "min": 33.4,
+        "max": 34.6
+      },
+      "ttft_s": {
+        "median": 6.012895500000013,
+        "min": 5.871960899999976,
+        "max": 6.022402799999327
+      },
+      "latency_s": {
+        "median": 20.93407019999904,
+        "min": 20.622977200000605,
+        "max": 21.32053260000066
+      },
+      "draft_accept_fraction": {
+        "median": 0.6747787610619469,
+        "min": 0.6736111111111112,
+        "max": 0.694954128440367
+      }
+    },
+    {
+      "session": "iq3_xxs-262144-resident16",
+      "model": "iq3_xxs",
+      "context": 262144,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 895.4277656934864,
+        "min": 894.8506761628033,
+        "max": 900.4448914426408
+      },
+      "decode_tok_s": {
+        "median": 35.1,
+        "min": 33.9,
+        "max": 35.4
+      },
+      "ttft_s": {
+        "median": 36.6801746000001,
+        "min": 36.47328919999927,
+        "max": 36.702018100000714
+      },
+      "latency_s": {
+        "median": 51.21885800000018,
+        "min": 50.919658799999524,
+        "max": 51.749766900000395
+      },
+      "draft_accept_fraction": {
+        "median": 0.746268656716418,
+        "min": 0.680365296803653,
+        "max": 0.751207729468599
+      }
+    },
+    {
+      "session": "iq3_xxs-262144-resident16",
+      "model": "iq3_xxs",
+      "context": 262144,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 854.7495583793948,
+        "min": 852.2939135560898,
+        "max": 856.3904569556746
+      },
+      "decode_tok_s": {
+        "median": 31.1,
+        "min": 30.6,
+        "max": 33.7
+      },
+      "ttft_s": {
+        "median": 140.52836130000105,
+        "min": 140.26350309999907,
+        "max": 140.93352910000067
+      },
+      "latency_s": {
+        "median": 156.69831919999888,
+        "min": 155.68245829999978,
+        "max": 157.60151679999944
+      },
+      "draft_accept_fraction": {
+        "median": 0.6727688787185355,
+        "min": 0.6131221719457014,
+        "max": 0.7135678391959799
+      }
+    },
+    {
+      "session": "iq3_xxs-262144-resident16",
+      "model": "iq3_xxs",
+      "context": 262144,
+      "target": 260000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        260000,
+        260000,
+        260000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 795.1281884258083,
+        "min": 793.431122701987,
+        "max": 795.7499606715885
+      },
+      "decode_tok_s": {
+        "median": 32.2,
+        "min": 31.3,
+        "max": 33.5
+      },
+      "ttft_s": {
+        "median": 327.2072544999992,
+        "min": 326.96290129999943,
+        "max": 327.914675
+      },
+      "latency_s": {
+        "median": 342.8473147000004,
+        "min": 342.43554369999947,
+        "max": 344.21448260000034
+      },
+      "draft_accept_fraction": {
+        "median": 0.7402912621359223,
+        "min": 0.7092198581560284,
+        "max": 0.7597911227154047
+      }
+    },
+    {
+      "session": "q2_0-262144-native",
+      "model": "q2_0",
+      "context": 262144,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 895.5746020640195,
+        "min": 895.4571291154738,
+        "max": 948.0164791927047
+      },
+      "decode_tok_s": {
+        "median": 63.7,
+        "min": 49.0,
+        "max": 64.5
+      },
+      "ttft_s": {
+        "median": 4.63543430000027,
+        "min": 4.374842299999727,
+        "max": 4.636681599999974
+      },
+      "latency_s": {
+        "median": 12.552202800000487,
+        "min": 12.395511200000328,
+        "max": 15.057172700000592
+      },
+      "draft_accept_fraction": {
+        "median": 0.7839805825242718,
+        "min": 0.6371191135734072,
+        "max": 0.8272506082725061
+      }
+    },
+    {
+      "session": "q2_0-262144-native",
+      "model": "q2_0",
+      "context": 262144,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 1013.29078303678,
+        "min": 1006.7932737065588,
+        "max": 1067.8728902764517
+      },
+      "decode_tok_s": {
+        "median": 54.8,
+        "min": 54.7,
+        "max": 59.3
+      },
+      "ttft_s": {
+        "median": 32.417953500000294,
+        "min": 30.763848499999767,
+        "max": 32.6226970000007
+      },
+      "latency_s": {
+        "median": 41.236080499999844,
+        "min": 40.09178840000004,
+        "max": 41.737651299999925
+      },
+      "draft_accept_fraction": {
+        "median": 0.7344913151364765,
+        "min": 0.7058823529411765,
+        "max": 0.8359375
+      }
+    },
+    {
+      "session": "q2_0-262144-native",
+      "model": "q2_0",
+      "context": 262144,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 956.422215775228,
+        "min": 944.3792123247782,
+        "max": 971.9463874372689
+      },
+      "decode_tok_s": {
+        "median": 54.2,
+        "min": 49.7,
+        "max": 57.1
+      },
+      "ttft_s": {
+        "median": 125.60762519999935,
+        "min": 123.59684010000001,
+        "max": 127.1960154999997
+      },
+      "latency_s": {
+        "median": 134.52870129999974,
+        "min": 133.0194646,
+        "max": 137.46964819999994
+      },
+      "draft_accept_fraction": {
+        "median": 0.7115384615384616,
+        "min": 0.6911392405063291,
+        "max": 0.785
+      }
+    },
+    {
+      "session": "q2_0-262144-native",
+      "model": "q2_0",
+      "context": 262144,
+      "target": 260000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        260000,
+        260000,
+        260000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 877.2915445628676,
+        "min": 872.3187103640186,
+        "max": 877.5669254476519
+      },
+      "decode_tok_s": {
+        "median": 50.6,
+        "min": 47.8,
+        "max": 50.8
+      },
+      "ttft_s": {
+        "median": 296.58190359999935,
+        "min": 296.4903454999994,
+        "max": 298.2714484999997
+      },
+      "latency_s": {
+        "median": 306.63141449999966,
+        "min": 306.5675102999994,
+        "max": 308.94130179999956
+      },
+      "draft_accept_fraction": {
+        "median": 0.7220902612826603,
+        "min": 0.682741116751269,
+        "max": 0.7551546391752577
+      }
+    }
+  ],
+  "resources": {
+    "iq2_xs-262144-native": {
+      "used_ram_bytes": {
+        "median": 51318206464,
+        "min": 9025585152,
+        "max": 52056420352
+      },
+      "available_ram_bytes": {
+        "median": 17163493376,
+        "min": 16425279488,
+        "max": 59456114688
+      },
+      "commit_fraction": {
+        "median": 0.8461350934455304,
+        "min": 0.15019068917500494,
+        "max": 0.8566070814943809
+      },
+      "commit_total_bytes": {
+        "median": 66575810560,
+        "min": 11817340928,
+        "max": 67399770112
+      },
+      "server_tree_rss_bytes": {
+        "median": 38237786112,
+        "min": 0,
+        "max": 42582622208
+      },
+      "vram_mib": {
+        "median": 11346.0,
+        "min": 394.0,
+        "max": 11456.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 47.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1732.0,
+        "min": 210.0,
+        "max": 1935.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7301.0
+      },
+      "power_w": {
+        "median": 164.02,
+        "min": 13.78,
+        "max": 168.66
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-131072-resident16": {
+      "used_ram_bytes": {
+        "median": 63736897536,
+        "min": 8657563648,
+        "max": 65270362112
+      },
+      "available_ram_bytes": {
+        "median": 4744802304,
+        "min": 3211337728,
+        "max": 59824136192
+      },
+      "commit_fraction": {
+        "median": 0.6112501537648,
+        "min": 0.1565633584116803,
+        "max": 0.6179689011700596
+      },
+      "commit_total_bytes": {
+        "median": 48094535680,
+        "min": 12318756864,
+        "max": 48623181824
+      },
+      "server_tree_rss_bytes": {
+        "median": 52053684224,
+        "min": 0,
+        "max": 53022150656
+      },
+      "vram_mib": {
+        "median": 11435.0,
+        "min": 414.0,
+        "max": 11435.0
+      },
+      "temperature_c": {
+        "median": 88.0,
+        "min": 64.0,
+        "max": 90.0
+      },
+      "graphics_mhz": {
+        "median": 1740.0,
+        "min": 210.0,
+        "max": 1905.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 161.85,
+        "min": 15.84,
+        "max": 167.45
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-262144-resident16": {
+      "used_ram_bytes": {
+        "median": 66293022720,
+        "min": 8095633408,
+        "max": 67411677184
+      },
+      "available_ram_bytes": {
+        "median": 2188677120,
+        "min": 1070022656,
+        "max": 60386066432
+      },
+      "commit_fraction": {
+        "median": 0.6368142838245989,
+        "min": 0.15068700524890427,
+        "max": 0.6429122457063375
+      },
+      "commit_total_bytes": {
+        "median": 50105978880,
+        "min": 11856392192,
+        "max": 50585780224
+      },
+      "server_tree_rss_bytes": {
+        "median": 53094428672,
+        "min": 0,
+        "max": 54468644864
+      },
+      "vram_mib": {
+        "median": 11436.0,
+        "min": 414.0,
+        "max": 11672.0
+      },
+      "temperature_c": {
+        "median": 88.0,
+        "min": 66.0,
+        "max": 90.0
+      },
+      "graphics_mhz": {
+        "median": 1732.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 162.51,
+        "min": 16.64,
+        "max": 168.02
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "q2_0-262144-native": {
+      "used_ram_bytes": {
+        "median": 52144920576.0,
+        "min": 10958839808,
+        "max": 52349882368
+      },
+      "available_ram_bytes": {
+        "median": 16336779264.0,
+        "min": 16131817472,
+        "max": 57522860032
+      },
+      "commit_fraction": {
+        "median": 0.8538203141117486,
+        "min": 0.17702569864660428,
+        "max": 0.8618437002086412
+      },
+      "commit_total_bytes": {
+        "median": 67180500992.0,
+        "min": 13928779776,
+        "max": 67811799040
+      },
+      "server_tree_rss_bytes": {
+        "median": 40985698304.0,
+        "min": 0,
+        "max": 41111281664
+      },
+      "vram_mib": {
+        "median": 11411.0,
+        "min": 400.0,
+        "max": 11413.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 37.0,
+        "max": 88.0
+      },
+      "graphics_mhz": {
+        "median": 1747.0,
+        "min": 210.0,
+        "max": 1942.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 164.94,
+        "min": 12.48,
+        "max": 168.53
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    }
+  },
+  "needles": [
+    {
+      "session": "iq2_xs-262144-native",
+      "depth_percent": 10,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-10",
+      "answer": "amber-quartz-260000-10",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "iq2_xs-262144-native",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-50",
+      "answer": "amber-quartz-260000-50",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "iq2_xs-262144-native",
+      "depth_percent": 90,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-90",
+      "answer": "amber-quartz-260000-90",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "iq3_xxs-131072-resident16",
+      "depth_percent": 10,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-10",
+      "answer": "amber-quartz-120000-10",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "iq3_xxs-131072-resident16",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-50",
+      "answer": "amber-quartz-120000-50",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "iq3_xxs-131072-resident16",
+      "depth_percent": 90,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-90",
+      "answer": "amber-quartz-120000-90",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "iq3_xxs-262144-resident16",
+      "depth_percent": 10,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-10",
+      "answer": "amber-quartz-260000-10",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "iq3_xxs-262144-resident16",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-50",
+      "answer": "amber-quartz-260000-50",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "iq3_xxs-262144-resident16",
+      "depth_percent": 90,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-90",
+      "answer": "amber-quartz-260000-90",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "q2_0-262144-native",
+      "depth_percent": 10,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-10",
+      "answer": "amber-quartz-260000-10",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "q2_0-262144-native",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-50",
+      "answer": "amber-quartz-260000-50",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "q2_0-262144-native",
+      "depth_percent": 90,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-90",
+      "answer": "amber-quartz-260000-90",
+      "prompt_tokens": 260000
+    }
+  ],
+  "conversation": [],
+  "soak": [],
+  "placement_trials": [],
+  "failures": []
+}

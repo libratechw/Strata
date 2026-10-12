@@ -1,0 +1,71 @@
+{
+  "finished": true,
+  "profiles": [
+    {
+      "model": "q2_0",
+      "context": 262144,
+      "attempts": [
+        {
+          "folder": "q2_0-262144-stage0",
+          "protection_stop": false,
+          "error": null,
+          "requests": 17,
+          "successful": 17,
+          "pending": []
+        }
+      ],
+      "unattempted": []
+    },
+    {
+      "model": "iq2_xs",
+      "context": 262144,
+      "attempts": [
+        {
+          "folder": "iq2_xs-262144-stage0",
+          "protection_stop": false,
+          "error": null,
+          "requests": 17,
+          "successful": 17,
+          "pending": []
+        }
+      ],
+      "unattempted": []
+    },
+    {
+      "model": "iq3_xxs",
+      "context": 131072,
+      "attempts": [
+        {
+          "folder": "iq3_xxs-131072-stage0",
+          "protection_stop": false,
+          "error": null,
+          "requests": 14,
+          "successful": 14,
+          "pending": []
+        }
+      ],
+      "unattempted": []
+    },
+    {
+      "model": "iq3_xxs",
+      "context": 262144,
+      "attempts": [
+        {
+          "folder": "iq3_xxs-262144-stage0",
+          "protection_stop": false,
+          "error": null,
+          "requests": 17,
+          "successful": 17,
+          "pending": []
+        }
+      ],
+      "unattempted": []
+    }
+  ],
+  "daily_config_unchanged": true,
+  "source_parts": [
+    "initial",
+    "resumed"
+  ],
+  "q2_rerun": false
+}

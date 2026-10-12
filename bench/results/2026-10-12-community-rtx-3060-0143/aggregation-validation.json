@@ -1,0 +1,21 @@
+{
+  "inference_rerun": false,
+  "packaged_summary_exact_match": true,
+  "merged_raw_summary_exact_match": true,
+  "raw_summary_path_redactions_normalized": true,
+  "summary_sections_checked": [
+    "speed",
+    "resources",
+    "needles",
+    "conversation",
+    "soak",
+    "placement_trials",
+    "failures"
+  ],
+  "core_speed_successes": 45,
+  "completed_recall_passes": 9,
+  "soak_requests": 56,
+  "placement_stops": 2,
+  "recall_stops": 1,
+  "existing_output_directory_rejected": true
+}

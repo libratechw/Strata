@@ -1,0 +1,138 @@
+{
+  "initial": {
+    "profiles": [
+      [
+        "q2_0",
+        262144
+      ],
+      [
+        "iq2_xs",
+        262144
+      ],
+      [
+        "iq3_xxs",
+        131072
+      ],
+      [
+        "iq3_xxs",
+        262144
+      ]
+    ],
+    "version": "0.1.43",
+    "engine_sha256": "223289044f377c97e982cdacddb2e17b5726f63a0439765e3fb3e2bcfdf78656",
+    "source_runner_sha256": "ec8812a0a3438dc4e8e21c2ecc89c4a1cc4651e79d5c0a2ed49096bd62f13e6f",
+    "speed_lengths_128k": [
+      4096,
+      32768,
+      120000
+    ],
+    "speed_lengths_262k": [
+      4096,
+      32768,
+      120000,
+      260000
+    ],
+    "repetitions": 3,
+    "speed_cap": 512,
+    "recall_cap": 2048,
+    "recall_depths": [
+      10,
+      50,
+      90
+    ],
+    "thinking": "xhigh",
+    "sampling": {
+      "temperature": 1,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0,
+      "presence_penalty": 0,
+      "repetition_penalty": 1
+    },
+    "available_guards": [
+      {
+        "mib": 1024,
+        "seconds": 15
+      },
+      {
+        "mib": 500,
+        "seconds": 15
+      }
+    ],
+    "commit_guard": {
+      "fraction": 0.95,
+      "seconds": 30
+    },
+    "request_deadline": null,
+    "residency": "primary: native Q2/IQ2, IQ3 16 GiB; failed primary cases may retry resident 24 GiB Q2/IQ2 or 12 GiB IQ3",
+    "no_prior_engine_run": true,
+    "no_soak_repeated": true,
+    "retry_only_unfinished_cases": true
+  },
+  "resumed": {
+    "profiles": [
+      [
+        "iq2_xs",
+        262144
+      ],
+      [
+        "iq3_xxs",
+        131072
+      ],
+      [
+        "iq3_xxs",
+        262144
+      ]
+    ],
+    "version": "0.1.43",
+    "engine_sha256": "223289044f377c97e982cdacddb2e17b5726f63a0439765e3fb3e2bcfdf78656",
+    "source_runner_sha256": "ec8812a0a3438dc4e8e21c2ecc89c4a1cc4651e79d5c0a2ed49096bd62f13e6f",
+    "speed_lengths_128k": [
+      4096,
+      32768,
+      120000
+    ],
+    "speed_lengths_262k": [
+      4096,
+      32768,
+      120000,
+      260000
+    ],
+    "repetitions": 3,
+    "speed_cap": 512,
+    "recall_cap": 2048,
+    "recall_depths": [
+      10,
+      50,
+      90
+    ],
+    "thinking": "xhigh",
+    "sampling": {
+      "temperature": 1,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0,
+      "presence_penalty": 0,
+      "repetition_penalty": 1
+    },
+    "available_guards": [
+      {
+        "mib": 1024,
+        "seconds": 15
+      },
+      {
+        "mib": 500,
+        "seconds": 15
+      }
+    ],
+    "commit_guard": {
+      "fraction": 0.95,
+      "seconds": 30
+    },
+    "request_deadline": null,
+    "residency": "primary: native Q2/IQ2, IQ3 16 GiB; failed primary cases may retry resident 24 GiB Q2/IQ2 or 12 GiB IQ3",
+    "no_prior_engine_run": true,
+    "no_soak_repeated": true,
+    "retry_only_unfinished_cases": true
+  }
+}

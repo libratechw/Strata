@@ -1,0 +1,27 @@
+{
+  "checked": true,
+  "successful_prefix_requests_including_warmups": 32,
+  "target_requests_completed": 3,
+  "target_hashes_match_previous_attempts": true,
+  "changed_conversation_followup_hashes": 3,
+  "memory_protection_stops_in_retries": 0,
+  "available_ram_guards_gib_seconds": [
+    [
+      3,
+      5
+    ],
+    [
+      3,
+      5
+    ],
+    [
+      1.5,
+      15
+    ]
+  ],
+  "500_mib_guard_run": false,
+  "owned_servers_stopped": true,
+  "daily_config_unchanged": true,
+  "original_core_measurements_unchanged": true,
+  "runner_comparison_assertion_reported_different_conversation_history": true
+}

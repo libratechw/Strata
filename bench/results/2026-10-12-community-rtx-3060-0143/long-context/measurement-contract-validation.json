@@ -1,0 +1,12 @@
+{
+  "checked": true,
+  "cross_model_matching_inputs": true,
+  "speed_successes": 45,
+  "speed_attempts": 45,
+  "recall_passes": 12,
+  "recall_attempts": 12,
+  "failed_requests": 0,
+  "unattempted_cases": 0,
+  "all_stage_servers_stopped": true,
+  "daily_config_unchanged": true
+}

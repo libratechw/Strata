@@ -1,0 +1,56 @@
+[
+  {
+    "profile": "buffered20",
+    "target_label": "speed-60000-0",
+    "target_ok": true,
+    "same_target_input_sha256": true,
+    "original_target_ok": false,
+    "minimum_available_ram_gib": 5.7675018310546875,
+    "peak_commit_percent": 64.48731991558566,
+    "available_ram_guard": {
+      "gib": 3,
+      "seconds": 5
+    },
+    "pp_tok_s": 907.5494501006623,
+    "decode_tok_s": 36.0,
+    "recall_pass": null,
+    "completed_requests": 5,
+    "failed_requests": 0
+  },
+  {
+    "profile": "buffered16-strict",
+    "target_label": "speed-32768-2",
+    "target_ok": true,
+    "same_target_input_sha256": true,
+    "original_target_ok": false,
+    "minimum_available_ram_gib": 3.4742431640625,
+    "peak_commit_percent": 59.22222575634712,
+    "available_ram_guard": {
+      "gib": 3,
+      "seconds": 5
+    },
+    "pp_tok_s": 913.9287108830256,
+    "decode_tok_s": 40.7,
+    "recall_pass": null,
+    "completed_requests": 10,
+    "failed_requests": 0
+  },
+  {
+    "profile": "buffered16-relaxed",
+    "target_label": "needle-50",
+    "target_ok": true,
+    "same_target_input_sha256": true,
+    "original_target_ok": false,
+    "minimum_available_ram_gib": 3.6731834411621094,
+    "peak_commit_percent": 59.44720780041868,
+    "available_ram_guard": {
+      "gib": 1.5,
+      "seconds": 15
+    },
+    "pp_tok_s": 876.3102664129262,
+    "decode_tok_s": 34.9,
+    "recall_pass": true,
+    "completed_requests": 17,
+    "failed_requests": 0
+  }
+]

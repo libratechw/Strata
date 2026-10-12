@@ -1,0 +1,96 @@
+{
+  "date_utc": "2026-10-12T06:42:19.868747+00:00",
+  "engine": {
+    "version": "0.1.43",
+    "source": "release",
+    "archs": [
+      75,
+      86,
+      89,
+      120
+    ],
+    "ptx": true,
+    "cuda": "13.0",
+    "vision": "gpu",
+    "portable": true
+  },
+  "engine_sha256": "223289044f377c97e982cdacddb2e17b5726f63a0439765e3fb3e2bcfdf78656",
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "presence_penalty": 0.0,
+    "repetition_penalty": 1.0
+  },
+  "reasoning_effort": "xhigh",
+  "speed_output_cap": 512,
+  "needle_output_cap": 2048,
+  "conversation_output_cap": 1024,
+  "repetitions": 3,
+  "target_lengths_64k": [
+    4096,
+    32768,
+    60000
+  ],
+  "target_lengths_128k": [
+    4096,
+    32768,
+    120000
+  ],
+  "iq3_xxs_128k": "intentionally not run",
+  "placements": {
+    "q2_0": "full native arena",
+    "iq2_xs": "full native arena",
+    "iq3_xxs": "resident 20 GiB; buffered reads; 12 GiB resident headroom"
+  },
+  "kv": "int8",
+  "kv_resident": 32768,
+  "no_request_deadline": true,
+  "memory_guard": {
+    "commit_fraction": 0.95,
+    "commit_seconds": 30,
+    "available_ram_gib": 3,
+    "available_ram_seconds": 5
+  },
+  "soak_seconds": 3600,
+  "speed_cache": "fresh prompts, assert zero reused tokens; retained expert cache",
+  "order": [
+    "q2_0-65536",
+    "iq3_xxs-65536",
+    "iq2_xs-65536",
+    "q2_0-131072",
+    "iq2_xs-131072"
+  ],
+  "warmup": "each session: short 128-output-token thinking request, then 4K 128-output-token thinking request; excluded",
+  "session_policy": "one loaded server per configuration; target order ascending, descending, ascending",
+  "prompt_generator": "synthetic Python functions; exact local chat-template token count to within 20 tokens",
+  "telemetry": "whole-machine RAM/commit/GPU/system-wide disk I/O sampled about every second; owned tree RSS",
+  "old_engine_run": false,
+  "supplement": {
+    "model": "iq3_xxs",
+    "context": 65536,
+    "resident_budget_gib": 16,
+    "unbuffered_load": 0,
+    "sampling": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "repetition_penalty": 1.0
+    },
+    "reasoning_effort": "xhigh",
+    "repetitions": 3,
+    "targets": [
+      4096,
+      32768,
+      60000
+    ],
+    "reason": "20 GiB and 16 GiB trials crossed the 3 GiB guard; repeat 16 GiB with a relaxed available-RAM guard",
+    "only_change_from_buffered_placement": "16 GiB resident; available RAM guard 1.5 GiB for 15 s; commit guard unchanged",
+    "speed_output_cap": 512,
+    "old_engine_run": false
+  },
+  "core_iq3_placement": "resident 16 GiB; buffered reads; available RAM guard 1.5 GiB for 15 seconds"
+}

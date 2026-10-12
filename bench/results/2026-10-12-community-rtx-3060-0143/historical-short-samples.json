@@ -1,0 +1,172 @@
+{
+  "not_a_paired_version_test": true,
+  "old_engine_run_in_this_report": false,
+  "method": "intentionally disconnected around 256 generated tokens; excluded from completed-request tables",
+  "old_0141": [
+    {
+      "model": "iq2_xs",
+      "placement": "legacy_placement",
+      "mode": "on_recommended",
+      "repetition": 0,
+      "warmup": false,
+      "request_file": "requests\\030-iq2_xs-legacy_placement-on_recommended-0.json",
+      "common_request_sha256": "f8974e9161ba89473d433b9d693bc81a9a9c4cd2125175bf85838dfe7385f870",
+      "engine": {
+        "projection": null,
+        "time": 1791693346.9960954,
+        "duration_s": 11.4,
+        "finish": "disconnect",
+        "prompt_tokens": 4109,
+        "reused": 0,
+        "output_tokens": 263,
+        "prompt_total": 4109,
+        "prompt_read": 4109,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 264,
+        "prompt_ms": 4732.0,
+        "decode_ms": 6629.1,
+        "decode_tok_s": 39.8,
+        "hit_rate": 0.726,
+        "pcie_share": 0.184,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 207,
+        "drafts_accepted": 148
+      },
+      "epoch": 1791693358.3927033,
+      "reasoning_chars": 781,
+      "answer_chars": 0,
+      "client_elapsed_s": 11.307599399937317,
+      "server_number": 1791692733,
+      "sample_stop": true
+    },
+    {
+      "model": "iq2_xs",
+      "placement": "legacy_placement",
+      "mode": "on_recommended",
+      "repetition": 1,
+      "warmup": false,
+      "request_file": "requests\\031-iq2_xs-legacy_placement-on_recommended-1.json",
+      "common_request_sha256": "ce972175b1c2defc68d8c9fd7c8d53190400caf0304fa5561e9ea88b0c0d086a",
+      "engine": {
+        "projection": null,
+        "time": 1791693358.5771842,
+        "duration_s": 11.0,
+        "finish": "disconnect",
+        "prompt_tokens": 4109,
+        "reused": 0,
+        "output_tokens": 266,
+        "prompt_total": 4109,
+        "prompt_read": 4109,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 267,
+        "prompt_ms": 4758.1,
+        "decode_ms": 6204.6,
+        "decode_tok_s": 43.0,
+        "hit_rate": 0.79,
+        "pcie_share": 0.152,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 223,
+        "drafts_accepted": 157
+      },
+      "epoch": 1791693369.5839765,
+      "reasoning_chars": 769,
+      "answer_chars": 0,
+      "client_elapsed_s": 10.990107799996622,
+      "server_number": 1791692733,
+      "sample_stop": true
+    }
+  ],
+  "new_0143_quick": [
+    {
+      "context": 65536,
+      "label": "repetition-0",
+      "engine": {
+        "projection": null,
+        "time": 1791785433.677374,
+        "duration_s": 9.3,
+        "finish": "disconnect",
+        "prompt_tokens": 4109,
+        "reused": 0,
+        "output_tokens": 261,
+        "prompt_total": 4109,
+        "prompt_read": 4109,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 261,
+        "prompt_ms": 4594.5,
+        "decode_ms": 4663.7,
+        "decode_tok_s": 56.0,
+        "hit_rate": 0.769,
+        "pcie_share": 0.048,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 194,
+        "drafts_accepted": 129
+      },
+      "reasoning_chars": 963,
+      "request_sha256": "e190cca69972fad808428f3e3a268cf0c7c71e03cb716fede98a69a970dd5098"
+    },
+    {
+      "context": 65536,
+      "label": "repetition-1",
+      "engine": {
+        "projection": null,
+        "time": 1791785443.3467815,
+        "duration_s": 9.2,
+        "finish": "disconnect",
+        "prompt_tokens": 4109,
+        "reused": 0,
+        "output_tokens": 275,
+        "prompt_total": 4109,
+        "prompt_read": 4109,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 276,
+        "prompt_ms": 4609.1,
+        "decode_ms": 4578.8,
+        "decode_tok_s": 60.3,
+        "hit_rate": 0.792,
+        "pcie_share": 0.045,
+        "ram_blobs": 0,
+        "file_blobs": 0,
+        "file_mb": 0,
+        "drafts_offered": 226,
+        "drafts_accepted": 158
+      },
+      "reasoning_chars": 782,
+      "request_sha256": "cb49f7e032e1c85bd57e2ec379a82a37aea7669d4a8feb7c67bb5a088765c16e"
+    }
+  ],
+  "summary": {
+    "old_0141": {
+      "context": 65536,
+      "pp_median": 865.9615978433039,
+      "decode_median": 41.4
+    },
+    "new_0143_64k": {
+      "pp_median": 892.9137164077407,
+      "pp_range": [
+        891.4972554294764,
+        894.3301773860051
+      ],
+      "decode_median": 58.15,
+      "decode_range": [
+        56.0,
+        60.3
+      ],
+      "pp_change_pct": 3.112391892615296,
+      "decode_change_pct": 40.45893719806764
+    }
+  },
+  "old_engine_identity": {
+    "version": "0.1.41",
+    "sha256": "17dabc6a49746aa22beebdf354923ba5eeb21affc6597c6976ac430e46671518"
+  }
+}

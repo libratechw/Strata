@@ -1,0 +1,97 @@
+{
+  "initial": {
+    "finished": false,
+    "paused_by_user": true,
+    "paused_after": "q2_0-262144",
+    "utc": "2026-10-12T12:02:42.535437+00:00",
+    "profiles": [
+      {
+        "model": "q2_0",
+        "context": 262144,
+        "attempts": [
+          {
+            "folder": "q2_0-262144-stage0",
+            "protection_stop": false,
+            "error": null,
+            "requests": 17,
+            "successful": 17,
+            "pending": []
+          }
+        ],
+        "unattempted": []
+      }
+    ],
+    "remaining_profiles": [
+      [
+        "iq2_xs",
+        262144
+      ],
+      [
+        "iq3_xxs",
+        131072
+      ],
+      [
+        "iq3_xxs",
+        262144
+      ]
+    ],
+    "daily_config_unchanged": true,
+    "q2_cleanup": {
+      "owned_server_stopped": true,
+      "owned_worker_stopped": true,
+      "port18080_closed": true
+    },
+    "owned_benchmark_stopped": true
+  },
+  "resumed": {
+    "finished": true,
+    "profiles": [
+      {
+        "model": "iq2_xs",
+        "context": 262144,
+        "attempts": [
+          {
+            "folder": "iq2_xs-262144-stage0",
+            "protection_stop": false,
+            "error": null,
+            "requests": 17,
+            "successful": 17,
+            "pending": []
+          }
+        ],
+        "unattempted": []
+      },
+      {
+        "model": "iq3_xxs",
+        "context": 131072,
+        "attempts": [
+          {
+            "folder": "iq3_xxs-131072-stage0",
+            "protection_stop": false,
+            "error": null,
+            "requests": 14,
+            "successful": 14,
+            "pending": []
+          }
+        ],
+        "unattempted": []
+      },
+      {
+        "model": "iq3_xxs",
+        "context": 262144,
+        "attempts": [
+          {
+            "folder": "iq3_xxs-262144-stage0",
+            "protection_stop": false,
+            "error": null,
+            "requests": 17,
+            "successful": 17,
+            "pending": []
+          }
+        ],
+        "unattempted": []
+      }
+    ],
+    "daily_config_unchanged": true
+  }
+}

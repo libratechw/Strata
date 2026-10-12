@@ -1,0 +1,42 @@
+[
+  {
+    "label": "warmup",
+    "same_request_sha256": true
+  },
+  {
+    "label": "preparation",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-4096-0",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-32768-0",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-60000-0",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-60000-1",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-32768-1",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-4096-1",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-4096-2",
+    "same_request_sha256": true
+  },
+  {
+    "label": "speed-32768-2",
+    "same_request_sha256": true
+  }
+]

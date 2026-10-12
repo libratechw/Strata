@@ -1,0 +1,3098 @@
+{
+  "speed": [
+    {
+      "session": "iq2_xs-131072",
+      "model": "iq2_xs",
+      "context": 131072,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 845.791690757413,
+        "min": 842.3823626192827,
+        "max": 869.9161091642774
+      },
+      "decode_tok_s": {
+        "median": 57.6,
+        "min": 52.2,
+        "max": 66.6
+      },
+      "ttft_s": {
+        "median": 4.900261799921282,
+        "min": 4.762680199928582,
+        "max": 4.921198199968785
+      },
+      "latency_s": {
+        "median": 13.637393399956636,
+        "min": 12.555711099994369,
+        "max": 14.69299560005311
+      },
+      "draft_accept_fraction": {
+        "median": 0.7478991596638656,
+        "min": 0.7008310249307479,
+        "max": 0.765661252900232
+      }
+    },
+    {
+      "session": "iq2_xs-131072",
+      "model": "iq2_xs",
+      "context": 131072,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 965.2352702057842,
+        "min": 958.2519388459334,
+        "max": 966.4765253092501
+      },
+      "decode_tok_s": {
+        "median": 56.6,
+        "min": 56.6,
+        "max": 56.6
+      },
+      "ttft_s": {
+        "median": 34.02545369998552,
+        "min": 33.97875110001769,
+        "max": 34.26991069992073
+      },
+      "latency_s": {
+        "median": 43.044314299942926,
+        "min": 43.00470679998398,
+        "max": 43.296782799996436
+      },
+      "draft_accept_fraction": {
+        "median": 0.7422680412371134,
+        "min": 0.7249357326478149,
+        "max": 0.7468030690537084
+      }
+    },
+    {
+      "session": "iq2_xs-131072",
+      "model": "iq2_xs",
+      "context": 131072,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 917.2046963937804,
+        "min": 914.9800534348352,
+        "max": 917.4311926605504
+      },
+      "decode_tok_s": {
+        "median": 54.9,
+        "min": 53.1,
+        "max": 56.4
+      },
+      "ttft_s": {
+        "median": 130.9577328999294,
+        "min": 130.92577770003118,
+        "max": 131.2732674999861
+      },
+      "latency_s": {
+        "median": 140.53277039993554,
+        "min": 140.0100346999243,
+        "max": 140.57685790001415
+      },
+      "draft_accept_fraction": {
+        "median": 0.7257281553398058,
+        "min": 0.7108433734939759,
+        "max": 0.7376623376623377
+      }
+    },
+    {
+      "session": "iq2_xs-65536",
+      "model": "iq2_xs",
+      "context": 65536,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4095,
+        4095,
+        4095
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 851.91811600233,
+        "min": 849.9906594433029,
+        "max": 880.1719505642128
+      },
+      "decode_tok_s": {
+        "median": 57.3,
+        "min": 55.2,
+        "max": 60.5
+      },
+      "ttft_s": {
+        "median": 4.865142400027253,
+        "min": 4.704308099928312,
+        "max": 4.878752700053155
+      },
+      "latency_s": {
+        "median": 13.780640800017864,
+        "min": 13.146017299965024,
+        "max": 14.117091999971308
+      },
+      "draft_accept_fraction": {
+        "median": 0.7295774647887324,
+        "min": 0.7247474747474747,
+        "max": 0.7412060301507538
+      }
+    },
+    {
+      "session": "iq2_xs-65536",
+      "model": "iq2_xs",
+      "context": 65536,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 971.5600464906664,
+        "min": 961.8382005453783,
+        "max": 973.8989841349098
+      },
+      "decode_tok_s": {
+        "median": 57.5,
+        "min": 55.0,
+        "max": 59.1
+      },
+      "ttft_s": {
+        "median": 33.80167219997384,
+        "min": 33.72126720007509,
+        "max": 34.14384189993143
+      },
+      "latency_s": {
+        "median": 42.60102330008522,
+        "min": 42.430479799979366,
+        "max": 43.421880599926226
+      },
+      "draft_accept_fraction": {
+        "median": 0.7192118226600985,
+        "min": 0.6786570743405276,
+        "max": 0.7630922693266833
+      }
+    },
+    {
+      "session": "iq2_xs-65536",
+      "model": "iq2_xs",
+      "context": 65536,
+      "target": 60000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        60000,
+        60000,
+        60000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 945.3180758995884,
+        "min": 940.6290613619368,
+        "max": 950.1774456379729
+      },
+      "decode_tok_s": {
+        "median": 55.8,
+        "min": 53.5,
+        "max": 57.2
+      },
+      "ttft_s": {
+        "median": 63.55972339992877,
+        "min": 63.23371170007158,
+        "max": 63.87747649999801
+      },
+      "latency_s": {
+        "median": 73.02331629989203,
+        "min": 72.16181459999643,
+        "max": 73.10573099995963
+      },
+      "draft_accept_fraction": {
+        "median": 0.7404580152671756,
+        "min": 0.6683046683046683,
+        "max": 0.7454545454545455
+      }
+    },
+    {
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4095,
+        4095,
+        4095
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 725.4207263064659,
+        "min": 723.7923537833395,
+        "max": 746.4591042490749
+      },
+      "decode_tok_s": {
+        "median": 36.8,
+        "min": 35.1,
+        "max": 36.9
+      },
+      "ttft_s": {
+        "median": 5.711552600027062,
+        "min": 5.542328799958341,
+        "max": 5.724148300010711
+      },
+      "latency_s": {
+        "median": 19.593271799967624,
+        "min": 19.385247300029732,
+        "max": 20.270595000009052
+      },
+      "draft_accept_fraction": {
+        "median": 0.7101449275362319,
+        "min": 0.6799065420560748,
+        "max": 0.7270471464019851
+      }
+    },
+    {
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 937.667220850276,
+        "min": 935.4641635691978,
+        "max": 968.4445718575352
+      },
+      "decode_tok_s": {
+        "median": 37.6,
+        "min": 33.5,
+        "max": 38.7
+      },
+      "ttft_s": {
+        "median": 35.02640839992091,
+        "min": 33.91753289999906,
+        "max": 35.11018710001372
+      },
+      "latency_s": {
+        "median": 48.6127329999581,
+        "min": 48.297140400041826,
+        "max": 49.15989330003504
+      },
+      "draft_accept_fraction": {
+        "median": 0.7577197149643705,
+        "min": 0.6374133949191686,
+        "max": 0.7607655502392344
+      }
+    },
+    {
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "target": 60000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        60000,
+        60000,
+        60000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 902.6289066907368,
+        "min": 901.989789475583,
+        "max": 912.0329061472537
+      },
+      "decode_tok_s": {
+        "median": 36.8,
+        "min": 36.0,
+        "max": 37.6
+      },
+      "ttft_s": {
+        "median": 66.56852809991688,
+        "min": 65.8831825000234,
+        "max": 66.62059269996826
+      },
+      "latency_s": {
+        "median": 80.50013059994671,
+        "min": 79.46932789997663,
+        "max": 80.74326399993151
+      },
+      "draft_accept_fraction": {
+        "median": 0.7180094786729858,
+        "min": 0.7033492822966507,
+        "max": 0.7511848341232228
+      }
+    },
+    {
+      "session": "q2_0-131072",
+      "model": "q2_0",
+      "context": 131072,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 906.3751631962116,
+        "min": 897.851819377466,
+        "max": 925.5451361428087
+      },
+      "decode_tok_s": {
+        "median": 58.5,
+        "min": 57.0,
+        "max": 60.0
+      },
+      "ttft_s": {
+        "median": 4.577162400004454,
+        "min": 4.47782939998433,
+        "max": 4.622014399967156
+      },
+      "latency_s": {
+        "median": 13.299367900006473,
+        "min": 12.990798800019547,
+        "max": 13.573760399944149
+      },
+      "draft_accept_fraction": {
+        "median": 0.7315789473684211,
+        "min": 0.7034313725490197,
+        "max": 0.7379134860050891
+      }
+    },
+    {
+      "session": "q2_0-131072",
+      "model": "q2_0",
+      "context": 131072,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 1017.5639082801281,
+        "min": 1010.8869014749299,
+        "max": 1018.8009314964571
+      },
+      "decode_tok_s": {
+        "median": 60.7,
+        "min": 57.6,
+        "max": 62.8
+      },
+      "ttft_s": {
+        "median": 32.279469799948856,
+        "min": 32.23722180002369,
+        "max": 32.489763600053266
+      },
+      "latency_s": {
+        "median": 40.68404650001321,
+        "min": 40.61170960008167,
+        "max": 41.10408640000969
+      },
+      "draft_accept_fraction": {
+        "median": 0.7649880095923262,
+        "min": 0.6762749445676275,
+        "max": 0.828125
+      }
+    },
+    {
+      "session": "q2_0-131072",
+      "model": "q2_0",
+      "context": 131072,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 965.3231781334994,
+        "min": 961.2958267744921,
+        "max": 966.4543688569745
+      },
+      "decode_tok_s": {
+        "median": 53.9,
+        "min": 52.2,
+        "max": 57.1
+      },
+      "ttft_s": {
+        "median": 124.43202289997134,
+        "min": 124.29163810005412,
+        "max": 124.96049770002719
+      },
+      "latency_s": {
+        "median": 133.88833750004414,
+        "min": 133.75813860003836,
+        "max": 134.21751519991085
+      },
+      "draft_accept_fraction": {
+        "median": 0.7055837563451777,
+        "min": 0.6903073286052009,
+        "max": 0.763681592039801
+      }
+    },
+    {
+      "session": "q2_0-65536",
+      "model": "q2_0",
+      "context": 65536,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4095,
+        4095,
+        4095
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 915.7795867251095,
+        "min": 913.817727394448,
+        "max": 949.0590525632706
+      },
+      "decode_tok_s": {
+        "median": 62.9,
+        "min": 59.8,
+        "max": 64.5
+      },
+      "ttft_s": {
+        "median": 4.5392938000150025,
+        "min": 4.366822200012393,
+        "max": 4.554917800007388
+      },
+      "latency_s": {
+        "median": 12.490357300033793,
+        "min": 12.4481395999901,
+        "max": 13.061877700034529
+      },
+      "draft_accept_fraction": {
+        "median": 0.7100737100737101,
+        "min": 0.6919431279620853,
+        "max": 0.7749360613810742
+      }
+    },
+    {
+      "session": "q2_0-65536",
+      "model": "q2_0",
+      "context": 65536,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 1036.3257999835544,
+        "min": 1031.75752690542,
+        "max": 1079.3433292049856
+      },
+      "decode_tok_s": {
+        "median": 58.7,
+        "min": 57.8,
+        "max": 59.2
+      },
+      "ttft_s": {
+        "median": 31.692304900032468,
+        "min": 30.450283400015905,
+        "max": 31.833907699910924
+      },
+      "latency_s": {
+        "median": 40.45931489998475,
+        "min": 39.125794899999164,
+        "max": 40.52835789998062
+      },
+      "draft_accept_fraction": {
+        "median": 0.6997578692493946,
+        "min": 0.680089485458613,
+        "max": 0.7622549019607843
+      }
+    },
+    {
+      "session": "q2_0-65536",
+      "model": "q2_0",
+      "context": 65536,
+      "target": 60000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        60000,
+        60000,
+        60000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 1001.8467374860993,
+        "min": 995.4260174498181,
+        "max": 1011.030341020534
+      },
+      "decode_tok_s": {
+        "median": 55.2,
+        "min": 54.6,
+        "max": 63.6
+      },
+      "ttft_s": {
+        "median": 59.97728210000787,
+        "min": 59.43284689995926,
+        "max": 60.363207199960016
+      },
+      "latency_s": {
+        "median": 69.33461030002218,
+        "min": 67.45793349994346,
+        "max": 69.60594699997455
+      },
+      "draft_accept_fraction": {
+        "median": 0.7602179836512262,
+        "min": 0.7305699481865285,
+        "max": 0.7883211678832117
+      }
+    }
+  ],
+  "resources": {
+    "iq2_xs-131072": {
+      "used_ram_bytes": {
+        "median": 54652649472,
+        "min": 14014496768,
+        "max": 55476879360
+      },
+      "available_ram_bytes": {
+        "median": 13829050368,
+        "min": 13004820480,
+        "max": 54467203072
+      },
+      "commit_fraction": {
+        "median": 0.9268816685965244,
+        "min": 0.2570372220917604,
+        "max": 0.9438911398835151
+      },
+      "commit_total_bytes": {
+        "median": 72929132544,
+        "min": 20224266240,
+        "max": 74267475968
+      },
+      "server_tree_rss_bytes": {
+        "median": 40248385536,
+        "min": 0,
+        "max": 40774557696
+      },
+      "vram_mib": {
+        "median": 11328.0,
+        "min": 325.0,
+        "max": 11328.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 67.0,
+        "max": 90.0
+      },
+      "graphics_mhz": {
+        "median": 1717.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 163.92,
+        "min": 14.91,
+        "max": 168.88
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq2_xs-65536": {
+      "used_ram_bytes": {
+        "median": 53397782528.0,
+        "min": 13976240128,
+        "max": 53939343360
+      },
+      "available_ram_bytes": {
+        "median": 15083917312.0,
+        "min": 14542356480,
+        "max": 54505459712
+      },
+      "commit_fraction": {
+        "median": 0.9122246751131327,
+        "min": 0.25805416508563744,
+        "max": 0.9188759039587272
+      },
+      "commit_total_bytes": {
+        "median": 71775887360.0,
+        "min": 20304281600,
+        "max": 72299220992
+      },
+      "server_tree_rss_bytes": {
+        "median": 39205961728.0,
+        "min": 0,
+        "max": 39676784640
+      },
+      "vram_mib": {
+        "median": 11332.0,
+        "min": 325.0,
+        "max": 11332.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 66.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1732.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 163.37,
+        "min": 14.51,
+        "max": 168.95
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-65536-buffered16-relaxed": {
+      "used_ram_bytes": {
+        "median": 64044929024,
+        "min": 10851504128,
+        "max": 67014119424
+      },
+      "available_ram_bytes": {
+        "median": 4436770816,
+        "min": 1467580416,
+        "max": 57630195712
+      },
+      "commit_fraction": {
+        "median": 0.6612713593818236,
+        "min": 0.21869969457352242,
+        "max": 0.6667347925636714
+      },
+      "commit_total_bytes": {
+        "median": 52030316544,
+        "min": 17207783424,
+        "max": 52460191744
+      },
+      "server_tree_rss_bytes": {
+        "median": 51558060032,
+        "min": 0,
+        "max": 54649925632
+      },
+      "vram_mib": {
+        "median": 11408.0,
+        "min": 388.0,
+        "max": 11408.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 51.0,
+        "max": 90.0
+      },
+      "graphics_mhz": {
+        "median": 1777.0,
+        "min": 210.0,
+        "max": 1935.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 161.78,
+        "min": 12.04,
+        "max": 168.39
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-65536-buffered16-strict": {
+      "used_ram_bytes": {
+        "median": 63631843328,
+        "min": 11567149056,
+        "max": 65457278976
+      },
+      "available_ram_bytes": {
+        "median": 4849856512,
+        "min": 3024420864,
+        "max": 56914550784
+      },
+      "commit_fraction": {
+        "median": 0.6628857140878959,
+        "min": 0.22143791835022747,
+        "max": 0.6678409620889795
+      },
+      "commit_total_bytes": {
+        "median": 52157337600,
+        "min": 17423233024,
+        "max": 52547227648
+      },
+      "server_tree_rss_bytes": {
+        "median": 49512648704,
+        "min": 0,
+        "max": 52285227008
+      },
+      "vram_mib": {
+        "median": 11415.0,
+        "min": 389.0,
+        "max": 11415.0
+      },
+      "temperature_c": {
+        "median": 84.0,
+        "min": 44.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1792.0,
+        "min": 210.0,
+        "max": 1935.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 157.11,
+        "min": 11.51,
+        "max": 168.22
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-65536-buffered20": {
+      "used_ram_bytes": {
+        "median": 63405686784.0,
+        "min": 13938475008,
+        "max": 65390886912
+      },
+      "available_ram_bytes": {
+        "median": 5076013056.0,
+        "min": 3090812928,
+        "max": 54543224832
+      },
+      "commit_fraction": {
+        "median": 0.7513155577493738,
+        "min": 0.25677849638510214,
+        "max": 0.7564207833683412
+      },
+      "commit_total_bytes": {
+        "median": 59115196416.0,
+        "min": 20203909120,
+        "max": 59516887040
+      },
+      "server_tree_rss_bytes": {
+        "median": 47820769280.0,
+        "min": 0,
+        "max": 49905479680
+      },
+      "vram_mib": {
+        "median": 11349.0,
+        "min": 328.0,
+        "max": 11349.0
+      },
+      "temperature_c": {
+        "median": 86.0,
+        "min": 63.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1766.0,
+        "min": 210.0,
+        "max": 1912.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 158.26999999999998,
+        "min": 14.12,
+        "max": 167.52
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-65536-recall50-restarted": {
+      "used_ram_bytes": {
+        "median": 58620850176.0,
+        "min": 10999083008,
+        "max": 59007467520
+      },
+      "available_ram_bytes": {
+        "median": 9860849664.0,
+        "min": 9474232320,
+        "max": 57482616832
+      },
+      "commit_fraction": {
+        "median": 0.6597229094533428,
+        "min": 0.22011066068081925,
+        "max": 0.6644088120205733
+      },
+      "commit_total_bytes": {
+        "median": 51908481024.0,
+        "min": 17318801408,
+        "max": 52277178368
+      },
+      "server_tree_rss_bytes": {
+        "median": 45961046016.0,
+        "min": 0,
+        "max": 46336413696
+      },
+      "vram_mib": {
+        "median": 11397.0,
+        "min": 379.0,
+        "max": 11397.0
+      },
+      "temperature_c": {
+        "median": 86.0,
+        "min": 71.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1777.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 810.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 163.345,
+        "min": 30.67,
+        "max": 167.86
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 2.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-65536-recall90-restarted": {
+      "used_ram_bytes": {
+        "median": 58571366400,
+        "min": 11010121728,
+        "max": 58997395456
+      },
+      "available_ram_bytes": {
+        "median": 9910333440,
+        "min": 9484304384,
+        "max": 57471578112
+      },
+      "commit_fraction": {
+        "median": 0.6607749391929517,
+        "min": 0.2210130772049482,
+        "max": 0.6655526191084395
+      },
+      "commit_total_bytes": {
+        "median": 51991257088,
+        "min": 17389805568,
+        "max": 52367175680
+      },
+      "server_tree_rss_bytes": {
+        "median": 45907255296,
+        "min": 0,
+        "max": 46302044160
+      },
+      "vram_mib": {
+        "median": 11391.0,
+        "min": 373.0,
+        "max": 11393.0
+      },
+      "temperature_c": {
+        "median": 88.0,
+        "min": 71.0,
+        "max": 90.0
+      },
+      "graphics_mhz": {
+        "median": 1740.0,
+        "min": 210.0,
+        "max": 1875.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 810.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 162.26,
+        "min": 25.06,
+        "max": 167.36
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 2.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-65536-restarted": {
+      "used_ram_bytes": {
+        "median": 35240460288.0,
+        "min": 11049865216,
+        "max": 56273866752
+      },
+      "available_ram_bytes": {
+        "median": 33241239552.0,
+        "min": 12207833088,
+        "max": 57431834624
+      },
+      "commit_fraction": {
+        "median": 0.6186640247839446,
+        "min": 0.22102426956449175,
+        "max": 0.661125390190381
+      },
+      "commit_total_bytes": {
+        "median": 48677875712.0,
+        "min": 17390686208,
+        "max": 52018831360
+      },
+      "server_tree_rss_bytes": {
+        "median": 22183903232.0,
+        "min": 99975168,
+        "max": 43574792192
+      },
+      "vram_mib": {
+        "median": 10848.0,
+        "min": 388.0,
+        "max": 11397.0
+      },
+      "temperature_c": {
+        "median": 68.0,
+        "min": 58.0,
+        "max": 79.0
+      },
+      "graphics_mhz": {
+        "median": 1777.0,
+        "min": 210.0,
+        "max": 1920.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7301.0
+      },
+      "power_w": {
+        "median": 44.4,
+        "min": 13.2,
+        "max": 145.91
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "q2_0-131072": {
+      "used_ram_bytes": {
+        "median": 53024765952.0,
+        "min": 14033825792,
+        "max": 53498925056
+      },
+      "available_ram_bytes": {
+        "median": 15456933888.0,
+        "min": 14982774784,
+        "max": 54447874048
+      },
+      "commit_fraction": {
+        "median": 0.9071103134053284,
+        "min": 0.25827197360810383,
+        "max": 0.9131751927545557
+      },
+      "commit_total_bytes": {
+        "median": 71373477888.0,
+        "min": 20321419264,
+        "max": 71850676224
+      },
+      "server_tree_rss_bytes": {
+        "median": 38699450368.0,
+        "min": 0,
+        "max": 39170146304
+      },
+      "vram_mib": {
+        "median": 11332.0,
+        "min": 325.0,
+        "max": 11332.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 68.0,
+        "max": 90.0
+      },
+      "graphics_mhz": {
+        "median": 1725.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7301.0
+      },
+      "power_w": {
+        "median": 164.07,
+        "min": 15.04,
+        "max": 169.08
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "q2_0-65536": {
+      "used_ram_bytes": {
+        "median": 52784312320,
+        "min": 14822768640,
+        "max": 53247500288
+      },
+      "available_ram_bytes": {
+        "median": 15697387520,
+        "min": 15234199552,
+        "max": 53658931200
+      },
+      "commit_fraction": {
+        "median": 0.892001226682606,
+        "min": 0.25655829321826823,
+        "max": 0.8980638935886677
+      },
+      "commit_total_bytes": {
+        "median": 70184660992,
+        "min": 20186583040,
+        "max": 70661685248
+      },
+      "server_tree_rss_bytes": {
+        "median": 37660262400,
+        "min": 0,
+        "max": 38130720768
+      },
+      "vram_mib": {
+        "median": 11333.0,
+        "min": 328.0,
+        "max": 11335.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 43.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1770.0,
+        "min": 210.0,
+        "max": 1942.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 164.61,
+        "min": 10.97,
+        "max": 169.21
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    }
+  },
+  "needles": [
+    {
+      "session": "q2_0-131072",
+      "depth_percent": 10,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-10",
+      "answer": "amber-quartz-120000-10",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "q2_0-131072",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-50",
+      "answer": "amber-quartz-120000-50",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "q2_0-131072",
+      "depth_percent": 90,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-90",
+      "answer": "amber-quartz-120000-90",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "iq2_xs-131072",
+      "depth_percent": 10,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-10",
+      "answer": "amber-quartz-120000-10",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "iq2_xs-131072",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-50",
+      "answer": "amber-quartz-120000-50",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "iq2_xs-131072",
+      "depth_percent": 90,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-120000-90",
+      "answer": "amber-quartz-120000-90",
+      "prompt_tokens": 120000
+    },
+    {
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "depth_percent": 10,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-60000-10",
+      "answer": "amber-quartz-60000-10",
+      "prompt_tokens": 60000
+    },
+    {
+      "session": "iq3_xxs-65536-recall50-restarted",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-60000-50",
+      "answer": "amber-quartz-60000-50",
+      "prompt_tokens": 60000
+    },
+    {
+      "session": "iq3_xxs-65536-recall90-restarted",
+      "depth_percent": 90,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-60000-90",
+      "answer": "amber-quartz-60000-90",
+      "prompt_tokens": 60000
+    }
+  ],
+  "conversation": [
+    {
+      "session": "q2_0-65536",
+      "turn": 0,
+      "ok": true,
+      "prompt_tokens": 32757,
+      "reused": 0,
+      "fresh_tokens": 32757,
+      "ttft_s": 32.113508700043894,
+      "latency_s": 33.82171280006878,
+      "answer": "I received the provided module."
+    },
+    {
+      "session": "q2_0-65536",
+      "turn": 1,
+      "ok": true,
+      "prompt_tokens": 33822,
+      "reused": 32752,
+      "fresh_tokens": 1070,
+      "ttft_s": 2.1209402000531554,
+      "latency_s": 3.9493508000159636,
+      "answer": "Because each task uses fixed multipliers and constants modulo 100003, tests should include representative values across the input range and edge cases where modular reduction changes the result."
+    },
+    {
+      "session": "q2_0-65536",
+      "turn": 2,
+      "ok": true,
+      "prompt_tokens": 34918,
+      "reused": 33817,
+      "fresh_tokens": 1101,
+      "ttft_s": 2.117486499948427,
+      "latency_s": 4.694475600030273,
+      "answer": "Tests should check each task’s exact modulo 100003 result for representative inputs, including values near or beyond 100003."
+    },
+    {
+      "session": "q2_0-65536",
+      "turn": 3,
+      "ok": true,
+      "prompt_tokens": 36010,
+      "reused": 34913,
+      "fresh_tokens": 1097,
+      "ttft_s": 2.1063759999815375,
+      "latency_s": 7.48202430002857,
+      "answer": "Tests should validate the complete function definitions, especially any truncated lines like task_00384, and ensure each task’s returned value matches `(value * multiplier + offset) % 100003`."
+    },
+    {
+      "session": "iq2_xs-65536",
+      "turn": 0,
+      "ok": true,
+      "prompt_tokens": 32757,
+      "reused": 0,
+      "fresh_tokens": 32757,
+      "ttft_s": 34.01423939992674,
+      "latency_s": 36.692461899947375,
+      "answer": "Received the module."
+    },
+    {
+      "session": "iq2_xs-65536",
+      "turn": 1,
+      "ok": true,
+      "prompt_tokens": 33820,
+      "reused": 32752,
+      "fresh_tokens": 1068,
+      "ttft_s": 2.2823066000128165,
+      "latency_s": 5.290063900058158,
+      "answer": "Test both boundary values and cycle resets, since each task uses modulo 100003 and the multiplier pattern repeats."
+    },
+    {
+      "session": "iq2_xs-65536",
+      "turn": 2,
+      "ok": true,
+      "prompt_tokens": 34905,
+      "reused": 33815,
+      "fresh_tokens": 1090,
+      "ttft_s": 2.276977200061083,
+      "latency_s": 4.367916899966076,
+      "answer": "Test values around the modulo boundary, including 0, negative inputs, and 100003, to verify consistent modular arithmetic behavior."
+    },
+    {
+      "session": "iq2_xs-65536",
+      "turn": 3,
+      "ok": true,
+      "prompt_tokens": 35994,
+      "reused": 34900,
+      "fresh_tokens": 1094,
+      "ttft_s": 2.290926399989985,
+      "latency_s": 9.932230700040236,
+      "answer": "Test values near multiples of 100003 and around the multiplier-reset boundary to confirm the modulo behavior and coefficient cycle are handled consistently."
+    },
+    {
+      "session": "q2_0-131072",
+      "turn": 0,
+      "ok": true,
+      "prompt_tokens": 32757,
+      "reused": 0,
+      "fresh_tokens": 32757,
+      "ttft_s": 32.15592749998905,
+      "latency_s": 33.767460500006564,
+      "answer": "Received."
+    },
+    {
+      "session": "q2_0-131072",
+      "turn": 1,
+      "ok": true,
+      "prompt_tokens": 33818,
+      "reused": 32752,
+      "fresh_tokens": 1066,
+      "ttft_s": 2.092273599933833,
+      "latency_s": 4.394633700023405,
+      "answer": "Verify that each generated task uses the intended multiplier/addend pattern, including the reset every 97 tasks, and that all outputs are correctly computed modulo 100003."
+    },
+    {
+      "session": "q2_0-131072",
+      "turn": 2,
+      "ok": true,
+      "prompt_tokens": 34915,
+      "reused": 33813,
+      "fresh_tokens": 1102,
+      "ttft_s": 2.1086707999929786,
+      "latency_s": 4.155219999956898,
+      "answer": "Test that each task function’s multiplier and addend follow the expected incremental pattern and reset correctly after every 97 tasks, while all results are properly reduced modulo 100003."
+    },
+    {
+      "session": "q2_0-131072",
+      "turn": 3,
+      "ok": true,
+      "prompt_tokens": 36014,
+      "reused": 34910,
+      "fresh_tokens": 1104,
+      "ttft_s": 2.1249062001006678,
+      "latency_s": 5.279755600029603,
+      "answer": "Test the functions with edge values and chunk-boundary parsing to ensure each task’s multiplier/addend sequence and modulo 100003 result remain correct even if the source is split across multiple fragments."
+    },
+    {
+      "session": "iq2_xs-131072",
+      "turn": 0,
+      "ok": true,
+      "prompt_tokens": 32757,
+      "reused": 0,
+      "fresh_tokens": 32757,
+      "ttft_s": 33.85079539997969,
+      "latency_s": 35.56789010006469,
+      "answer": "Received the module."
+    },
+    {
+      "session": "iq2_xs-131072",
+      "turn": 1,
+      "ok": true,
+      "prompt_tokens": 33820,
+      "reused": 32752,
+      "fresh_tokens": 1068,
+      "ttft_s": 2.2823214000090957,
+      "latency_s": 5.526487700059079,
+      "answer": "A relevant testing consideration is to verify modulo boundary behavior for large, zero, and negative inputs to ensure all task functions consistently wrap results to 100003."
+    },
+    {
+      "session": "iq2_xs-131072",
+      "turn": 2,
+      "ok": true,
+      "prompt_tokens": 34914,
+      "reused": 33815,
+      "fresh_tokens": 1099,
+      "ttft_s": 2.2967248000204563,
+      "latency_s": 8.040328699979,
+      "answer": "Tests should verify that partially transmitted functions such as `task_00329` and `task_00357` are correctly completed or parsed before checking their modulo-based behavior."
+    },
+    {
+      "session": "iq2_xs-131072",
+      "turn": 3,
+      "ok": true,
+      "prompt_tokens": 36013,
+      "reused": 34909,
+      "fresh_tokens": 1104,
+      "ttft_s": 2.292669999995269,
+      "latency_s": 6.879477999988012,
+      "answer": "Tests should ensure truncated definitions like `task_00384` are completed and use the expected modulus `100003` before evaluating their outputs."
+    },
+    {
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "turn": 0,
+      "ok": true,
+      "prompt_tokens": 32757,
+      "reused": 0,
+      "fresh_tokens": 32757,
+      "ttft_s": 35.095578300068155,
+      "latency_s": 38.037564900005236,
+      "answer": "Received the module."
+    },
+    {
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "turn": 1,
+      "ok": true,
+      "prompt_tokens": 33820,
+      "reused": 32752,
+      "fresh_tokens": 1068,
+      "ttft_s": 3.5593084999127313,
+      "latency_s": 19.960596699966118,
+      "answer": "Include edge-case inputs such as negative values and values near 100003 to verify correct modulo behavior and task-index mapping."
+    },
+    {
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "turn": 2,
+      "ok": true,
+      "prompt_tokens": 34907,
+      "reused": 33815,
+      "fresh_tokens": 1092,
+      "ttft_s": 3.6563281000126153,
+      "latency_s": 8.194425800000317,
+      "answer": "Test tasks near multiplier discontinuities, such as boundaries where the multiplier resets from 97 to 1, to ensure each task uses the correct multiplier and addend."
+    },
+    {
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "turn": 3,
+      "ok": true,
+      "prompt_tokens": 36001,
+      "reused": 34902,
+      "fresh_tokens": 1099,
+      "ttft_s": 3.6415311000309885,
+      "latency_s": 7.519661300000735,
+      "answer": "Verify the multiplier and offset for task_00384, since the provided snippet truncates exactly at that boundary and could reveal an indexing or formatting error."
+    }
+  ],
+  "soak": [
+    {
+      "target": 4096,
+      "successful": 19,
+      "pp": {
+        "median": 846.5291272171002,
+        "min": 836.4304676332448,
+        "max": 851.2628624883068
+      },
+      "decode": {
+        "median": 58.1,
+        "min": 50.2,
+        "max": 62.0
+      },
+      "early_decode": {
+        "median": 58.7,
+        "min": 55.1,
+        "max": 60.1
+      },
+      "late_decode": {
+        "median": 58.2,
+        "min": 50.2,
+        "max": 62.0
+      },
+      "early_runs": 7,
+      "late_runs": 6
+    },
+    {
+      "target": 32768,
+      "successful": 19,
+      "pp": {
+        "median": 971.5658078097666,
+        "min": 965.7871778548017,
+        "max": 975.3309839032288
+      },
+      "decode": {
+        "median": 57.6,
+        "min": 51.3,
+        "max": 59.7
+      },
+      "early_decode": {
+        "median": 57.7,
+        "min": 51.3,
+        "max": 59.4
+      },
+      "late_decode": {
+        "median": 56.599999999999994,
+        "min": 52.3,
+        "max": 58.4
+      },
+      "early_runs": 7,
+      "late_runs": 6
+    },
+    {
+      "target": 120000,
+      "successful": 18,
+      "pp": {
+        "median": 916.6068145826287,
+        "min": 913.0849975080181,
+        "max": 919.4945190007463
+      },
+      "decode": {
+        "median": 54.0,
+        "min": 48.6,
+        "max": 57.8
+      },
+      "early_decode": {
+        "median": 54.2,
+        "min": 48.6,
+        "max": 55.9
+      },
+      "late_decode": {
+        "median": 53.05,
+        "min": 51.0,
+        "max": 57.8
+      },
+      "early_runs": 6,
+      "late_runs": 6
+    }
+  ],
+  "placement_trials": [
+    {
+      "number": 18,
+      "session": "iq3_xxs-65536-buffered20",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-4096-0",
+      "group": "placement_trial",
+      "target": 4096,
+      "repetition": 0,
+      "started_epoch": 1791787838.2980316,
+      "expected_prompt_tokens": 4095,
+      "request_sha256": "5b749404aac27f0417a38e223c6cafae714a8f146bdb244c3bda07a0deab98d6",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791787838.4936442,
+        "duration_s": 18.5,
+        "finish": "length",
+        "prompt_tokens": 4095,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 4095,
+        "prompt_read": 4095,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 5444.3,
+        "decode_ms": 13039.0,
+        "decode_tok_s": 39.3,
+        "hit_rate": 0.691,
+        "pcie_share": 0.054,
+        "ram_blobs": 56510,
+        "file_blobs": 15979,
+        "file_mb": 17988.1,
+        "drafts_offered": 416,
+        "drafts_accepted": 316
+      },
+      "ttft_s": 5.500185400014743,
+      "client_elapsed_s": 18.514652599929832,
+      "output_file": "primary-0018-iq3_xxs-65536-speed-4096-0.response.json",
+      "reasoning_chars": 1405,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791787857.1851995,
+      "original_number": 18,
+      "source_series": "primary",
+      "pp_tok_s": 752.1628124827802,
+      "decode_tok_s": 39.3,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 60809721856.0,
+          "min": 59786842112,
+          "max": 61528731648
+        },
+        "available_ram_bytes": {
+          "median": 7671977984.0,
+          "min": 6952968192,
+          "max": 8694857728
+        },
+        "commit_fraction": {
+          "median": 0.7513099875983451,
+          "min": 0.7497228589575811,
+          "max": 0.7513500198052706
+        },
+        "commit_total_bytes": {
+          "median": 59114758144.0,
+          "min": 58989879296,
+          "max": 59117907968
+        },
+        "server_tree_rss_bytes": {
+          "median": 44480262144.0,
+          "min": 43447033856,
+          "max": 45196918784
+        },
+        "vram_mib": {
+          "median": 11349.0,
+          "min": 11347.0,
+          "max": 11349.0
+        },
+        "temperature_c": {
+          "median": 79.0,
+          "min": 74.0,
+          "max": 81.0
+        },
+        "graphics_mhz": {
+          "median": 1875.0,
+          "min": 1852.0,
+          "max": 1882.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 126.33,
+          "min": 105.74,
+          "max": 163.42
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 1432758272
+    },
+    {
+      "number": 19,
+      "session": "iq3_xxs-65536-buffered20",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-32768-0",
+      "group": "placement_trial",
+      "target": 32768,
+      "repetition": 0,
+      "started_epoch": 1791787857.2158287,
+      "expected_prompt_tokens": 32768,
+      "request_sha256": "d5481e380e23998520a2565f89415f5b97dbc9c9d611ac5da0045c334521deef",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791787857.4566507,
+        "duration_s": 47.4,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 34543.2,
+        "decode_ms": 12819.2,
+        "decode_tok_s": 39.9,
+        "hit_rate": 0.737,
+        "pcie_share": 0.044,
+        "ram_blobs": 48068,
+        "file_blobs": 15504,
+        "file_mb": 16173.9,
+        "drafts_offered": 402,
+        "drafts_accepted": 307
+      },
+      "ttft_s": 34.62570999993477,
+      "client_elapsed_s": 47.41160329990089,
+      "output_file": "primary-0019-iq3_xxs-65536-speed-32768-0.response.json",
+      "reasoning_chars": 1211,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791787904.9313712,
+      "original_number": 19,
+      "source_series": "primary",
+      "pp_tok_s": 948.609277658121,
+      "decode_tok_s": 39.9,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 63405574144.0,
+          "min": 61234569216,
+          "max": 64051163136
+        },
+        "available_ram_bytes": {
+          "median": 5076125696.0,
+          "min": 4430536704,
+          "max": 7247130624
+        },
+        "commit_fraction": {
+          "median": 0.7522575900205382,
+          "min": 0.7497639323142317,
+          "max": 0.7538152541240851
+        },
+        "commit_total_bytes": {
+          "median": 59189317632.0,
+          "min": 58993111040,
+          "max": 59311878144
+        },
+        "server_tree_rss_bytes": {
+          "median": 47820750848.0,
+          "min": 45231366144,
+          "max": 48518361088
+        },
+        "vram_mib": {
+          "median": 11349.0,
+          "min": 11349.0,
+          "max": 11349.0
+        },
+        "temperature_c": {
+          "median": 86.0,
+          "min": 79.0,
+          "max": 89.0
+        },
+        "graphics_mhz": {
+          "median": 1777.0,
+          "min": 1612.0,
+          "max": 1875.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 162.28,
+          "min": 85.88,
+          "max": 167.52
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 2690627584
+    },
+    {
+      "number": 20,
+      "session": "iq3_xxs-65536-buffered20",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-60000-0",
+      "group": "placement_trial",
+      "target": 60000,
+      "repetition": 0,
+      "started_epoch": 1791787904.9707723,
+      "expected_prompt_tokens": 60000,
+      "request_sha256": "a3143c7e08c194510c2698a6cbb15a218dfac178e9951239594e2a73e2deb7fc",
+      "ok": false,
+      "error_type": "ProtectionError",
+      "error": "available RAM <3 GiB for >=5 s",
+      "client_elapsed_s": 71.13169309997465,
+      "protection_stop": true,
+      "ended_epoch": 1791787976.123863,
+      "original_number": 20,
+      "source_series": "primary",
+      "pp_tok_s": null,
+      "decode_tok_s": null,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 65076852736.0,
+          "min": 63919304704,
+          "max": 65390886912
+        },
+        "available_ram_bytes": {
+          "median": 3404847104.0,
+          "min": 3090812928,
+          "max": 4562395136
+        },
+        "commit_fraction": {
+          "median": 0.7529870976040907,
+          "min": 0.7499866862978918,
+          "max": 0.7564207833683412
+        },
+        "commit_total_bytes": {
+          "median": 59246716928.0,
+          "min": 59010637824,
+          "max": 59516887040
+        },
+        "server_tree_rss_bytes": {
+          "median": 49616314368.0,
+          "min": 48369537024,
+          "max": 49905479680
+        },
+        "vram_mib": {
+          "median": 11349.0,
+          "min": 11349.0,
+          "max": 11349.0
+        },
+        "temperature_c": {
+          "median": 88.0,
+          "min": 83.0,
+          "max": 88.0
+        },
+        "graphics_mhz": {
+          "median": 1725.0,
+          "min": 1537.0,
+          "max": 1860.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 163.075,
+          "min": 84.6,
+          "max": 166.43
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 836579328
+    },
+    {
+      "number": 130,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-4096-0",
+      "group": "placement_trial",
+      "target": 4096,
+      "repetition": 0,
+      "started_epoch": 1791795707.8628187,
+      "expected_prompt_tokens": 4095,
+      "request_sha256": "5b749404aac27f0417a38e223c6cafae714a8f146bdb244c3bda07a0deab98d6",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791795708.0642483,
+        "duration_s": 19.2,
+        "finish": "length",
+        "prompt_tokens": 4095,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 4095,
+        "prompt_read": 4095,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 5607.7,
+        "decode_ms": 13620.1,
+        "decode_tok_s": 37.6,
+        "hit_rate": 0.759,
+        "pcie_share": 0.038,
+        "ram_blobs": 42518,
+        "file_blobs": 19911,
+        "file_mb": 24283.8,
+        "drafts_offered": 439,
+        "drafts_accepted": 310
+      },
+      "ttft_s": 5.665198699920438,
+      "client_elapsed_s": 19.260607299976982,
+      "output_file": "buffered16-strict-0003-iq3_xxs-65536-speed-4096-0.response.json",
+      "reasoning_chars": 1250,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791795727.3933866,
+      "original_number": 3,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": 730.2459118711771,
+      "decode_tok_s": 37.6,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 59847249920.0,
+          "min": 58719920128,
+          "max": 60655116288
+        },
+        "available_ram_bytes": {
+          "median": 8634449920.0,
+          "min": 7826583552,
+          "max": 9761779712
+        },
+        "commit_fraction": {
+          "median": 0.6635386190804327,
+          "min": 0.6612496514100578,
+          "max": 0.6638443526971739
+        },
+        "commit_total_bytes": {
+          "median": 52208709632.0,
+          "min": 52028608512,
+          "max": 52232765440
+        },
+        "server_tree_rss_bytes": {
+          "median": 44654530560.0,
+          "min": 43495321600,
+          "max": 45467828224
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11413.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 63.5,
+          "min": 59.0,
+          "max": 67.0
+        },
+        "graphics_mhz": {
+          "median": 1920.0,
+          "min": 1875.0,
+          "max": 1920.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 118.41999999999999,
+          "min": 79.22,
+          "max": 153.21
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 1332510720
+    },
+    {
+      "number": 131,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-32768-0",
+      "group": "placement_trial",
+      "target": 32768,
+      "repetition": 0,
+      "started_epoch": 1791795727.4366517,
+      "expected_prompt_tokens": 32768,
+      "request_sha256": "d5481e380e23998520a2565f89415f5b97dbc9c9d611ac5da0045c334521deef",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791795727.662921,
+        "duration_s": 48.4,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 33915.9,
+        "decode_ms": 14471.7,
+        "decode_tok_s": 35.4,
+        "hit_rate": 0.708,
+        "pcie_share": 0.044,
+        "ram_blobs": 48394,
+        "file_blobs": 22075,
+        "file_mb": 26256.2,
+        "drafts_offered": 402,
+        "drafts_accepted": 298
+      },
+      "ttft_s": 33.99917640001513,
+      "client_elapsed_s": 48.43557199998759,
+      "output_file": "buffered16-strict-0004-iq3_xxs-65536-speed-32768-0.response.json",
+      "reasoning_chars": 1513,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791795776.2863593,
+      "original_number": 4,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": 966.1545174976928,
+      "decode_tok_s": 35.4,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 63018369024.0,
+          "min": 60713803776,
+          "max": 63626219520
+        },
+        "available_ram_bytes": {
+          "median": 5463330816.0,
+          "min": 4855480320,
+          "max": 7767896064
+        },
+        "commit_fraction": {
+          "median": 0.6632445463406111,
+          "min": 0.6617762128834678,
+          "max": 0.6647856041060446
+        },
+        "commit_total_bytes": {
+          "median": 52185571328.0,
+          "min": 52070039552,
+          "max": 52306825216
+        },
+        "server_tree_rss_bytes": {
+          "median": 47843381248.0,
+          "min": 45520449536,
+          "max": 48463990784
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11415.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 77.0,
+          "min": 68.0,
+          "max": 81.0
+        },
+        "graphics_mhz": {
+          "median": 1882.0,
+          "min": 1822.0,
+          "max": 1905.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 162.57,
+          "min": 88.9,
+          "max": 168.17
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 1989989888
+    },
+    {
+      "number": 132,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-60000-0",
+      "group": "placement_trial",
+      "target": 60000,
+      "repetition": 0,
+      "started_epoch": 1791795776.3144658,
+      "expected_prompt_tokens": 60000,
+      "request_sha256": "a3143c7e08c194510c2698a6cbb15a218dfac178e9951239594e2a73e2deb7fc",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791795776.5742173,
+        "duration_s": 80.5,
+        "finish": "length",
+        "prompt_tokens": 60000,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 60000,
+        "prompt_read": 60000,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 66011.9,
+        "decode_ms": 14427.2,
+        "decode_tok_s": 35.5,
+        "hit_rate": 0.73,
+        "pcie_share": 0.039,
+        "ram_blobs": 44559,
+        "file_blobs": 21929,
+        "file_mb": 25181.3,
+        "drafts_offered": 405,
+        "drafts_accepted": 299
+      },
+      "ttft_s": 66.11181230004877,
+      "client_elapsed_s": 80.5003529000096,
+      "output_file": "buffered16-strict-0005-iq3_xxs-65536-speed-60000-0.response.json",
+      "reasoning_chars": 1416,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791795857.1333306,
+      "original_number": 5,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": 908.9270267936539,
+      "decode_tok_s": 35.5,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 64020795392.0,
+          "min": 62903820288,
+          "max": 64259076096
+        },
+        "available_ram_bytes": {
+          "median": 4460904448.0,
+          "min": 4222623744,
+          "max": 5577879552
+        },
+        "commit_fraction": {
+          "median": 0.6649786332650565,
+          "min": 0.6616793859590444,
+          "max": 0.6678409620889795
+        },
+        "commit_total_bytes": {
+          "median": 52322013184.0,
+          "min": 52062420992,
+          "max": 52547227648
+        },
+        "server_tree_rss_bytes": {
+          "median": 49268195328.0,
+          "min": 48273387520,
+          "max": 49819873280
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11415.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 86.0,
+          "min": 75.0,
+          "max": 89.0
+        },
+        "graphics_mhz": {
+          "median": 1777.0,
+          "min": 1597.0,
+          "max": 1875.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 162.79000000000002,
+          "min": 82.8,
+          "max": 168.09
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 947897344
+    },
+    {
+      "number": 133,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-60000-1",
+      "group": "placement_trial",
+      "target": 60000,
+      "repetition": 1,
+      "started_epoch": 1791795857.1751401,
+      "expected_prompt_tokens": 60000,
+      "request_sha256": "8aea49f68c0bb77c674ae8603dde566c3e3381acc15e635311b9fc3459900995",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791795857.4365635,
+        "duration_s": 80.0,
+        "finish": "length",
+        "prompt_tokens": 60000,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 60000,
+        "prompt_read": 60000,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 66136.3,
+        "decode_ms": 13886.6,
+        "decode_tok_s": 36.9,
+        "hit_rate": 0.728,
+        "pcie_share": 0.04,
+        "ram_blobs": 43085,
+        "file_blobs": 22347,
+        "file_mb": 26462.6,
+        "drafts_offered": 412,
+        "drafts_accepted": 316
+      },
+      "ttft_s": 66.2336767000379,
+      "client_elapsed_s": 80.08597030001692,
+      "output_file": "buffered16-strict-0006-iq3_xxs-65536-speed-60000-1.response.json",
+      "reasoning_chars": 1279,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791795937.6754782,
+      "original_number": 6,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": 907.2173677692886,
+      "decode_tok_s": 36.9,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 63566950400,
+          "min": 62779064320,
+          "max": 63986212864
+        },
+        "available_ram_bytes": {
+          "median": 4914749440,
+          "min": 4495486976,
+          "max": 5702635520
+        },
+        "commit_fraction": {
+          "median": 0.6644244813239343,
+          "min": 0.6614501247896032,
+          "max": 0.6673423034281989
+        },
+        "commit_total_bytes": {
+          "median": 52278411264,
+          "min": 52044382208,
+          "max": 52507992064
+        },
+        "server_tree_rss_bytes": {
+          "median": 50174586880,
+          "min": 49385238528,
+          "max": 50590142464
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11415.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 87.0,
+          "min": 82.0,
+          "max": 88.0
+        },
+        "graphics_mhz": {
+          "median": 1777.0,
+          "min": 1597.0,
+          "max": 1867.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 163.24,
+          "min": 87.43,
+          "max": 166.81
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 592189952
+    },
+    {
+      "number": 134,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-32768-1",
+      "group": "placement_trial",
+      "target": 32768,
+      "repetition": 1,
+      "started_epoch": 1791795937.7109098,
+      "expected_prompt_tokens": 32768,
+      "request_sha256": "8f352eca0fb35b5c5729b041705f170cc99a75debd84ea53e8139eb44eb58975",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791795937.930892,
+        "duration_s": 50.7,
+        "finish": "length",
+        "prompt_tokens": 32768,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 32768,
+        "prompt_read": 32768,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 35028.0,
+        "decode_ms": 15626.5,
+        "decode_tok_s": 32.8,
+        "hit_rate": 0.685,
+        "pcie_share": 0.045,
+        "ram_blobs": 49052,
+        "file_blobs": 26767,
+        "file_mb": 33159.1,
+        "drafts_offered": 419,
+        "drafts_accepted": 296
+      },
+      "ttft_s": 35.1123889000155,
+      "client_elapsed_s": 50.70221749995835,
+      "output_file": "buffered16-strict-0007-iq3_xxs-65536-speed-32768-1.response.json",
+      "reasoning_chars": 1402,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791795988.7894385,
+      "original_number": 7,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": 935.4801872787484,
+      "decode_tok_s": 32.8,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 64028065792,
+          "min": 63562805248,
+          "max": 64400850944
+        },
+        "available_ram_bytes": {
+          "median": 4453634048,
+          "min": 4080848896,
+          "max": 4918894592
+        },
+        "commit_fraction": {
+          "median": 0.6622278115766791,
+          "min": 0.6611948348770373,
+          "max": 0.6673272067571867
+        },
+        "commit_total_bytes": {
+          "median": 52105572352,
+          "min": 52024295424,
+          "max": 52506804224
+        },
+        "server_tree_rss_bytes": {
+          "median": 50649829376,
+          "min": 50167967744,
+          "max": 50975342592
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11415.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 86.0,
+          "min": 79.0,
+          "max": 88.0
+        },
+        "graphics_mhz": {
+          "median": 1777.0,
+          "min": 1620.0,
+          "max": 1875.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 162.2,
+          "min": 78.86,
+          "max": 168.22
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 497091072
+    },
+    {
+      "number": 135,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-4096-1",
+      "group": "placement_trial",
+      "target": 4096,
+      "repetition": 1,
+      "started_epoch": 1791795988.8133922,
+      "expected_prompt_tokens": 4095,
+      "request_sha256": "4a695539decbc8ddad35717ab99589b5f5f86bc96bf5b77ea3df2d3d323139f8",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791795989.0108757,
+        "duration_s": 20.9,
+        "finish": "length",
+        "prompt_tokens": 4095,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 4095,
+        "prompt_read": 4095,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 5754.1,
+        "decode_ms": 15143.9,
+        "decode_tok_s": 33.8,
+        "hit_rate": 0.723,
+        "pcie_share": 0.037,
+        "ram_blobs": 44981,
+        "file_blobs": 26660,
+        "file_mb": 31622.2,
+        "drafts_offered": 428,
+        "drafts_accepted": 284
+      },
+      "ttft_s": 5.817826300044544,
+      "client_elapsed_s": 20.929335299995728,
+      "output_file": "buffered16-strict-0008-iq3_xxs-65536-speed-4096-1.response.json",
+      "reasoning_chars": 1368,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791796010.159668,
+      "original_number": 8,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": 711.6664639126883,
+      "decode_tok_s": 33.8,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 64592961536,
+          "min": 64195874816,
+          "max": 64730836992
+        },
+        "available_ram_bytes": {
+          "median": 3888738304,
+          "min": 3750862848,
+          "max": 4285825024
+        },
+        "commit_fraction": {
+          "median": 0.66148958436418,
+          "min": 0.6612476732255802,
+          "max": 0.6620215598161601
+        },
+        "commit_total_bytes": {
+          "median": 52047486976,
+          "min": 52028452864,
+          "max": 52089344000
+        },
+        "server_tree_rss_bytes": {
+          "median": 51295551488,
+          "min": 50772721664,
+          "max": 51474915328
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11415.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 83.0,
+          "min": 82.0,
+          "max": 86.0
+        },
+        "graphics_mhz": {
+          "median": 1875.0,
+          "min": 1777.0,
+          "max": 1875.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 126.03,
+          "min": 100.64,
+          "max": 160.77
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 544912384
+    },
+    {
+      "number": 136,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-4096-2",
+      "group": "placement_trial",
+      "target": 4096,
+      "repetition": 2,
+      "started_epoch": 1791796010.1848593,
+      "expected_prompt_tokens": 4095,
+      "request_sha256": "9606f3a3a0482c93d62345c45e6ba4802614a053f9c405f93ff9633ae67824b8",
+      "ok": true,
+      "engine": {
+        "projection": null,
+        "time": 1791796010.3938715,
+        "duration_s": 20.9,
+        "finish": "length",
+        "prompt_tokens": 4095,
+        "reused": 0,
+        "output_tokens": 512,
+        "prompt_total": 4095,
+        "prompt_read": 4095,
+        "reasoning_recoveries": 0,
+        "reasoning_repeat_coverage": 0.0,
+        "engine_generated": 512,
+        "prompt_ms": 5759.9,
+        "decode_ms": 15114.1,
+        "decode_tok_s": 33.9,
+        "hit_rate": 0.726,
+        "pcie_share": 0.037,
+        "ram_blobs": 43942,
+        "file_blobs": 26074,
+        "file_mb": 31778.7,
+        "drafts_offered": 435,
+        "drafts_accepted": 289
+      },
+      "ttft_s": 5.829956899979152,
+      "client_elapsed_s": 20.906212700065225,
+      "output_file": "buffered16-strict-0009-iq3_xxs-65536-speed-4096-2.response.json",
+      "reasoning_chars": 1360,
+      "answer_chars": 0,
+      "finish_reason": "length",
+      "ended_epoch": 1791796031.4425952,
+      "original_number": 9,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": 710.9498428792167,
+      "decode_tok_s": 33.9,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 65210753024,
+          "min": 64642011136,
+          "max": 65268011008
+        },
+        "available_ram_bytes": {
+          "median": 3270946816,
+          "min": 3213688832,
+          "max": 3839688704
+        },
+        "commit_fraction": {
+          "median": 0.6612770336478248,
+          "min": 0.6597772054115006,
+          "max": 0.6614361733832884
+        },
+        "commit_total_bytes": {
+          "median": 52030763008,
+          "min": 51912753152,
+          "max": 52043284480
+        },
+        "server_tree_rss_bytes": {
+          "median": 51976466432,
+          "min": 51392212992,
+          "max": 52083933184
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11415.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 83.0,
+          "min": 80.0,
+          "max": 85.0
+        },
+        "graphics_mhz": {
+          "median": 1867.0,
+          "min": 1777.0,
+          "max": 1875.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 134.96,
+          "min": 85.63,
+          "max": 162.62
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 460348928
+    },
+    {
+      "number": 137,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-32768-2",
+      "group": "placement_trial",
+      "target": 32768,
+      "repetition": 2,
+      "started_epoch": 1791796031.4757524,
+      "expected_prompt_tokens": 32768,
+      "request_sha256": "0cffaa890b5e687a52334f352ae7d2c603d62d3c4506e8dafb1c057a7c31a611",
+      "ok": false,
+      "error_type": "ProtectionError",
+      "error": "available RAM <3 GiB for >=5 s",
+      "client_elapsed_s": 7.861599099938758,
+      "protection_stop": true,
+      "ended_epoch": 1791796039.3651676,
+      "original_number": 10,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": null,
+      "decode_tok_s": null,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 65315057664.0,
+          "min": 65183641600,
+          "max": 65457278976
+        },
+        "available_ram_bytes": {
+          "median": 3166642176.0,
+          "min": 3024420864,
+          "max": 3298058240
+        },
+        "commit_fraction": {
+          "median": 0.6597215819874434,
+          "min": 0.6597104677141292,
+          "max": 0.6598372797506321
+        },
+        "commit_total_bytes": {
+          "median": 51908376576.0,
+          "min": 51907502080,
+          "max": 51917479936
+        },
+        "server_tree_rss_bytes": {
+          "median": 52146268160.0,
+          "min": 51997831168,
+          "max": 52285227008
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11415.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 86.0,
+          "min": 78.0,
+          "max": 87.0
+        },
+        "graphics_mhz": {
+          "median": 1770.0,
+          "min": 1710.0,
+          "max": 1875.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 165.325,
+          "min": 105.34,
+          "max": 167.55
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 214646784
+    }
+  ],
+  "failures": [
+    {
+      "number": 20,
+      "session": "iq3_xxs-65536-buffered20",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-60000-0",
+      "group": "placement_trial",
+      "target": 60000,
+      "repetition": 0,
+      "started_epoch": 1791787904.9707723,
+      "expected_prompt_tokens": 60000,
+      "request_sha256": "a3143c7e08c194510c2698a6cbb15a218dfac178e9951239594e2a73e2deb7fc",
+      "ok": false,
+      "error_type": "ProtectionError",
+      "error": "available RAM <3 GiB for >=5 s",
+      "client_elapsed_s": 71.13169309997465,
+      "protection_stop": true,
+      "ended_epoch": 1791787976.123863,
+      "original_number": 20,
+      "source_series": "primary",
+      "pp_tok_s": null,
+      "decode_tok_s": null,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 65076852736.0,
+          "min": 63919304704,
+          "max": 65390886912
+        },
+        "available_ram_bytes": {
+          "median": 3404847104.0,
+          "min": 3090812928,
+          "max": 4562395136
+        },
+        "commit_fraction": {
+          "median": 0.7529870976040907,
+          "min": 0.7499866862978918,
+          "max": 0.7564207833683412
+        },
+        "commit_total_bytes": {
+          "median": 59246716928.0,
+          "min": 59010637824,
+          "max": 59516887040
+        },
+        "server_tree_rss_bytes": {
+          "median": 49616314368.0,
+          "min": 48369537024,
+          "max": 49905479680
+        },
+        "vram_mib": {
+          "median": 11349.0,
+          "min": 11349.0,
+          "max": 11349.0
+        },
+        "temperature_c": {
+          "median": 88.0,
+          "min": 83.0,
+          "max": 88.0
+        },
+        "graphics_mhz": {
+          "median": 1725.0,
+          "min": 1537.0,
+          "max": 1860.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 163.075,
+          "min": 84.6,
+          "max": 166.43
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 836579328
+    },
+    {
+      "number": 137,
+      "session": "iq3_xxs-65536-buffered16-strict",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "speed-32768-2",
+      "group": "placement_trial",
+      "target": 32768,
+      "repetition": 2,
+      "started_epoch": 1791796031.4757524,
+      "expected_prompt_tokens": 32768,
+      "request_sha256": "0cffaa890b5e687a52334f352ae7d2c603d62d3c4506e8dafb1c057a7c31a611",
+      "ok": false,
+      "error_type": "ProtectionError",
+      "error": "available RAM <3 GiB for >=5 s",
+      "client_elapsed_s": 7.861599099938758,
+      "protection_stop": true,
+      "ended_epoch": 1791796039.3651676,
+      "original_number": 10,
+      "source_series": "buffered16-strict",
+      "pp_tok_s": null,
+      "decode_tok_s": null,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 65315057664.0,
+          "min": 65183641600,
+          "max": 65457278976
+        },
+        "available_ram_bytes": {
+          "median": 3166642176.0,
+          "min": 3024420864,
+          "max": 3298058240
+        },
+        "commit_fraction": {
+          "median": 0.6597215819874434,
+          "min": 0.6597104677141292,
+          "max": 0.6598372797506321
+        },
+        "commit_total_bytes": {
+          "median": 51908376576.0,
+          "min": 51907502080,
+          "max": 51917479936
+        },
+        "server_tree_rss_bytes": {
+          "median": 52146268160.0,
+          "min": 51997831168,
+          "max": 52285227008
+        },
+        "vram_mib": {
+          "median": 11415.0,
+          "min": 11415.0,
+          "max": 11415.0
+        },
+        "temperature_c": {
+          "median": 86.0,
+          "min": 78.0,
+          "max": 87.0
+        },
+        "graphics_mhz": {
+          "median": 1770.0,
+          "min": 1710.0,
+          "max": 1875.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 165.325,
+          "min": 105.34,
+          "max": 167.55
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 214646784
+    },
+    {
+      "number": 154,
+      "session": "iq3_xxs-65536-buffered16-relaxed",
+      "model": "iq3_xxs",
+      "context": 65536,
+      "label": "needle-50",
+      "group": "recall_trial",
+      "target": 60000,
+      "repetition": 50,
+      "started_epoch": 1791796803.909015,
+      "expected_prompt_tokens": 60000,
+      "request_sha256": "412a0a4576996769d6dba8870b695e3f4e33a5b8b41eca085cf8ef19f495a05e",
+      "ok": false,
+      "error_type": "ProtectionError",
+      "error": "available RAM <1.5 GiB for >=15 s",
+      "client_elapsed_s": 67.77452429989353,
+      "protection_stop": true,
+      "ended_epoch": 1791796871.7017379,
+      "original_number": 17,
+      "source_series": "buffered16",
+      "pp_tok_s": null,
+      "decode_tok_s": null,
+      "resource": {
+        "used_ram_bytes": {
+          "median": 66726060032,
+          "min": 66360127488,
+          "max": 67014119424
+        },
+        "available_ram_bytes": {
+          "median": 1755639808,
+          "min": 1467580416,
+          "max": 2121572352
+        },
+        "commit_fraction": {
+          "median": 0.6595035912637751,
+          "min": 0.6578915791445841,
+          "max": 0.6635023870700032
+        },
+        "commit_total_bytes": {
+          "median": 51891224576,
+          "min": 51764387840,
+          "max": 52205858816
+        },
+        "server_tree_rss_bytes": {
+          "median": 54292742144,
+          "min": 53937393664,
+          "max": 54649925632
+        },
+        "vram_mib": {
+          "median": 11408.0,
+          "min": 11408.0,
+          "max": 11408.0
+        },
+        "temperature_c": {
+          "median": 88.0,
+          "min": 80.0,
+          "max": 88.0
+        },
+        "graphics_mhz": {
+          "median": 1702.0,
+          "min": 1590.0,
+          "max": 1860.0
+        },
+        "memory_mhz": {
+          "median": 7301.0,
+          "min": 7301.0,
+          "max": 7301.0
+        },
+        "power_w": {
+          "median": 162.69,
+          "min": 83.83,
+          "max": 167.81
+        },
+        "pcie_gen": {
+          "median": 4.0,
+          "min": 4.0,
+          "max": 4.0
+        },
+        "pcie_width": {
+          "median": 16.0,
+          "min": 16.0,
+          "max": 16.0
+        }
+      },
+      "system_disk_read_bytes": 239369728
+    }
+  ]
+}

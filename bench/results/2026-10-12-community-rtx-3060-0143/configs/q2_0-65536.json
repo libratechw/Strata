@@ -1,0 +1,52 @@
+{
+  "exe": "<LOCAL_ROOT>\\Strata-runtime\\engine\\strata.exe",
+  "cwd": "<LOCAL_ROOT>\\Strata-runtime",
+  "lib_dirs": [
+    "<LOCAL_ROOT>\\Strata-runtime\\.venv\\Lib\\site-packages\\nvidia\\cu13\\bin\\x86_64"
+  ],
+  "gpu": 0,
+  "fit_max_tokens": true,
+  "reasoning_budget_tokens": 0,
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "presence_penalty": 0.0,
+    "repetition_penalty": 1.0
+  },
+  "args": [
+    "--pack",
+    "<LOCAL_ROOT>\\Strata-data\\packs\\q2_0",
+    "--native",
+    "<LOCAL_ROOT>\\Strata-data\\models\\Q2_0\\Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00001-of-00002.gguf",
+    "--ple-gguf",
+    "<LOCAL_ROOT>\\Strata-data\\models\\Q2_0\\Qwen3.8-Flash-Next-GSQ-RCO-Q2_0-00002-of-00002.gguf",
+    "--expert-profile",
+    "<LOCAL_ROOT>\\Strata-runtime\\data\\expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--prefill",
+    "auto",
+    "--spec",
+    "4",
+    "--spec-min-p",
+    "0.5",
+    "--mtp",
+    "<LOCAL_ROOT>\\Strata-data\\mtp\\rt",
+    "--max-context",
+    "65536",
+    "--kv",
+    "int8",
+    "--kv-resident",
+    "32768"
+  ],
+  "model_name": "q2_0",
+  "tokenizer": "<LOCAL_ROOT>\\Strata-data\\packs\\q2_0\\tokenizer",
+  "host": "127.0.0.1",
+  "port": 18080,
+  "open_browser": false,
+  "parallel": 1,
+  "lazy_load": false,
+  "log": "<LOCAL_ROOT>\\results\\2026-10-12-community-rtx-3060-0143\\servers\\q2_0-65536-engine.log"
+}

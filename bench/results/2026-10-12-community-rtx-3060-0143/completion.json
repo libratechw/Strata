@@ -1,0 +1,26 @@
+{
+  "finished": true,
+  "primary": {
+    "finished": true,
+    "sessions_completed": [
+      "q2_0-65536",
+      "iq2_xs-65536",
+      "q2_0-131072",
+      "iq2_xs-131072"
+    ],
+    "utc": "2026-10-12T08:37:11.586825+00:00",
+    "requests": 127,
+    "failed_requests": 1
+  },
+  "supplement": {
+    "finished": false
+  },
+  "recall_retry": {
+    "finished": true,
+    "utc": "2026-10-12T09:26:05.218880+00:00",
+    "requests": 6,
+    "failed_requests": 0
+  },
+  "requests": 160,
+  "failed_requests": 3
+}

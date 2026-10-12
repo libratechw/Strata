@@ -1,0 +1,7 @@
+{
+  "commit_limit_bytes_during_measurement": 78682247168,
+  "commit_limit_gib_during_measurement": 73.2785530090332,
+  "allocated_pagefile_mib_observed_after_measurement": 9728,
+  "system_settings_changed_by_this_run": false,
+  "source": "commit limit from telemetry; pagefile allocation from Win32_PageFileUsage after measurement"
+}

@@ -1,0 +1,49 @@
+{
+  "derived": true,
+  "raw_series": [
+    "primary",
+    "buffered16-strict",
+    "buffered16",
+    "recall-restart"
+  ],
+  "changes": "Renumber requests, disambiguate IQ3 placement sessions and response filenames; buffered20 and strict buffered16 speed groups become placement_trial.",
+  "primary_iq3_unattempted_after_guard": {
+    "speed": 6,
+    "conversation": 4,
+    "needle": 3
+  },
+  "strict_iq3_unattempted_after_guard": {
+    "speed": 1,
+    "conversation": 4,
+    "needle": 3
+  },
+  "relaxed_iq3_recall_after_guard": {
+    "depth50": "interrupted, then retried with a fresh server",
+    "depth90": "not attempted in continuous session; tested with a fresh server"
+  },
+  "buffered16_protocol": {
+    "model": "iq3_xxs",
+    "context": 65536,
+    "resident_budget_gib": 16,
+    "unbuffered_load": 0,
+    "sampling": {
+      "temperature": 1.0,
+      "top_p": 0.95,
+      "top_k": 20,
+      "min_p": 0.0,
+      "presence_penalty": 0.0,
+      "repetition_penalty": 1.0
+    },
+    "reasoning_effort": "xhigh",
+    "repetitions": 3,
+    "targets": [
+      4096,
+      32768,
+      60000
+    ],
+    "reason": "20 GiB and 16 GiB trials crossed the 3 GiB guard; repeat 16 GiB with a relaxed available-RAM guard",
+    "only_change_from_buffered_placement": "16 GiB resident; available RAM guard 1.5 GiB for 15 s; commit guard unchanged",
+    "speed_output_cap": 512,
+    "old_engine_run": false
+  }
+}

@@ -1,0 +1,104 @@
+{
+  "model": "iq3_xxs",
+  "context": 262144,
+  "stage": 0,
+  "resident_budget_gib": 16,
+  "available_floor_mib": 1024,
+  "available_seconds": 15,
+  "commit_fraction": 0.95,
+  "commit_seconds": 30,
+  "planned": [
+    {
+      "label": "speed-4096-0",
+      "group": "speed",
+      "target": 4096,
+      "rep": 0
+    },
+    {
+      "label": "speed-32768-0",
+      "group": "speed",
+      "target": 32768,
+      "rep": 0
+    },
+    {
+      "label": "speed-120000-0",
+      "group": "speed",
+      "target": 120000,
+      "rep": 0
+    },
+    {
+      "label": "speed-260000-0",
+      "group": "speed",
+      "target": 260000,
+      "rep": 0
+    },
+    {
+      "label": "speed-260000-1",
+      "group": "speed",
+      "target": 260000,
+      "rep": 1
+    },
+    {
+      "label": "speed-120000-1",
+      "group": "speed",
+      "target": 120000,
+      "rep": 1
+    },
+    {
+      "label": "speed-32768-1",
+      "group": "speed",
+      "target": 32768,
+      "rep": 1
+    },
+    {
+      "label": "speed-4096-1",
+      "group": "speed",
+      "target": 4096,
+      "rep": 1
+    },
+    {
+      "label": "speed-4096-2",
+      "group": "speed",
+      "target": 4096,
+      "rep": 2
+    },
+    {
+      "label": "speed-32768-2",
+      "group": "speed",
+      "target": 32768,
+      "rep": 2
+    },
+    {
+      "label": "speed-120000-2",
+      "group": "speed",
+      "target": 120000,
+      "rep": 2
+    },
+    {
+      "label": "speed-260000-2",
+      "group": "speed",
+      "target": 260000,
+      "rep": 2
+    },
+    {
+      "label": "needle-10",
+      "group": "needle",
+      "target": 260000,
+      "rep": 10
+    },
+    {
+      "label": "needle-50",
+      "group": "needle",
+      "target": 260000,
+      "rep": 50
+    },
+    {
+      "label": "needle-90",
+      "group": "needle",
+      "target": 260000,
+      "rep": 90
+    }
+  ],
+  "fresh_server": true,
+  "os_cache_cleared": false
+}

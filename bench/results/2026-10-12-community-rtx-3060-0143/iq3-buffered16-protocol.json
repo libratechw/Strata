@@ -1,0 +1,25 @@
+{
+  "model": "iq3_xxs",
+  "context": 65536,
+  "resident_budget_gib": 16,
+  "unbuffered_load": 0,
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "presence_penalty": 0.0,
+    "repetition_penalty": 1.0
+  },
+  "reasoning_effort": "xhigh",
+  "repetitions": 3,
+  "targets": [
+    4096,
+    32768,
+    60000
+  ],
+  "reason": "20 GiB and 16 GiB trials crossed the 3 GiB guard; repeat 16 GiB with a relaxed available-RAM guard",
+  "only_change_from_buffered_placement": "16 GiB resident; available RAM guard 1.5 GiB for 15 s; commit guard unchanged",
+  "speed_output_cap": 512,
+  "old_engine_run": false
+}

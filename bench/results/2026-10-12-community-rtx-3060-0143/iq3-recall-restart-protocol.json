@@ -1,0 +1,28 @@
+{
+  "model": "iq3_xxs",
+  "context": 65536,
+  "resident_budget_gib": 16,
+  "unbuffered_load": 0,
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "presence_penalty": 0.0,
+    "repetition_penalty": 1.0
+  },
+  "reasoning_effort": "xhigh",
+  "repetitions": 1,
+  "targets": [
+    60000
+  ],
+  "depths": [
+    50,
+    90
+  ],
+  "server_restart_each_depth": true,
+  "reason": "Complete the two outstanding recall cases after available-RAM guard stopped the continuous 16 GiB session",
+  "only_change_from_buffered_placement": "16 GiB resident; available RAM guard 1.5 GiB for 15 s; commit guard unchanged",
+  "speed_output_cap": 512,
+  "old_engine_run": false
+}

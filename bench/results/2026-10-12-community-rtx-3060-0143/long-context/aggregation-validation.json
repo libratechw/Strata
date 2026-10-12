@@ -1,0 +1,11 @@
+{
+  "split_raw_summary_matches": true,
+  "packaged_summary_matches": true,
+  "existing_outputs_preserved": true,
+  "python_files_parsed": 22,
+  "json_files_parsed": 121,
+  "local_markdown_links_checked": 34,
+  "sampled_commit_limit_bytes": [
+    78682247168
+  ]
+}

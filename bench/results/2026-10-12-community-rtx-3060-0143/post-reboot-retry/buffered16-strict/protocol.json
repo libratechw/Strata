@@ -1,0 +1,28 @@
+{
+  "placement": "buffered16-strict",
+  "resident_budget_gib": 16,
+  "context": 65536,
+  "available_ram_guard": {
+    "gib": 3,
+    "seconds": 5
+  },
+  "commit_guard": {
+    "fraction": 0.95,
+    "seconds": 30
+  },
+  "target_original_stop": "speed-32768-2",
+  "sampling": {
+    "temperature": 1.0,
+    "top_p": 0.95,
+    "top_k": 20,
+    "min_p": 0.0,
+    "presence_penalty": 0.0,
+    "repetition_penalty": 1.0
+  },
+  "thinking": "xhigh",
+  "original_requests_replayed_in_order": true,
+  "fresh_server_each_profile": true,
+  "os_cache_explicitly_cleared": false,
+  "background_load_controlled": false,
+  "source_runner_sha256": "ec8812a0a3438dc4e8e21c2ecc89c4a1cc4651e79d5c0a2ed49096bd62f13e6f"
+}

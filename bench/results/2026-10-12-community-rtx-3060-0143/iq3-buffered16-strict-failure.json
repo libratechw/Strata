@@ -1,0 +1,4 @@
+{
+  "type": "ProtectionError",
+  "error": "available RAM <3 GiB for >=5 s"
+}
