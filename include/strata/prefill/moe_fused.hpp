@@ -23,7 +23,7 @@ namespace strata::prefill::fused {
 /// Routed rows (token, k pairs of one expert) per tile.
 constexpr int kTileRows = 64;
 /// Experts per launch: their blob pointers travel in the launch's parameters (1 KB).
-constexpr int kMaxBatch = 128;
+constexpr int kMaxBatch = 256;
 
 /// This build has the kernels (a CUDA build; HIP and builds without MMQ do not).
 bool built();
