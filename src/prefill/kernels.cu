@@ -1530,7 +1530,13 @@ __device__ __forceinline__ gw_h16 gw_ld(const _Float16* p) {   // 32 bytes of LD
 }
 // A barrier over LDS only.  __syncthreads() is a workgroup fence over all memory, which on gfx11 also waits for every
 // global load in flight: the scan's loads of the next chunk would have to land before each barrier.
-__device__ __forceinline__ void gw_lds_barrier() { __asm__ volatile("s_waitcnt lgkmcnt(0)\n\ts_barrier" ::: "memory"); }
+__device__ __forceinline__ void gw_lds_barrier() {
+#if defined(STRATA_GDN_WMMA)
+    __asm__ volatile("s_waitcnt lgkmcnt(0)\n\ts_barrier" ::: "memory");
+#else
+    __syncthreads();   // the gfx11-only instruction must not reach a gfx12 device pass
+#endif
+}
 
 // A block per (key head, chunk) - the grid's x the key head, so the blocks in flight read the same token rows (blocks
 // that walked the key heads' slices of far-apart rows ran 6x slower) - and a wave per value head of the key head.
@@ -1630,7 +1636,7 @@ __device__ __forceinline__ void gw_load(GwChunk& in, const float* __restrict__ h
 __device__ __forceinline__ unsigned gw_touch(const float* __restrict__ h, const float* __restrict__ z, int64_t t0,
                                              int64_t T, int vh, int qh, unsigned prev) {
     __asm__ volatile("" ::"v"(prev));
-    const int t = threadIdx.x >> 4, part = threadIdx.x & 15, kind = part >> 2, line = part & 3;
+    const int t = threadIdx.x >> 4, part = threadIdx.x & 15, kind = part >> 2;
     if (t0 + t >= T) return 0u;
     const float* p = kind == 0 ? h + (t0 + t) * C + HK * S + qh * S
                    : kind == 1 ? h + (t0 + t) * C + qh * S
@@ -1638,7 +1644,7 @@ __device__ __forceinline__ unsigned gw_touch(const float* __restrict__ h, const 
                                : z + (t0 + t) * HV * S + vh * S;
     unsigned r = 0;
 #if defined(STRATA_GDN_WMMA)
-    __asm__ volatile("global_load_b32 %0, %1, off" : "=v"(r) : "v"(p + 32 * line));
+    __asm__ volatile("global_load_b32 %0, %1, off" : "=v"(r) : "v"(p + 32 * (part & 3)));
 #else
     (void) p;
 #endif
@@ -1773,13 +1779,20 @@ __global__ void __launch_bounds__(GW_NW * 32) gdn_wmma_scan_kernel(float* __rest
 // FP32 scratch of the other kernels (T x 6144 floats), holds T and P (1 KB per chunk and value head: T x 3 KB).
 bool gdn_rec_wmma(float* state, const float* h, const float* gate, const float* beta, const float* z, const float* gamma,
                   float eps, float* y, uint16_t* y16, int64_t T, cudaStream_t s, int64_t ld16) {
-    static const bool gfx11 = [] {
-        int dev = 0;
-        cudaDeviceProp p;
-        if (cudaGetDevice(&dev) != cudaSuccess || cudaGetDeviceProperties(&p, dev) != cudaSuccess) return false;
-        return strata::kernels::gfx_arch_is_gfx11_wmma(p.gcnArchName);
-    }();
-    if (!gfx11 || T < kGdnWmmaMin || ld16 % 8 != 0) return false;   // (the rows are stored 16 bytes at a time)
+    if (T < kGdnWmmaMin || ld16 % 8 != 0) return false;   // the rows are stored 16 bytes at a time
+    // A layer-split worker can change devices: a process-wide answer for the first card can launch a trapping
+    // gfx11 kernel on a later gfx12 card.  Cache only the current thread's last device, as properties are not cheap.
+    static thread_local int last_device = -1;
+    static thread_local bool gfx11 = false;
+    int dev = 0;
+    if (cudaGetDevice(&dev) != cudaSuccess) return false;
+    if (dev != last_device) {
+        cudaDeviceProp p{};
+        if (cudaGetDeviceProperties(&p, dev) != cudaSuccess) return false;
+        gfx11 = strata::kernels::gfx_arch_is_gfx11_wmma(p.gcnArchName);
+        last_device = dev;
+    }
+    if (!gfx11) return false;
     const int64_t nch = (T + GW_CK - 1) / GW_CK;
     _Float16* tp = reinterpret_cast<_Float16*>(y);
     gdn_wmma_prep_kernel<<<dim3(HK, (unsigned) nch), 32 * GW_VPK, 0, s>>>(h, gate, beta, tp, T);
