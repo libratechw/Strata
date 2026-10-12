@@ -153,6 +153,31 @@ pinned by this repository. For an offline build, point `STRATA_GGML_DIR` at a
 checkout of that exact revision; using an arbitrary newer checkout changes the
 dependency being tested.
 
+## Opt-in chunked prompt GDN on gfx11
+
+`STRATA_GDN_CHUNKED=1` runs the prompt's gated DeltaNet recurrence in 16-token chunks on the gfx11 matrix cores,
+with FP16 operands and FP32 accumulation, and fuses the output norm. It is off by default: rounding differs from
+the token-by-token FP32 recurrence. The CUDA switch of the same name uses a separate FP32 implementation.
+
+The HIP path accepts gfx1100, gfx1101, gfx1102, gfx1150 and gfx1151, and prompt chunks of at least 64 tokens.
+Other cards, shorter chunks, an output row stride not divisible by eight, and `STRATA_GDN_REC_HEADS` use the
+existing recurrence. Runtime measurements and numerical checks were run on gfx1151 only; building for another
+target does not validate its speed or answers. The synthetic test compares the FP16 output and carried FP32 state
+against the existing recurrence, and short cases against a double-precision CPU calculation. It covers partial
+chunks, padded rows, weak decay and a split request; the off/default tests require identical output and state bits.
+It does not establish model answer equivalence.
+
+Build and run these checks in the HIP build directory:
+
+```sh
+cmake --build build-hip --target hip_gdn_chunked hip_gdn_rec_head
+ctest --test-dir build-hip -R 'hip_gdn_(chunked|rec_head)' --output-on-failure
+./build-hip/hip_gdn_chunked --bench
+```
+
+The benchmark reports GPU-event medians of seven paired runs after two warmups, with the same nonzero initial
+state on both sides. It times one layer's recurrence and norm, not a whole prompt.
+
 ## Model and serving configuration
 
 Prepare a supported model pack and its MTP runtime using the existing tools.
