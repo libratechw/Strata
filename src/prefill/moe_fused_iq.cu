@@ -968,10 +968,10 @@ native_w11_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
 // native_w11_kernel's (F16 products instead of int8 dots with float scales).
 // gfx1151, IQ3_S / IQ4_NL, 16384 tokens x top 10 over 512 experts, one 128-expert launch (ms, native_w11_kernel ->
 // this): gate/up 11.65 -> 9.87, down 6.11 -> 4.71; weights decoded to F16 in LDS (18 KB a block) were 9.83 and 5.71.
-template <int WT, bool GU, int BN>
+template <int WT, bool GU, int BN, bool DM16>
 __global__ void __launch_bounds__(f16::THREADS)
 native_f16_kernel(const Batch b, const NativeGeom geo, const Tables tb, const uint8_t* __restrict__ act,
-                  const int32_t* __restrict__ src, uint8_t* __restrict__ out, float* __restrict__ dm) {
+                  const int32_t* __restrict__ src, uint8_t* __restrict__ out, void* __restrict__ dm) {
 #if STRATA_F16_DEVICE
     // (moe_fused_iq.cu has its own THREADS and AB: the f16 names are qualified where they collide)
     using namespace f16;
@@ -1081,7 +1081,7 @@ native_f16_kernel(const Batch b, const NativeGeom geo, const Tables tb, const ui
         __syncthreads();
     }
     if constexpr (GU) gu_epilogue<BN>(acc, lds, tid, live_tiles, nrows, row0, fb, out);
-    else down_epilogue<BN>(acc, lds, tid, live_tiles, nrows, row0, fb, dm);
+    else down_epilogue<BN, DM16>(acc, lds, tid, live_tiles, nrows, row0, fb, dm);
 #else
     (void) b; (void) geo; (void) tb; (void) act; (void) src; (void) out; (void) dm;
     __builtin_trap();
@@ -1293,10 +1293,26 @@ void quantize_act_native(const float* x, int64_t rows, int64_t cols, void* xa, v
     ck(cudaGetLastError(), "quantize_act_native");
 }
 
+bool experts_native_dm16(const NativeGeom& g) {
+#if defined(__HIPCC__) || defined(STRATA_USE_HIP)
+    const DevInfo& d = dev_info();
+    static const bool on = [] { const char* v = std::getenv("STRATA_PF_DM16"); return v != nullptr && v[0] == '1'; }();
+    return on && d.ok && !d.w12 && f16::requested() && (f16kq::covers_down(g.d_type) || f16_d(g.d_type));
+#else
+    (void) g;
+    return false;
+#endif
+}
+
 void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n, const void* scratch, const void* xa,
-                    const int32_t* src, void* ha, float* dm, void* stream) {
+                    const int32_t* src, void* ha, void* dm, bool dm16, void* stream) {
     if (b.e1 <= b.e0 || n <= 0) return;
     const DevInfo& d = dev_info();
+    if (dm16 && !experts_native_dm16(g)) {
+        std::fprintf(stderr, "prefill fused experts (native): FP16 down rows asked for a layer that has no F16 down kernel\n");
+        std::exit(1);
+    }
+    float* const dmf = static_cast<float*>(dm);   // the int8 down kernels write FP32 only
     if (!d.ok || !gu_covered(g.gu_type) || !d_covered_on(g.d_type, d)) {
         std::fprintf(stderr, "prefill fused experts (native): types %d / %d are not covered here\n", g.gu_type, g.d_type);
         std::exit(1);
@@ -1333,8 +1349,10 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
         const bool f16_wide = f16::pick_bn(n, n_expert) == 2 * kTileRows;
 #define STRATA_F16_LAUNCH(T, GU, NFB, ACT, OUT, DM) do { \
     const unsigned grid_f = (unsigned) std::max<int64_t>(1, tiles * (NFB)); \
-    if (f16_wide) native_f16_kernel<T, GU, 2 * kTileRows><<<grid_f, f16::THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
-    else native_f16_kernel<T, GU, kTileRows><<<grid_f, f16::THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
+    if (f16_wide && dm16) native_f16_kernel<T, GU, 2 * kTileRows, true><<<grid_f, f16::THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
+    else if (f16_wide) native_f16_kernel<T, GU, 2 * kTileRows, false><<<grid_f, f16::THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
+    else if (dm16) native_f16_kernel<T, GU, kTileRows, true><<<grid_f, f16::THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
+    else native_f16_kernel<T, GU, kTileRows, false><<<grid_f, f16::THREADS, 0, s>>>(b, g, tb, ACT, src, OUT, DM); \
 } while (0)
         if (f16 && f16kq::covers(g.gu_type)) f16kq::gate_up(b, g, tb.ts, tb.tiles, tb.off, n, n_expert, tiles, xa8, src, ha8, s);
         else if (f16 && f16_gu(g.gu_type)) {
@@ -1360,8 +1378,8 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
             default: STRATA_NW_GU(T_IQ4_XS); break;
         }
 #undef STRATA_NW_GU
-#define STRATA_NW_D(T) do { if (occ_d) native_w11_kernel<T, false, true, NW_LB><<<g_d, NW_THREADS, 0, s>>>(b, g, tb, ha8, src, nullptr, dm); else native_w11_kernel<T, false><<<g_d, NW_THREADS, 0, s>>>(b, g, tb, ha8, src, nullptr, dm); } while (0)
-        if (f16 && f16kq::covers_down(g.d_type)) f16kq::down(b, g, tb.ts, tb.tiles, tb.off, n, n_expert, tiles, ha8, dm, s);
+#define STRATA_NW_D(T) do { if (occ_d) native_w11_kernel<T, false, true, NW_LB><<<g_d, NW_THREADS, 0, s>>>(b, g, tb, ha8, src, nullptr, dmf); else native_w11_kernel<T, false><<<g_d, NW_THREADS, 0, s>>>(b, g, tb, ha8, src, nullptr, dmf); } while (0)
+        if (f16 && f16kq::covers_down(g.d_type)) f16kq::down(b, g, tb.ts, tb.tiles, tb.off, n, n_expert, tiles, ha8, dm, dm16, s);
         else if (f16 && f16_d(g.d_type)) {
             if (g.d_type == T_Q2_0) STRATA_F16_LAUNCH(T_Q2_0, false, f16::D_NFB, ha8, nullptr, dm);
             else if (g.d_type == T_Q8_0) STRATA_F16_LAUNCH(T_Q8_0, false, f16::D_NFB, ha8, nullptr, dm);
@@ -1391,8 +1409,8 @@ void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n
         case T_IQ3_S: launch<T_IQ3_S, true>(ww, g_gu, b, g, tb, xa, src, ha, nullptr, s); break;
         default: launch<T_IQ4_XS, true>(ww, g_gu, b, g, tb, xa, src, ha, nullptr, s); break;
     }
-    if (g.d_type == T_Q2_0) launch<T_Q2_0, false>(ww, g_d, b, g, tb, ha, src, nullptr, dm, s);
-    else launch<T_IQ4_NL, false>(ww, g_d, b, g, tb, ha, src, nullptr, dm, s);
+    if (g.d_type == T_Q2_0) launch<T_Q2_0, false>(ww, g_d, b, g, tb, ha, src, nullptr, dmf, s);
+    else launch<T_IQ4_NL, false>(ww, g_d, b, g, tb, ha, src, nullptr, dmf, s);
     ck(cudaGetLastError(), "experts_native");
 }
 

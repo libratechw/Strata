@@ -19,6 +19,7 @@
 
 #include "ggml.h"
 
+#include <cuda_fp16.h>
 #include <cuda_runtime.h>
 
 #include <algorithm>
@@ -241,7 +242,7 @@ struct FusedBufs {
           ids((size_t) rows * 4) {}
 };
 void run_fused(const Pair& p, const Geo& geo, FusedBufs& b, const float* x_dev, int T, int E,
-               const std::vector<int>& cuts, const std::vector<const uint8_t*>& blob, cudaStream_t s) {
+               const std::vector<int>& cuts, const std::vector<const uint8_t*>& blob, cudaStream_t s, bool dm16 = false) {
     const int64_t rows = (int64_t) T * K;
     const fused::NativeGeom ng = geo.native(p);
     fused::quantize_act_native(x_dev, T, N, b.xa.p, s);
@@ -252,7 +253,7 @@ void run_fused(const Pair& p, const Geo& geo, FusedBufs& b, const float* x_dev, 
             bt.e0 = e0;
             bt.e1 = std::min(cuts[c + 1], e0 + fused::kMaxBatch);
             for (int e = bt.e0; e < bt.e1; ++e) bt.blob[e - bt.e0] = blob[(size_t) e];
-            fused::experts_native(bt, ng, E, rows, b.scratch.p, b.xa.p, b.src.as<int32_t>(), b.ha.p, b.dm.as<float>(), s);
+            fused::experts_native(bt, ng, E, rows, b.scratch.p, b.xa.p, b.src.as<int32_t>(), b.ha.p, b.dm.as<float>(), dm16, s);
         }
     }
 }
@@ -346,6 +347,29 @@ void reference_part(const Pair& p, cudaStream_t s) {
     const std::vector<float> y_mmq = mq ? download(mbp->dm, (size_t) rows * N) : std::vector<float>((size_t) rows * N, 0.0f),
                              y_f = download(fb.dm, (size_t) rows * N);
     delete mbp;
+    if (fused::experts_native_dm16(geo.native(p))) {   // STRATA_PF_DM16=1: the FP16 rows are the FP32 rows rounded once (saturated)
+        // (own buffers: the grouping is redone and orders an expert's rows differently, so the rows are compared through each run's slots)
+        FusedBufs fh(T, rows, E);
+        ck(cudaMemcpy(fh.ids.p, ids.data(), ids.size() * 4, cudaMemcpyHostToDevice), "ids");
+        ck(cudaMemset(fh.dm.p, 0xff, (size_t) rows * N * 4), "sentinel");
+        ck(cudaDeviceSynchronize(), "sentinel");
+        run_fused(p, geo, fh, x_dev.as<float>(), T, E, {0, 1, 20, E}, blob, s, true);
+        ck(cudaStreamSynchronize(s), "sync");
+        const std::vector<int32_t> slot_f = download_i(fb.slot, (size_t) rows), slot_h = download_i(fh.slot, (size_t) rows);
+        std::vector<uint16_t> y_h((size_t) rows * N);
+        ck(cudaMemcpy(y_h.data(), fh.dm.p, y_h.size() * 2, cudaMemcpyDeviceToHost), "download");
+        size_t diff = 0;
+        for (int64_t i = 0; i < rows; ++i)
+            for (int o = 0; o < N; ++o) {
+                const float v = y_f[(size_t) slot_f[(size_t) i] * N + o];
+                const __half want = __float2half_rn(std::isnan(v) ? v : std::fmin(std::fmax(v, -65504.0f), 65504.0f));
+                uint16_t wb;
+                std::memcpy(&wb, &want, 2);
+                diff += y_h[(size_t) slot_h[(size_t) i] * N + o] != wb;
+            }
+        std::printf("  FP16 down rows (STRATA_PF_DM16=1): %zu of %zu differ from the FP32 rows rounded to FP16\n", diff, y_h.size());
+        if (diff != 0) throw std::runtime_error(std::string(p.name) + ": the FP16 down rows are not the FP32 rows rounded");
+    }
     const std::vector<int32_t> slot = download_i(fb.slot, (size_t) rows), fsrc = download_i(fb.src, (size_t) rows);
     for (int64_t i = 0; i < rows; ++i)
         if (fsrc[(size_t) slot[(size_t) i]] != (int32_t) (i / K)) throw std::runtime_error("group: slot/src disagree");

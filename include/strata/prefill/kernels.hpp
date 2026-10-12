@@ -88,6 +88,9 @@ void gather_rows16(const uint16_t* x16, const int32_t* src, uint16_t* dst16, int
 /// bo[t, :] = shared[t, :] * sigmoid(sg[t]) + sum_k w[t, k] * D[slot[t, k], :]
 void moe_combine(const float* D, const int32_t* slot, const float* w, const float* shared, const float* sg, float* bo,
                  int64_t T, void* stream);
+/// moe_combine with the routed rows in FP16 (`D` [T * 10][2560] as written by experts_native with dm16).
+void moe_combine_h(const uint16_t* D, const int32_t* slot, const float* w, const float* shared, const float* sg, float* bo,
+                   int64_t T, void* stream);
 /// --peer-device's prompt share as sums: bo[t, :] = (sum over the k with slot[t, k] < rows_local of w[t, k] *
 /// D[slot[t, k], :], in k order) + peer[t, :] + shared[t, :] * sigmoid(sg[t]).  `peer` (the peer's per-token sums)
 /// may be mapped host memory.

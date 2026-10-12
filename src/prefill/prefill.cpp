@@ -90,7 +90,8 @@ void experts(const Batch&, int, int64_t, const void*, const void*, const int32_t
 bool native_supported(int, int) { return false; }
 void quantize_act_native(const float*, int64_t, int64_t, void*, void*) {}
 void experts_native(const Batch&, const NativeGeom&, int, int64_t, const void*, const void*, const int32_t*, void*,
-                    float*, void*) {}
+                    void*, bool, void*) {}
+bool experts_native_dm16(const NativeGeom&) { return false; }
 }  // namespace strata::prefill::fused
 #endif
 
@@ -2981,6 +2982,7 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                     double cpu_ms = 0;                    // the thread's time (the measured share)
                     std::future<bool> cpu_fut;
                     int64_t rows_cpu = 0, n_cpu = 0, n_stream = 0;
+                    bool dm16_layer = false;              // STRATA_PF_DM16=1: this layer's routed rows are FP16 (moe_combine_h reads them)
                     bool cpu_arm = true;                  // auto: this layer may share (false: the arm without)
                     int cpu_set = -1;                     // auto: the wall events' set, -1 when not measured
                     bool cpu_cold = false;                // auto: one-time costs in the window (no reading)
@@ -3028,8 +3030,10 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                             if (fused_nat) {
                                 const auto& f = lay.fmt[(size_t) l];
                                 const fused::NativeGeom ng{f.gu_type, f.d_type, f.gu_row, f.d_row, f.up_off, f.down_off};
+                                const bool dm16 = rows_cpu == 0 && !peer_now && fused::experts_native_dm16(ng);
+                                dm16_layer = dm16;
                                 fused::experts_native(b, ng, (int) m.g->n_expert, T * K, m.GU, m.Xq, m.src_dev, m.H,
-                                                      m.Dm, m.cs);
+                                                      m.Dm, dm16, m.cs);
                             } else {
                                 fused::experts(b, (int) m.g->n_expert, T * K, m.GU, m.Xq, m.src_dev, m.H, m.Dm, m.cs);
                             }
@@ -3895,6 +3899,8 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                         moe_combine_peer16(m.Dm, m.slot_dev, m.w, m.shared, m.sg, m.pp->host_sum16, m.pp->back_at, m.bo, T, m.cs);
                     else if (peer_now && m.pp->sums)
                         moe_combine_peer(m.Dm, m.slot_dev, m.w, m.shared, m.sg, m.pp->host_sum, m.pp->back_at, m.bo, T, m.cs);
+                    else if (dm16_layer)
+                        moe_combine_h(reinterpret_cast<const uint16_t*>(m.Dm), m.slot_dev, m.w, m.shared, m.sg, m.bo, T, m.cs);
                     else
                         moe_combine(m.Dm, m.slot_dev, m.w, m.shared, m.sg, m.bo, T, m.cs);
                     // debug: STRATA_DBG_NAN=1 reports the first layer of a chunk whose MoE produced non-finite values
@@ -3910,7 +3916,7 @@ bool Prefill::run_impl(const int64_t* tokens, int64_t n, int64_t pos0, std::stri
                         // (fused: GU and H hold the grouping tables and int8 rows, not floats)
                         // (the CPU's rows, the last rows_cpu of GU and H, are never written by the GPU: not checked)
                         const int64_t gpu_rows = T * K - rows_cpu;
-                        const int64_t bgu = fused_l ? 0 : bad(m.GU, gpu_rows * 1280), bdm = bad(m.Dm, T * K * N),
+                        const int64_t bgu = fused_l ? 0 : bad(m.GU, gpu_rows * 1280), bdm = dm16_layer ? 0 : bad(m.Dm, T * K * N),
                                       bbo = bad(m.bo, T * N);
                         const int64_t bh = m.H && !fused_l ? bad(m.H, gpu_rows * 640) : -1;
                         static int64_t reported = -1;

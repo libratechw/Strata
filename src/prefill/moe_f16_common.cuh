@@ -224,11 +224,18 @@ __device__ __forceinline__ void gu_epilogue(const v8f (&acc)[BN / 16], uint8_t* 
     }
 }
 
+/// A float as the FP16 the down output stores: saturated at +-65504, a NaN kept, so a token whose expert output is
+/// beyond FP16's range reads as +-65504 and not as an infinity (the SwiGLU product's rule, kernels.cu hf_sat).
+__device__ __forceinline__ __half sat_half(float f) {
+    return __float2half_rn(isnan(f) ? f : fminf(fmaxf(f, -65504.0f), 65504.0f));
+}
+
 /// Down epilogue (`lds` at least D_EPI_BYTES, free): each wave's 16 x 16 tile through LDS ([token][row]), then 16
-/// consecutive FP32 rows per routed row into dm [routed row][2560].
-template <int BN>
+/// consecutive rows per routed row into dm [routed row][2560]: FP32, or (DM16, STRATA_PF_DM16=1) FP16 - the same
+/// accumulators rounded once, half the bytes written here and read back by the combine.
+template <int BN, bool DM16 = false>
 __device__ __forceinline__ void down_epilogue(const v8f (&acc)[BN / 16], uint8_t* lds, int tid, int live_tiles, int nrows, int row0,
-                                              int fb, float* __restrict__ dm) {
+                                              int fb, void* __restrict__ dm_out) {
     const int wave = tid >> 5, lane = tid & 31, sub_lane = lane & 15, half_id = lane >> 4;
     float* tile = reinterpret_cast<float*>(lds) + wave * 256;
     const int r0 = fb * ROWS + wave * 16;
@@ -238,10 +245,21 @@ __device__ __forceinline__ void down_epilogue(const v8f (&acc)[BN / 16], uint8_t
 #pragma unroll
         for (int l = 0; l < 8; ++l) tile[sub_lane * 16 + 2 * l + half_id] = acc[j][l];
         __builtin_amdgcn_wave_barrier();
+        if constexpr (DM16) {
+            __half2* dm = static_cast<__half2*>(dm_out);
 #pragma unroll
-        for (int q = 0; q < 8; ++q) {
-            const int flat = q * 32 + lane, t = j * 16 + (flat >> 4);
-            if (t < nrows) dm[(size_t) (row0 + t) * 2560 + r0 + (flat & 15)] = tile[flat];
+            for (int q = 0; q < 4; ++q) {   // two neighbouring rows of a routed row's 16 per lane: one 4-byte store
+                const int flat = q * 32 + lane, t = j * 16 + (flat >> 3), c = (flat & 7) * 2;
+                if (t < nrows)
+                    dm[((size_t) (row0 + t) * 2560 + r0 + c) / 2] = __halves2half2(sat_half(tile[(flat >> 3) * 16 + c]), sat_half(tile[(flat >> 3) * 16 + c + 1]));
+            }
+        } else {
+            float* dm = static_cast<float*>(dm_out);
+#pragma unroll
+            for (int q = 0; q < 8; ++q) {
+                const int flat = q * 32 + lane, t = j * 16 + (flat >> 4);
+                if (t < nrows) dm[(size_t) (row0 + t) * 2560 + r0 + (flat & 15)] = tile[flat];
+            }
         }
         __builtin_amdgcn_wave_barrier();
     }

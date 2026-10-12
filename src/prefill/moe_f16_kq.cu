@@ -215,10 +215,10 @@ __global__ void __launch_bounds__(THREADS) gate_up_kernel(const Batch b, const N
 
 // Q5_1 down: 128 of the 2560 output rows against a tile's (or pair's) H rows, K = 640 in 10 stages; the routed rows'
 // FP32 outputs in `dm` (native_w11_kernel<T_Q5_1, false>'s).
-template <int BN>
+template <int BN, bool DM16>
 __global__ void __launch_bounds__(THREADS) down_kernel(const Batch b, const NativeGeom geo, const int32_t* __restrict__ ts,
                                                        const int2* __restrict__ tiles, const int32_t* __restrict__ off,
-                                                       const uint8_t* __restrict__ h, float* __restrict__ dm) {
+                                                       const uint8_t* __restrict__ h, void* __restrict__ dm) {
 #if STRATA_F16_DEVICE
     constexpr int CODE_BYTES = ROWS * 2 * 16, HIGH_BYTES = 2 * ROWS * 4, SCALE_BYTES = 2 * ROWS * 4;
     constexpr int STAGE_BYTES = CODE_BYTES + HIGH_BYTES + SCALE_BYTES + ActStage<BN>::BYTES;
@@ -296,7 +296,7 @@ __global__ void __launch_bounds__(THREADS) down_kernel(const Batch b, const Nati
         compute_stage();
         __syncthreads();
     }
-    down_epilogue<BN>(acc, lds, tid, live_tiles, nrows, row0, fb, dm);
+    down_epilogue<BN, DM16>(acc, lds, tid, live_tiles, nrows, row0, fb, dm);
 #else
     (void) b; (void) geo; (void) ts; (void) tiles; (void) off; (void) h; (void) dm;
     __builtin_trap();
@@ -325,10 +325,13 @@ void gate_up(const Batch& b, const NativeGeom& g, const int32_t* ts, const int2*
 }
 
 void down(const Batch& b, const NativeGeom& g, const int32_t* ts, const int2* tiles, const int32_t* off, int64_t n, int n_expert,
-          int64_t work_bound, const uint8_t* h, float* dm, cudaStream_t s) {
+          int64_t work_bound, const uint8_t* h, void* dm, bool dm16, cudaStream_t s) {
     const unsigned grid = (unsigned) std::max<int64_t>(1, work_bound * D_NFB);
-    if (pick_bn(n, n_expert) == 2 * kTileRows) down_kernel<2 * kTileRows><<<grid, THREADS, 0, s>>>(b, g, ts, tiles, off, h, dm);
-    else down_kernel<kTileRows><<<grid, THREADS, 0, s>>>(b, g, ts, tiles, off, h, dm);
+    const bool wide = pick_bn(n, n_expert) == 2 * kTileRows;
+    if (wide && dm16) down_kernel<2 * kTileRows, true><<<grid, THREADS, 0, s>>>(b, g, ts, tiles, off, h, dm);
+    else if (wide) down_kernel<2 * kTileRows, false><<<grid, THREADS, 0, s>>>(b, g, ts, tiles, off, h, dm);
+    else if (dm16) down_kernel<kTileRows, true><<<grid, THREADS, 0, s>>>(b, g, ts, tiles, off, h, dm);
+    else down_kernel<kTileRows, false><<<grid, THREADS, 0, s>>>(b, g, ts, tiles, off, h, dm);
 }
 
 }  // namespace strata::prefill::fused::f16kq
