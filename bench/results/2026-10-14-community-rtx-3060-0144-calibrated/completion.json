@@ -1,0 +1,14 @@
+{
+  "finished": true,
+  "sessions_completed": [
+    "q2_0-131072",
+    "q2_0-262144",
+    "iq2_xs-131072",
+    "iq2_xs-262144",
+    "iq3_xxs-131072",
+    "iq3_xxs-262144"
+  ],
+  "utc": "2026-10-14T13:39:54.474574+00:00",
+  "requests": 70,
+  "failed_requests": 0
+}

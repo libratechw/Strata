@@ -1,0 +1,131 @@
+{
+  "speed_requests": 36,
+  "recall_cases": 3,
+  "recall_passes": 3,
+  "conversation_turns": 4,
+  "conversation_reuse_verified": true,
+  "soak_requests": 15,
+  "soak_seconds": 983.5801189000003,
+  "successful_requests": 70,
+  "all_outputs_checked": true,
+  "cross_model_input_hashes": [
+    {
+      "context": 131072,
+      "target": 4096,
+      "rep": 0,
+      "hash": "25c0e84b6a1d6fd1497633b748d2c800b3a0423849dd0c31151d02cc100db0bb"
+    },
+    {
+      "context": 131072,
+      "target": 4096,
+      "rep": 1,
+      "hash": "5c4cabb71511409f2a9c9f9d6c1e42a10efdbe28338a7b360a37ffa5896f9cd5"
+    },
+    {
+      "context": 131072,
+      "target": 4096,
+      "rep": 2,
+      "hash": "f0e59f1428c64cf84c54da8f8af591ba78693eac190d05bd0c6bcb36aad33332"
+    },
+    {
+      "context": 131072,
+      "target": 32768,
+      "rep": 0,
+      "hash": "5c5d8307fc53128e24d08397a910ed3475777342dbb21b8c9d0bb030da908f92"
+    },
+    {
+      "context": 131072,
+      "target": 32768,
+      "rep": 1,
+      "hash": "5f540aa321d741337e64eeb56fa03da9b8bb042963345fec424ce75fc3f5fdfd"
+    },
+    {
+      "context": 131072,
+      "target": 32768,
+      "rep": 2,
+      "hash": "4aa804bfef0dcd890fe1f875e54113992adb83643b7ef996401db280862aa10c"
+    },
+    {
+      "context": 131072,
+      "target": 120000,
+      "rep": 0,
+      "hash": "2cfc2f56969ed79eeaada6127a53258450ed57cefd701a5893ed7a7262fdca85"
+    },
+    {
+      "context": 131072,
+      "target": 120000,
+      "rep": 1,
+      "hash": "5da3537fea838fa572b5aaf1a671ff715c177d2080e330ebb3ab273186e29b3f"
+    },
+    {
+      "context": 131072,
+      "target": 120000,
+      "rep": 2,
+      "hash": "7b7487dea953574c9993e50a20430ac0aac3288a41a1114c895a48446610c262"
+    },
+    {
+      "context": 262144,
+      "target": 260000,
+      "rep": 0,
+      "hash": "b409992e736a68b2a7b1b550a66e1181afed8f18c2e1b8fbb6233049b7abe348"
+    },
+    {
+      "context": 262144,
+      "target": 260000,
+      "rep": 1,
+      "hash": "4081df4512554bcfc48ca19ad25e5fb41fa6fc6175f8c3b4fca92c14cefeac48"
+    },
+    {
+      "context": 262144,
+      "target": 260000,
+      "rep": 2,
+      "hash": "611a0ad90dfa61653ab050c5339cd23448c85e65a52af6d5ea8b7caab5ee202c"
+    }
+  ],
+  "loaded": [
+    {
+      "session": "q2_0-131072",
+      "arena_mib": 32400,
+      "pool_workers": 11,
+      "pcie_frac": "0.00",
+      "spec_min_p": "0.70"
+    },
+    {
+      "session": "q2_0-262144",
+      "arena_mib": 32400,
+      "pool_workers": 11,
+      "pcie_frac": "0.00",
+      "spec_min_p": "0.70"
+    },
+    {
+      "session": "iq2_xs-131072",
+      "arena_mib": 33812,
+      "pool_workers": 11,
+      "pcie_frac": "0.20",
+      "spec_min_p": "0.70"
+    },
+    {
+      "session": "iq2_xs-262144",
+      "arena_mib": 33812,
+      "pool_workers": 11,
+      "pcie_frac": "0.20",
+      "spec_min_p": "0.70"
+    },
+    {
+      "session": "iq3_xxs-131072",
+      "arena_mib": 16383,
+      "pool_workers": 11,
+      "pcie_frac": "0.35",
+      "spec_min_p": "0.70"
+    },
+    {
+      "session": "iq3_xxs-262144",
+      "arena_mib": 16382,
+      "pool_workers": 11,
+      "pcie_frac": "0.35",
+      "spec_min_p": "0.70"
+    }
+  ],
+  "owned_processes_stopped": true,
+  "normal_config_checked": true
+}

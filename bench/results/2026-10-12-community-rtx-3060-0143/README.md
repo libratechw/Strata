@@ -1,6 +1,8 @@
 # RTX 3060 12 GiB / Windows: Strata 0.1.43, Q2_0, IQ2_XS and IQ3_XXS
 
-Measured on 2026-10-12. This report measures three GSQ-RCO quantizations under practical settings on one PC: fresh prompt and decode speed, conversation reuse, long-context recall, and an IQ2_XS 128K-context soak. It is a current-version report, not a paired version-regression test. **No 0.1.41 engine was run.** The [long-context supplement](long-context/README.md) additionally attempts IQ3_XXS at 128K and all three models at the 262,144-token limit.
+Historical 0.1.43 measurements. Start with the [0.1.44.1 calibrated report](../2026-10-14-community-rtx-3060-0144-calibrated/README.md) for the newer results and a comparison using these saved observations. The measurements below were not rerun or changed.
+
+Measured on 2026-10-12. This report measures three GSQ-RCO quantizations under practical settings on one PC: fresh prompt and decode speed, conversation reuse, long-context recall, and an IQ2_XS 128K-context soak. It is a version-specific report, not a paired version-regression test. **No 0.1.41 engine was run.** The [long-context supplement](long-context/README.md) additionally attempts IQ3_XXS at 128K and all three models at the 262,144-token limit.
 
 ## Hardware and software
 

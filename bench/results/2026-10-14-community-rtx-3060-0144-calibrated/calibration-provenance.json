@@ -1,0 +1,35 @@
+{
+  "iq2_xs": {
+    "started_utc": "2026-10-14T06:56:42.591501+00:00",
+    "source_commit": "296b59d2f73c8f04a805df29c2fa97655adace78",
+    "engine_version": [
+      0,
+      1,
+      44,
+      1
+    ],
+    "engine_sha256": "bd18453f65b4d03b15de6100b1a9226426266560779b51b9265de176ae8f34d4",
+    "calibrator_sha256": "4e2f36cd5c20076ff09af3cd6154ceb42f4c78515a25570a7afc61756613e8db",
+    "draft_vocab_sha256": "b1e1d3a7a9e4bf862dcd5923ce661fb59bbd07907e594df5cf86a62ac235cb91",
+    "calibration_method": "unmodified official tuner and short prompts; non-thinking, temperature 0; early-stage output cap 128, adaptive-cache output cap 512"
+  },
+  "q2_0_iq3_xxs": {
+    "started_utc": "2026-10-14T10:19:07.382122+00:00",
+    "source_commit": "296b59d2f73c8f04a805df29c2fa97655adace78",
+    "engine_version": [
+      0,
+      1,
+      44,
+      1
+    ],
+    "engine_sha256": "bd18453f65b4d03b15de6100b1a9226426266560779b51b9265de176ae8f34d4",
+    "calibrator_sha256": "4e2f36cd5c20076ff09af3cd6154ceb42f4c78515a25570a7afc61756613e8db",
+    "calibration_method": "unmodified official tuner and short prompts; non-thinking, temperature 0; early-stage output cap 128, adaptive-cache output cap 512",
+    "separate_long_context_check": {
+      "context": 131072,
+      "input_tokens": 130048,
+      "output_cap": 512,
+      "note": "These parameters describe subsequent baseline/tuned checks in the source session, not the official calibration prompts; those checks are not part of this report."
+    }
+  }
+}

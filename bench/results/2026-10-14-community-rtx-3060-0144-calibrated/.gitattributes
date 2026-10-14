@@ -1,0 +1,4 @@
+# Preserve byte hashes of the measured runner and frozen provenance sources.
+community_bench_0144.py -text whitespace=cr-at-eol
+previous-runner.py -text whitespace=cr-at-eol
+calibrate-official.py -text whitespace=cr-at-eol

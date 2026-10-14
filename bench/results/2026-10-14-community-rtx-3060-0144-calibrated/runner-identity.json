@@ -1,0 +1,10 @@
+{
+  "runner_sha256": "967853ee864f87bd54d65a7310dacbb36f8c04296cdb9b114b342044ad71bfb6",
+  "base_runner_sha256": "ec8812a0a3438dc4e8e21c2ecc89c4a1cc4651e79d5c0a2ed49096bd62f13e6f",
+  "measured_runner_file": "community_bench_0144.measured.py.gz",
+  "published_runner_file": "community_bench_0144.py",
+  "published_runner_sha256": "210bc0a3b2b7d440fd8a591d5af777a9d30d9886115f61fccd4a518e0d6d917d",
+  "source_edits": [
+    "Documentation only: usage filename community_bench_0143.py -> community_bench_0144.py; example soak seconds 3600 -> 900. Execution logic unchanged."
+  ]
+}

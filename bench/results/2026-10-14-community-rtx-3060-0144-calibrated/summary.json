@@ -1,0 +1,1051 @@
+{
+  "speed": [
+    {
+      "session": "iq2_xs-131072",
+      "model": "iq2_xs",
+      "context": 131072,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 857.3880643878341,
+        "min": 853.1378225823248,
+        "max": 879.6117338830906
+      },
+      "decode_tok_s": {
+        "median": 60.4,
+        "min": 58.7,
+        "max": 64.5
+      },
+      "ttft_s": {
+        "median": 4.834216400000059,
+        "min": 4.706887599999845,
+        "max": 4.856599300000198
+      },
+      "latency_s": {
+        "median": 13.299467199999981,
+        "min": 12.626401600000008,
+        "max": 13.527867600000263
+      },
+      "draft_accept_fraction": {
+        "median": 0.8489932885906041,
+        "min": 0.8333333333333334,
+        "max": 0.8575757575757575
+      }
+    },
+    {
+      "session": "iq2_xs-131072",
+      "model": "iq2_xs",
+      "context": 131072,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 974.8348153591222,
+        "min": 968.5991551951947,
+        "max": 976.7264402899656
+      },
+      "decode_tok_s": {
+        "median": 60.7,
+        "min": 56.5,
+        "max": 61.6
+      },
+      "ttft_s": {
+        "median": 33.68435900000031,
+        "min": 33.61804519999987,
+        "max": 33.904397900000276
+      },
+      "latency_s": {
+        "median": 42.3114915000001,
+        "min": 41.967424400000255,
+        "max": 42.65201119999983
+      },
+      "draft_accept_fraction": {
+        "median": 0.8557993730407524,
+        "min": 0.8114478114478114,
+        "max": 0.8650306748466258
+      }
+    },
+    {
+      "session": "iq2_xs-131072",
+      "model": "iq2_xs",
+      "context": 131072,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 923.7733060307,
+        "min": 922.4851133964826,
+        "max": 931.6813587640937
+      },
+      "decode_tok_s": {
+        "median": 58.0,
+        "min": 55.2,
+        "max": 58.1
+      },
+      "ttft_s": {
+        "median": 130.01866680000012,
+        "min": 128.91965340000024,
+        "max": 130.20503299999973
+      },
+      "latency_s": {
+        "median": 138.80903679999983,
+        "min": 138.1742280000003,
+        "max": 139.00813479999988
+      },
+      "draft_accept_fraction": {
+        "median": 0.8683385579937304,
+        "min": 0.7981651376146789,
+        "max": 0.8979591836734694
+      }
+    },
+    {
+      "session": "iq2_xs-262144",
+      "model": "iq2_xs",
+      "context": 262144,
+      "target": 260000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        260000,
+        260000,
+        260000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 851.212060496296,
+        "min": 851.1293012719473,
+        "max": 852.1220789419004
+      },
+      "decode_tok_s": {
+        "median": 52.6,
+        "min": 48.7,
+        "max": 54.9
+      },
+      "ttft_s": {
+        "median": 305.6516198999998,
+        "min": 305.3213558999996,
+        "max": 305.6803331000001
+      },
+      "latency_s": {
+        "median": 315.3948983,
+        "min": 314.9564306000002,
+        "max": 315.80246069999976
+      },
+      "draft_accept_fraction": {
+        "median": 0.8404907975460123,
+        "min": 0.8295819935691319,
+        "max": 0.8467153284671532
+      }
+    },
+    {
+      "session": "iq3_xxs-131072",
+      "model": "iq3_xxs",
+      "context": 131072,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 732.8287978816668,
+        "min": 726.6663118491316,
+        "max": 748.5380116959064
+      },
+      "decode_tok_s": {
+        "median": 37.0,
+        "min": 35.0,
+        "max": 39.2
+      },
+      "ttft_s": {
+        "median": 5.650713500000165,
+        "min": 5.527700200000254,
+        "max": 5.702998800000387
+      },
+      "latency_s": {
+        "median": 19.446277200000623,
+        "min": 18.56702200000018,
+        "max": 20.300791499999832
+      },
+      "draft_accept_fraction": {
+        "median": 0.8187311178247734,
+        "min": 0.8136645962732919,
+        "max": 0.8250825082508251
+      }
+    },
+    {
+      "session": "iq3_xxs-131072",
+      "model": "iq3_xxs",
+      "context": 131072,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 940.3850734532347,
+        "min": 929.5385496951938,
+        "max": 944.5269150392736
+      },
+      "decode_tok_s": {
+        "median": 37.1,
+        "min": 35.9,
+        "max": 37.4
+      },
+      "ttft_s": {
+        "median": 34.922826500000156,
+        "min": 34.77108580000004,
+        "max": 35.332217400000445
+      },
+      "latency_s": {
+        "median": 48.56146460000036,
+        "min": 48.55091950000042,
+        "max": 49.57774100000006
+      },
+      "draft_accept_fraction": {
+        "median": 0.8079268292682927,
+        "min": 0.8050139275766016,
+        "max": 0.8544474393530997
+      }
+    },
+    {
+      "session": "iq3_xxs-131072",
+      "model": "iq3_xxs",
+      "context": 131072,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 891.0472032255909,
+        "min": 888.0501748348781,
+        "max": 893.3330554074939
+      },
+      "decode_tok_s": {
+        "median": 35.9,
+        "min": 32.6,
+        "max": 36.7
+      },
+      "ttft_s": {
+        "median": 134.80491110000003,
+        "min": 134.4553595999996,
+        "max": 135.25699710000026
+      },
+      "latency_s": {
+        "median": 148.7340334999999,
+        "min": 148.67640560000018,
+        "max": 150.95120289999977
+      },
+      "draft_accept_fraction": {
+        "median": 0.8187134502923976,
+        "min": 0.801829268292683,
+        "max": 0.8649425287356322
+      }
+    },
+    {
+      "session": "iq3_xxs-262144",
+      "model": "iq3_xxs",
+      "context": 262144,
+      "target": 260000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        260000,
+        260000,
+        260000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 827.358057974252,
+        "min": 826.8079108980914,
+        "max": 828.5207431321207
+      },
+      "decode_tok_s": {
+        "median": 33.8,
+        "min": 33.6,
+        "max": 35.2
+      },
+      "ttft_s": {
+        "median": 314.4629302000003,
+        "min": 314.01761389999956,
+        "max": 314.67908439999974
+      },
+      "latency_s": {
+        "median": 329.55409280000003,
+        "min": 328.5273481000004,
+        "max": 329.89973889999965
+      },
+      "draft_accept_fraction": {
+        "median": 0.8264984227129337,
+        "min": 0.8181818181818182,
+        "max": 0.8364779874213837
+      }
+    },
+    {
+      "session": "q2_0-131072",
+      "model": "q2_0",
+      "context": 131072,
+      "target": 4096,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        4096,
+        4096,
+        4096
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 920.097940112766,
+        "min": 914.7349144669257,
+        "max": 966.356815929788
+      },
+      "decode_tok_s": {
+        "median": 65.7,
+        "min": 61.5,
+        "max": 66.3
+      },
+      "ttft_s": {
+        "median": 4.509098900000026,
+        "min": 4.2869982999999365,
+        "max": 4.535084999999981
+      },
+      "latency_s": {
+        "median": 12.224949899999956,
+        "min": 12.063910599999986,
+        "max": 12.810541199999989
+      },
+      "draft_accept_fraction": {
+        "median": 0.803030303030303,
+        "min": 0.788235294117647,
+        "max": 0.8666666666666667
+      }
+    },
+    {
+      "session": "q2_0-131072",
+      "model": "q2_0",
+      "context": 131072,
+      "target": 32768,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        32768,
+        32768,
+        32768
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 1040.0756695677567,
+        "min": 1027.3324095033263,
+        "max": 1084.0137089624327
+      },
+      "decode_tok_s": {
+        "median": 64.0,
+        "min": 61.7,
+        "max": 65.2
+      },
+      "ttft_s": {
+        "median": 31.576078600000073,
+        "min": 30.2998106,
+        "max": 31.965826600000128
+      },
+      "latency_s": {
+        "median": 39.54530560000012,
+        "min": 38.13107179999997,
+        "max": 40.24195439999994
+      },
+      "draft_accept_fraction": {
+        "median": 0.8422619047619048,
+        "min": 0.8323699421965318,
+        "max": 0.8885448916408669
+      }
+    },
+    {
+      "session": "q2_0-131072",
+      "model": "q2_0",
+      "context": 131072,
+      "target": 120000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        120000,
+        120000,
+        120000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 981.3053159762229,
+        "min": 979.1841763837097,
+        "max": 985.9728923186138
+      },
+      "decode_tok_s": {
+        "median": 57.6,
+        "min": 56.3,
+        "max": 59.8
+      },
+      "ttft_s": {
+        "median": 122.40543190000005,
+        "min": 121.82796359999998,
+        "max": 122.66419220000012
+      },
+      "latency_s": {
+        "median": 130.9361189,
+        "min": 130.69102709999993,
+        "max": 131.7271631000001
+      },
+      "draft_accept_fraction": {
+        "median": 0.8299120234604106,
+        "min": 0.8223684210526315,
+        "max": 0.8552631578947368
+      }
+    },
+    {
+      "session": "q2_0-262144",
+      "model": "q2_0",
+      "context": 262144,
+      "target": 260000,
+      "attempts": 3,
+      "successful": 3,
+      "prompt_tokens": [
+        260000,
+        260000,
+        260000
+      ],
+      "generated_tokens": [
+        512,
+        512,
+        512
+      ],
+      "pp_tok_s": {
+        "median": 889.919979080035,
+        "min": 888.6986921773324,
+        "max": 890.8670706406191
+      },
+      "decode_tok_s": {
+        "median": 54.2,
+        "min": 53.3,
+        "max": 55.3
+      },
+      "ttft_s": {
+        "median": 292.361136,
+        "min": 292.04708979999987,
+        "max": 292.7702587000001
+      },
+      "latency_s": {
+        "median": 301.9397577,
+        "min": 301.29040499999996,
+        "max": 302.19455140000014
+      },
+      "draft_accept_fraction": {
+        "median": 0.825,
+        "min": 0.8099688473520249,
+        "max": 0.8576158940397351
+      }
+    }
+  ],
+  "resources": {
+    "iq2_xs-131072": {
+      "used_ram_bytes": {
+        "median": 50796324864.0,
+        "min": 10292088832,
+        "max": 51346378752
+      },
+      "available_ram_bytes": {
+        "median": 17685374976.0,
+        "min": 17135321088,
+        "max": 58189611008
+      },
+      "commit_fraction": {
+        "median": 0.8087086239941388,
+        "min": 0.1407072207325394,
+        "max": 0.8155400237996415
+      },
+      "commit_total_bytes": {
+        "median": 63631011840.0,
+        "min": 11071160320,
+        "max": 64168521728
+      },
+      "server_tree_rss_bytes": {
+        "median": 40265244672.0,
+        "min": 0,
+        "max": 40739794944
+      },
+      "vram_mib": {
+        "median": 11173.0,
+        "min": 172.0,
+        "max": 11173.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 67.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1732.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 164.44,
+        "min": 15.09,
+        "max": 169.1
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq2_xs-262144": {
+      "used_ram_bytes": {
+        "median": 53063286784,
+        "min": 10222972928,
+        "max": 53423005696
+      },
+      "available_ram_bytes": {
+        "median": 15418413056,
+        "min": 15058694144,
+        "max": 58258726912
+      },
+      "commit_fraction": {
+        "median": 0.8379277622209764,
+        "min": 0.14049956341989156,
+        "max": 0.8446210535154602
+      },
+      "commit_total_bytes": {
+        "median": 65930039296,
+        "min": 11054821376,
+        "max": 66456682496
+      },
+      "server_tree_rss_bytes": {
+        "median": 42546823168,
+        "min": 0,
+        "max": 42651791360
+      },
+      "vram_mib": {
+        "median": 11167.0,
+        "min": 162.0,
+        "max": 11167.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 67.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1725.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 164.69,
+        "min": 15.07,
+        "max": 168.94
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-131072": {
+      "used_ram_bytes": {
+        "median": 63149320192.0,
+        "min": 9412284416,
+        "max": 65845710848
+      },
+      "available_ram_bytes": {
+        "median": 5332379648.0,
+        "min": 2635988992,
+        "max": 59069415424
+      },
+      "commit_fraction": {
+        "median": 0.5925275486915793,
+        "min": 0.13801152792209992,
+        "max": 0.6028090323695011
+      },
+      "commit_total_bytes": {
+        "median": 46621399040.0,
+        "min": 10859057152,
+        "max": 47430369280
+      },
+      "server_tree_rss_bytes": {
+        "median": 51155857408.0,
+        "min": 0,
+        "max": 53883289600
+      },
+      "vram_mib": {
+        "median": 11179.0,
+        "min": 162.0,
+        "max": 11179.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 61.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1740.0,
+        "min": 210.0,
+        "max": 1905.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 161.985,
+        "min": 13.99,
+        "max": 168.68
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "iq3_xxs-262144": {
+      "used_ram_bytes": {
+        "median": 63420379136,
+        "min": 9472012288,
+        "max": 66000486400
+      },
+      "available_ram_bytes": {
+        "median": 5061320704,
+        "min": 2481213440,
+        "max": 59009687552
+      },
+      "commit_fraction": {
+        "median": 0.620968557642708,
+        "min": 0.13888395933414935,
+        "max": 0.6247525122031857
+      },
+      "commit_total_bytes": {
+        "median": 48859201536,
+        "min": 10927702016,
+        "max": 49156931584
+      },
+      "server_tree_rss_bytes": {
+        "median": 49633525760,
+        "min": 0,
+        "max": 52091207680
+      },
+      "vram_mib": {
+        "median": 11181.0,
+        "min": 162.0,
+        "max": 11181.0
+      },
+      "temperature_c": {
+        "median": 88.0,
+        "min": 64.0,
+        "max": 90.0
+      },
+      "graphics_mhz": {
+        "median": 1725.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 163.4,
+        "min": 14.77,
+        "max": 169.0
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "q2_0-131072": {
+      "used_ram_bytes": {
+        "median": 49578479616.0,
+        "min": 10261164032,
+        "max": 51529486336
+      },
+      "available_ram_bytes": {
+        "median": 18903220224.0,
+        "min": 16952213504,
+        "max": 58220535808
+      },
+      "commit_fraction": {
+        "median": 0.7904980042981784,
+        "min": 0.14058821731897386,
+        "max": 0.7965685058559206
+      },
+      "commit_total_bytes": {
+        "median": 62198159360.0,
+        "min": 11061796864,
+        "max": 62675800064
+      },
+      "server_tree_rss_bytes": {
+        "median": 38715437056.0,
+        "min": 0,
+        "max": 39188860928
+      },
+      "vram_mib": {
+        "median": 11267.0,
+        "min": 262.0,
+        "max": 11274.0
+      },
+      "temperature_c": {
+        "median": 86.0,
+        "min": 42.0,
+        "max": 88.0
+      },
+      "graphics_mhz": {
+        "median": 1770.0,
+        "min": 210.0,
+        "max": 1942.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 165.7,
+        "min": 11.66,
+        "max": 169.27
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    },
+    "q2_0-262144": {
+      "used_ram_bytes": {
+        "median": 51525779456,
+        "min": 10269224960,
+        "max": 51779526656
+      },
+      "available_ram_bytes": {
+        "median": 16955920384,
+        "min": 16702173184,
+        "max": 58212474880
+      },
+      "commit_fraction": {
+        "median": 0.817878810484357,
+        "min": 0.14063054005529443,
+        "max": 0.8216601621705223
+      },
+      "commit_total_bytes": {
+        "median": 64352542720,
+        "min": 11065126912,
+        "max": 64650067968
+      },
+      "server_tree_rss_bytes": {
+        "median": 41010130944,
+        "min": 0,
+        "max": 41135316992
+      },
+      "vram_mib": {
+        "median": 11225.0,
+        "min": 215.0,
+        "max": 11225.0
+      },
+      "temperature_c": {
+        "median": 87.0,
+        "min": 66.0,
+        "max": 89.0
+      },
+      "graphics_mhz": {
+        "median": 1732.0,
+        "min": 210.0,
+        "max": 1897.0
+      },
+      "memory_mhz": {
+        "median": 7301.0,
+        "min": 405.0,
+        "max": 7501.0
+      },
+      "power_w": {
+        "median": 165.18,
+        "min": 15.2,
+        "max": 169.68
+      },
+      "pcie_gen": {
+        "median": 4.0,
+        "min": 1.0,
+        "max": 4.0
+      },
+      "pcie_width": {
+        "median": 16.0,
+        "min": 16.0,
+        "max": 16.0
+      }
+    }
+  },
+  "needles": [
+    {
+      "session": "q2_0-262144",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-50",
+      "answer": "amber-quartz-260000-50",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "iq2_xs-262144",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-50",
+      "answer": "amber-quartz-260000-50",
+      "prompt_tokens": 260000
+    },
+    {
+      "session": "iq3_xxs-262144",
+      "depth_percent": 50,
+      "ok": true,
+      "recall_pass": true,
+      "expected": "amber-quartz-260000-50",
+      "answer": "amber-quartz-260000-50",
+      "prompt_tokens": 260000
+    }
+  ],
+  "conversation": [
+    {
+      "session": "iq2_xs-131072",
+      "turn": 0,
+      "ok": true,
+      "prompt_tokens": 32757,
+      "reused": 0,
+      "fresh_tokens": 32757,
+      "ttft_s": 33.49480619999986,
+      "latency_s": 35.99042419999978,
+      "answer": "Received."
+    },
+    {
+      "session": "iq2_xs-131072",
+      "turn": 1,
+      "ok": true,
+      "prompt_tokens": 33818,
+      "reused": 32752,
+      "fresh_tokens": 1066,
+      "ttft_s": 2.246622600000137,
+      "latency_s": 4.606864900000346,
+      "answer": "Testing should verify that each task correctly applies its intended affine transformation modulo 100003, including edge cases near the modulus and inputs that could produce large intermediate products."
+    },
+    {
+      "session": "iq2_xs-131072",
+      "turn": 2,
+      "ok": true,
+      "prompt_tokens": 34913,
+      "reused": 33813,
+      "fresh_tokens": 1100,
+      "ttft_s": 2.2845226999997976,
+      "latency_s": 3.9660162000000128,
+      "answer": "Testing should include boundary inputs just below 100003 and values that cause multiplication to exceed typical integer limits, to ensure modulo reduction and overflow behavior remain correct."
+    },
+    {
+      "session": "iq2_xs-131072",
+      "turn": 3,
+      "ok": true,
+      "prompt_tokens": 36007,
+      "reused": 34908,
+      "fresh_tokens": 1099,
+      "ttft_s": 2.271940099999938,
+      "latency_s": 4.654185599999892,
+      "answer": "Testing should include values near the modulus boundaries and verify that each task’s multiplier and additive constant match its name, including cases where multiplication may overflow typical integer ranges."
+    }
+  ],
+  "soak": [
+    {
+      "target": 4096,
+      "successful": 5,
+      "pp": {
+        "median": 855.7222245435172,
+        "min": 854.3122327667119,
+        "max": 865.1754219208752
+      },
+      "decode": {
+        "median": 60.5,
+        "min": 55.9,
+        "max": 62.3
+      },
+      "early_decode": {
+        "median": 61.4,
+        "min": 60.5,
+        "max": 62.3
+      },
+      "late_decode": {
+        "median": 61.3,
+        "min": 61.3,
+        "max": 61.3
+      },
+      "early_runs": 2,
+      "late_runs": 1
+    },
+    {
+      "target": 32768,
+      "successful": 5,
+      "pp": {
+        "median": 979.2103084835211,
+        "min": 978.006202077905,
+        "max": 981.9451311787357
+      },
+      "decode": {
+        "median": 57.5,
+        "min": 53.2,
+        "max": 58.8
+      },
+      "early_decode": {
+        "median": 58.15,
+        "min": 57.5,
+        "max": 58.8
+      },
+      "late_decode": {
+        "median": 57.0,
+        "min": 57.0,
+        "max": 57.0
+      },
+      "early_runs": 2,
+      "late_runs": 1
+    },
+    {
+      "target": 120000,
+      "successful": 5,
+      "pp": {
+        "median": 923.614040164896,
+        "min": 920.5164711080563,
+        "max": 924.2179768098306
+      },
+      "decode": {
+        "median": 54.6,
+        "min": 51.8,
+        "max": 58.2
+      },
+      "early_decode": {
+        "median": 54.55,
+        "min": 54.5,
+        "max": 54.6
+      },
+      "late_decode": {
+        "median": 51.8,
+        "min": 51.8,
+        "max": 51.8
+      },
+      "early_runs": 2,
+      "late_runs": 1
+    }
+  ],
+  "placement_trials": [],
+  "failures": []
+}

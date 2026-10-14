@@ -1,0 +1,122 @@
+[
+  {
+    "model": "iq2_xs",
+    "context": 131072,
+    "target": 4096,
+    "old_pp": 845.791690757413,
+    "old_decode": 57.6,
+    "new_pp": 857.3880643878341,
+    "new_decode": 60.4,
+    "request_hashes_match": true
+  },
+  {
+    "model": "iq2_xs",
+    "context": 131072,
+    "target": 32768,
+    "old_pp": 965.2352702057842,
+    "old_decode": 56.6,
+    "new_pp": 974.8348153591222,
+    "new_decode": 60.7,
+    "request_hashes_match": true
+  },
+  {
+    "model": "iq2_xs",
+    "context": 131072,
+    "target": 120000,
+    "old_pp": 917.2046963937804,
+    "old_decode": 54.9,
+    "new_pp": 923.7733060307,
+    "new_decode": 58.0,
+    "request_hashes_match": true
+  },
+  {
+    "model": "iq2_xs",
+    "context": 262144,
+    "target": 260000,
+    "old_pp": 826.3299223917294,
+    "old_decode": 47.4,
+    "new_pp": 851.212060496296,
+    "new_decode": 52.6,
+    "request_hashes_match": true
+  },
+  {
+    "model": "iq3_xxs",
+    "context": 131072,
+    "target": 4096,
+    "old_pp": 693.4732921357826,
+    "old_decode": 34.0,
+    "new_pp": 732.8287978816668,
+    "new_decode": 37.0,
+    "request_hashes_match": true
+  },
+  {
+    "model": "iq3_xxs",
+    "context": 131072,
+    "target": 32768,
+    "old_pp": 903.8725177847841,
+    "old_decode": 34.1,
+    "new_pp": 940.3850734532347,
+    "new_decode": 37.1,
+    "request_hashes_match": true
+  },
+  {
+    "model": "iq3_xxs",
+    "context": 131072,
+    "target": 120000,
+    "old_pp": 862.0875449901938,
+    "old_decode": 33.2,
+    "new_pp": 891.0472032255909,
+    "new_decode": 35.9,
+    "request_hashes_match": true
+  },
+  {
+    "model": "iq3_xxs",
+    "context": 262144,
+    "target": 260000,
+    "old_pp": 795.1281884258083,
+    "old_decode": 32.2,
+    "new_pp": 827.358057974252,
+    "new_decode": 33.8,
+    "request_hashes_match": true
+  },
+  {
+    "model": "q2_0",
+    "context": 131072,
+    "target": 4096,
+    "old_pp": 906.3751631962116,
+    "old_decode": 58.5,
+    "new_pp": 920.097940112766,
+    "new_decode": 65.7,
+    "request_hashes_match": true
+  },
+  {
+    "model": "q2_0",
+    "context": 131072,
+    "target": 32768,
+    "old_pp": 1017.5639082801281,
+    "old_decode": 60.7,
+    "new_pp": 1040.0756695677567,
+    "new_decode": 64.0,
+    "request_hashes_match": true
+  },
+  {
+    "model": "q2_0",
+    "context": 131072,
+    "target": 120000,
+    "old_pp": 965.3231781334994,
+    "old_decode": 53.9,
+    "new_pp": 981.3053159762229,
+    "new_decode": 57.6,
+    "request_hashes_match": true
+  },
+  {
+    "model": "q2_0",
+    "context": 262144,
+    "target": 260000,
+    "old_pp": 877.2915445628676,
+    "old_decode": 50.6,
+    "new_pp": 889.919979080035,
+    "new_decode": 54.2,
+    "request_hashes_match": true
+  }
+]

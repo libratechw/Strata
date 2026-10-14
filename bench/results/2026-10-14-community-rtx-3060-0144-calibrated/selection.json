@@ -1,0 +1,6 @@
+{
+  "policy": "latest official calibration results for all three models; reused without a new calibration run",
+  "iq2_xs": "0.1.44.1 official candidate: PCIe 0.20, MTP 0.70, worker/cache defaults; daily worker7/adapt80 config unchanged",
+  "iq3_xxs": "PCIe 0.35 and MTP 0.70, official post-calibration policy agreed",
+  "iq2_choice": "latest official candidate selected before IQ2 measurement; normal daily configuration preserved"
+}
