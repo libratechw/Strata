@@ -19,6 +19,7 @@
 
 #include "ggml.h"
 
+#include <cuda_fp16.h>
 #include <cuda_runtime.h>
 
 #include <algorithm>
@@ -78,6 +79,12 @@ struct Geo {
 };
 
 // random blocks with a sane fp16 scale `d` at each block's start (every format here begins with it): scales chosen so
+// STRATA_PF_F16=1: the covered formats run on F16 weights (moe_f16_kq.cu, native_f16_kernel), not the int8 kernels
+bool f16_on() {
+    const char* v = std::getenv("STRATA_PF_F16");
+    return v != nullptr && v[0] == '1';
+}
+
 // that the weights' typical size is that of a 2-3 bit expert (a few hundredths)
 void fill_matrix(uint8_t* m, ggml_type t, int64_t rows, int64_t cols, std::mt19937& rng) {
     const size_t bs = ggml_type_size(t), nb = (size_t) rows * (size_t) (cols / ggml_blck_size(t));
@@ -235,7 +242,7 @@ struct FusedBufs {
           ids((size_t) rows * 4) {}
 };
 void run_fused(const Pair& p, const Geo& geo, FusedBufs& b, const float* x_dev, int T, int E,
-               const std::vector<int>& cuts, const std::vector<const uint8_t*>& blob, cudaStream_t s) {
+               const std::vector<int>& cuts, const std::vector<const uint8_t*>& blob, cudaStream_t s, bool dm16 = false) {
     const int64_t rows = (int64_t) T * K;
     const fused::NativeGeom ng = geo.native(p);
     fused::quantize_act_native(x_dev, T, N, b.xa.p, s);
@@ -246,7 +253,7 @@ void run_fused(const Pair& p, const Geo& geo, FusedBufs& b, const float* x_dev, 
             bt.e0 = e0;
             bt.e1 = std::min(cuts[c + 1], e0 + fused::kMaxBatch);
             for (int e = bt.e0; e < bt.e1; ++e) bt.blob[e - bt.e0] = blob[(size_t) e];
-            fused::experts_native(bt, ng, E, rows, b.scratch.p, b.xa.p, b.src.as<int32_t>(), b.ha.p, b.dm.as<float>(), s);
+            fused::experts_native(bt, ng, E, rows, b.scratch.p, b.xa.p, b.src.as<int32_t>(), b.ha.p, b.dm.as<float>(), dm16, s);
         }
     }
 }
@@ -340,6 +347,29 @@ void reference_part(const Pair& p, cudaStream_t s) {
     const std::vector<float> y_mmq = mq ? download(mbp->dm, (size_t) rows * N) : std::vector<float>((size_t) rows * N, 0.0f),
                              y_f = download(fb.dm, (size_t) rows * N);
     delete mbp;
+    if (fused::experts_native_dm16(geo.native(p))) {   // STRATA_PF_DM16=1: the FP16 rows are the FP32 rows rounded once (saturated)
+        // (own buffers: the grouping is redone and orders an expert's rows differently, so the rows are compared through each run's slots)
+        FusedBufs fh(T, rows, E);
+        ck(cudaMemcpy(fh.ids.p, ids.data(), ids.size() * 4, cudaMemcpyHostToDevice), "ids");
+        ck(cudaMemset(fh.dm.p, 0xff, (size_t) rows * N * 4), "sentinel");
+        ck(cudaDeviceSynchronize(), "sentinel");
+        run_fused(p, geo, fh, x_dev.as<float>(), T, E, {0, 1, 20, E}, blob, s, true);
+        ck(cudaStreamSynchronize(s), "sync");
+        const std::vector<int32_t> slot_f = download_i(fb.slot, (size_t) rows), slot_h = download_i(fh.slot, (size_t) rows);
+        std::vector<uint16_t> y_h((size_t) rows * N);
+        ck(cudaMemcpy(y_h.data(), fh.dm.p, y_h.size() * 2, cudaMemcpyDeviceToHost), "download");
+        size_t diff = 0;
+        for (int64_t i = 0; i < rows; ++i)
+            for (int o = 0; o < N; ++o) {
+                const float v = y_f[(size_t) slot_f[(size_t) i] * N + o];
+                const __half want = __float2half_rn(std::isnan(v) ? v : std::fmin(std::fmax(v, -65504.0f), 65504.0f));
+                uint16_t wb;
+                std::memcpy(&wb, &want, 2);
+                diff += y_h[(size_t) slot_h[(size_t) i] * N + o] != wb;
+            }
+        std::printf("  FP16 down rows (STRATA_PF_DM16=1): %zu of %zu differ from the FP32 rows rounded to FP16\n", diff, y_h.size());
+        if (diff != 0) throw std::runtime_error(std::string(p.name) + ": the FP16 down rows are not the FP32 rows rounded");
+    }
     const std::vector<int32_t> slot = download_i(fb.slot, (size_t) rows), fsrc = download_i(fb.src, (size_t) rows);
     for (int64_t i = 0; i < rows; ++i)
         if (fsrc[(size_t) slot[(size_t) i]] != (int32_t) (i / K)) throw std::runtime_error("group: slot/src disagree");
@@ -397,7 +427,9 @@ void reference_part(const Pair& p, cudaStream_t s) {
     const Err e2 = compare(y_f, frow, ref2, pair, (size_t) rows);
     std::printf("  fused vs the int8-rounded model (same activation / H rounding, double sums): rel RMS %.3e  worst %.3e\n",
                 e2.rms, e2.worst);
-    if (e2.rms > 2e-3 || e2.worst > 3e-2)
+    // STRATA_PF_F16=1: H's int8 rounding meets values a few F16 ulps from the int8 model's (f16_on); the FP32 reference
+    // checks below stay as they are
+    if (e2.rms > (f16_on() ? 5e-3 : 2e-3) || e2.worst > 3e-2)
         throw std::runtime_error(std::string(p.name) + ": the fused path differs from its own arithmetic's model");
     if (mq) std::printf("  MMQ   vs FP32 reference: rel RMS %.3e  worst row max rel %.3e\n", em.rms, em.worst);
     std::printf("  fused vs FP32 reference: rel RMS %.3e  worst row max rel %.3e\n", ef.rms, ef.worst);
@@ -627,7 +659,8 @@ void timing_part(const Pair& p, int T, cudaStream_t s) {
     cudaEventDestroy(b);
     delete mbp;
     // the two int8 paths at the real shape, every tile of the layer: R9700 rel RMS 1.3-1.9e-4, worst row 2.9e-3-8.3e-3
-    if (mq && !no_mmq && (efm.rms > 1e-3 || efm.worst > 2e-2))
+    // (STRATA_PF_F16=1: F16 products against MMQ's int8, gfx1151 rel RMS 2.5-2.7e-3, worst row 6.4e-3-8.8e-3)
+    if (mq && !no_mmq && (efm.rms > (f16_on() ? 5e-3 : 1e-3) || efm.worst > 2e-2))
         throw std::runtime_error(std::string(p.name) + ": the paths disagree at the real shape");
 }
 }  // namespace

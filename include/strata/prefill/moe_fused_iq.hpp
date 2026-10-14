@@ -36,7 +36,12 @@ void quantize_act_native(const float* x, int64_t rows, int64_t cols, void* xa, v
 /// g.down_off; 2-byte aligned).  `xa` from quantize_act_native; H in `ha` (act_bytes(n, 640)); down into `dm` at the
 /// rows of `group`.  `dm` 16-byte aligned (gfx12 stores float4; checked there - the prompt path's buffers are 256-aligned
 /// through Alloc's 256-byte takes from a 256-aligned cache slot or cudaMalloc).
+///
+/// `dm16` (STRATA_PF_DM16=1, only where `experts_native_dm16(g)`): `dm` holds FP16 instead of FP32 - the same accumulators
+/// rounded once, saturated at +-65504 - and the combine reads them as such (moe_combine_h).  Half the bytes.
 void experts_native(const Batch& b, const NativeGeom& g, int n_expert, int64_t n, const void* scratch, const void* xa,
-                    const int32_t* src, void* ha, float* dm, void* stream);
+                    const int32_t* src, void* ha, void* dm, bool dm16, void* stream);
+/// STRATA_PF_DM16=1 on gfx11 with STRATA_PF_F16=1 and a down type that has an F16 kernel (every type the F16 path takes).
+bool experts_native_dm16(const NativeGeom& g);
 
 }  // namespace strata::prefill::fused

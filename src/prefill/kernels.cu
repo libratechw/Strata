@@ -1623,6 +1623,33 @@ __global__ void moe_combine4_kernel(const float* __restrict__ Dm, const int32_t*
     bo[i] = make_float4(s.x + sh.x * g, s.y + sh.y * g, s.z + sh.z * g, s.w + sh.w * g);
 }
 
+// moe_combine4_kernel with the routed rows in FP16 (the F16 experts' STRATA_PF_DM16=1 output): four columns per thread, one
+// 8-byte load per slot, the same fmaf order over the slots.  Needs 8-byte aligned Dm (N * 2 bytes per row).
+__global__ void moe_combine4h_kernel(const uint16_t* __restrict__ Dm, const int32_t* __restrict__ slot,
+                                     const float* __restrict__ w, const float4* __restrict__ shared,
+                                     const float* __restrict__ sg, float4* __restrict__ bo, int64_t T) {
+    const int64_t i = (int64_t) blockIdx.x * blockDim.x + threadIdx.x;   // float4 index
+    if (i >= T * (N / 4)) return;
+    const int64_t t = i / (N / 4), d = (i % (N / 4)) * 4;
+    float4 s = make_float4(0.0f, 0.0f, 0.0f, 0.0f);
+    uint2 v[10];
+    float ww[10];
+#pragma unroll
+    for (int k = 0; k < 10; ++k) {
+        ww[k] = w[t * 10 + k];
+        v[k] = *reinterpret_cast<const uint2*>(Dm + (int64_t) slot[t * 10 + k] * N + d);
+    }
+#pragma unroll
+    for (int k = 0; k < 10; ++k) {
+        const float2 lo = __half22float2(*reinterpret_cast<const __half2*>(&v[k].x)), hi = __half22float2(*reinterpret_cast<const __half2*>(&v[k].y));
+        s.x = fmaf(ww[k], lo.x, s.x); s.y = fmaf(ww[k], lo.y, s.y);
+        s.z = fmaf(ww[k], hi.x, s.z); s.w = fmaf(ww[k], hi.y, s.w);
+    }
+    const float g = sigm(sg[t]);
+    const float4 sh = shared[i];
+    bo[i] = make_float4(s.x + sh.x * g, s.y + sh.y * g, s.z + sh.z * g, s.w + sh.w * g);
+}
+
 // ---------------------------------------------------------------- QSA helpers
 __global__ void rms_rows_kernel(float* __restrict__ x, const float* __restrict__ w, int64_t cols, int64_t ld, float eps) {
     __shared__ float sh[32];
@@ -2227,6 +2254,16 @@ void moe_combine(const float* Dm, const int32_t* slot, const float* w, const flo
 #endif
     moe_combine_kernel<<<blocks_for(T * N), 256, 0, (cudaStream_t) stream>>>(Dm, slot, w, shared, sg, bo, T, row_sd);
     check("moe_combine");
+}
+void moe_combine_h(const uint16_t* Dm, const int32_t* slot, const float* w, const float* shared, const float* sg, float* bo,
+                   int64_t T, void* stream) {
+    if (((reinterpret_cast<uintptr_t>(shared) | reinterpret_cast<uintptr_t>(bo)) & 15) != 0 || (reinterpret_cast<uintptr_t>(Dm) & 7) != 0) {
+        std::fprintf(stderr, "prefill moe_combine_h: unaligned buffers\n");
+        std::exit(1);
+    }
+    moe_combine4h_kernel<<<blocks_for(T * (N / 4)), 256, 0, (cudaStream_t) stream>>>(
+        Dm, slot, w, reinterpret_cast<const float4*>(shared), sg, reinterpret_cast<float4*>(bo), T);
+    check("moe_combine_h");
 }
 void rms_rows(float* x, const float* w, int64_t rows, int64_t cols, int64_t ld, float eps, void* stream) {
     if (rows <= 0) return;
