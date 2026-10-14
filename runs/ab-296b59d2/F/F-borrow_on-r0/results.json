@@ -1,0 +1,279 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.2924268140341155,
+    "client_elapsed_s": 0.3509192420169711,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791956260.3917851,
+      "duration_s": 0.3,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 236.6,
+      "decode_ms": 95.2,
+      "decode_tok_s": 21.0,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 455,
+      "pswpout": 0,
+      "quiet_wait_s": 0.0,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "prime-4096",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "0fa3b0416a5e935de45bc693f8aafc6f3d6ae67bbb06670197b5f0d047230289",
+    "client_ttft_s": 3.7887491199653596,
+    "client_elapsed_s": 8.59687348396983,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791956263.9314992,
+      "duration_s": 8.6,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 3713.5,
+      "decode_ms": 4840.4,
+      "decode_tok_s": 52.9,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 213,
+      "drafts_accepted": 150
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a benchmark for deterministic integer transforms. At first glance, the code appears repetitive and verbose, but it offers a rich case study in algorithmic consistency, modular arithmetic, and software maintainability. Each function accepts a single integer argument, `value`, and returns an integer result derived from a linear transformation followed by a modulo operation. The core mathematical structure of every function is identical: `(value * multiplier + addend) % 100003`. This uniformity allows for a deep analysis of how deterministic systems behave under specific constraints and highlights the trade-offs between explicit code generation and dynamic abstraction.\n\nThe primary mechanism at play is a linear congruential generator (LCG) step, a common primitive in pseudorandom number generation and hashing algorithms. The formula $f(x) = (ax + c) \\pmod m$ defines a linear congruential generator, where $a$ is the multiplier, $c$ is the increment, and $m$ is the modulus. In this module, the modulus $m$ is fixed at 100003, which",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 73989,
+      "pgscan_direct": 0,
+      "pswpin": 1682,
+      "pswpout": 0,
+      "quiet_wait_s": 3.01,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-4096-run-1",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "fc9f875d0097586cef76bef9547947dffff0a9802afa331590a6399476d65cca",
+    "client_ttft_s": 3.654756315983832,
+    "client_elapsed_s": 8.837509794975631,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791956275.6511137,
+      "duration_s": 8.8,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 3611.6,
+      "decode_ms": 5212.8,
+      "decode_tok_s": 49.1,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 232,
+      "drafts_accepted": 142
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a fascinating case study in algorithmic redundancy, modular arithmetic, and software maintainability. At first glance, the code appears to be a straightforward implementation of linear transformations, but a deeper inspection reveals a pattern that highlights significant issues in code design, specifically regarding repetition and the potential for abstraction.\n\n### Deterministic Integer Transforms and Modulo Arithmetic\n\nEach function in the module performs a deterministic integer transform. The general form of the operation is $f(x) = (x \\cdot a + b) \\pmod m$, where $m$ is the constant $100003$. This is a classic linear congruential generator (LCG) step, often used in pseudo-random number generation or cryptographic hashing primitives, although here it is applied deterministically to a single input.\n\nThe modulo operation, `% 100003`, ensures that the output is always an integer within the range $[0, 100002]$. This is crucial for preventing integer overflow in languages with fixed-width integers, though Python handles arbitrary-precision integers natively. However",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 74,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-32768-run-1",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "c93bd90a5b349befdf346dbf737c975f0b1643f0926be46ad5f5d912acac2230",
+    "client_ttft_s": 25.36994277004851,
+    "client_elapsed_s": 30.902585786010604,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "total_tokens": 33024,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791956287.7875633,
+      "duration_s": 30.9,
+      "finish": "length",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 32768,
+      "prompt_read": 32768,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 25307.3,
+      "decode_ms": 5563.0,
+      "decode_tok_s": 46.0,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 231,
+      "drafts_accepted": 140
+    },
+    "text": "The provided Python module represents a synthetic benchmark designed to evaluate the performance, memory usage, and parsing capabilities of a code interpreter or compiler. It consists of a series of function definitions, ranging from `task_00000` to `task_00888`, each implementing a specific linear transformation on an integer input. While the code appears repetitive, it serves as a rigorous test case for static analysis tools, runtime execution engines, and memory management systems. This explanation will dissect the mathematical underpinnings, structural design, and software engineering implications of this module.\n\n### Mathematical Structure: Deterministic Transforms and Modulo Arithmetic\n\nAt its core, every function in this module performs a deterministic integer transform. The general form of the operation is $f(x) = (a \\cdot x + b) \\pmod m$, where $x$ is the input value, $a$ is a multiplier, $b$ is an additive constant, and $m$ is the modulus. In this specific module, the modulus $m$ is consistently set to `100003`, a prime number. The choice of a prime modulus is significant in computer science and cryptography because it ensures that the ring of integers modulo $m$ is a",
+    "reclaim": {
+      "pgmigrate_success": 7,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 73518,
+      "pgscan_direct": 0,
+      "pswpin": 3646,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-128000-run-1",
+    "expected_prompt_tokens": 128000,
+    "request_sha256": "0cf06c37bb49249d0918f655a1d2383e98b79afbc16d152fa75829d10fcb2324",
+    "client_ttft_s": 103.81191242998466,
+    "client_elapsed_s": 108.82258365798043,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 128000,
+      "completion_tokens": 256,
+      "total_tokens": 128256,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791956322.5337505,
+      "duration_s": 108.8,
+      "finish": "length",
+      "prompt_tokens": 128000,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 128000,
+      "prompt_read": 128000,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 103708.2,
+      "decode_ms": 5042.5,
+      "decode_tok_s": 50.8,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 201,
+      "drafts_accepted": 153
+    },
+    "text": "The provided Python module represents a synthetic, highly repetitive codebase designed to test the limits of static analysis, code generation, and model comprehension. It consists of thousands of individual function definitions, each named sequentially (e.g., `task_00000`, `task_00001`, etc.), that perform a specific linear transformation on an integer input. While the code appears verbose and redundant, it serves as an excellent case study for discussing deterministic integer transforms, modular arithmetic, software maintainability, and computational complexity.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nAt the core of every function in this module is a deterministic linear congruential generator (LCG) step, a fundamental concept in computer science and cryptography. The general form of the operation is:\n\n$$ f(x) = (a \\cdot x + c) \\pmod m $$\n\nWhere:\n*   $x$ is the input `value`.\n*   $a$ is the multiplier (coefficient).\n*   $c$ is the increment (constant).\n*   $m$ is the modulus, fixed at `100003` in this module.\n\nFor example, `task_00000` implements $",
+    "reclaim": {
+      "pgmigrate_success": 59525,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 147111,
+      "pgscan_direct": 0,
+      "pswpin": 7721,
+      "pswpout": 0,
+      "quiet_wait_s": 3.01,
+      "flag": true,
+      "why": [
+        "pgmigrate_success"
+      ]
+    }
+  }
+]

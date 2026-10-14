@@ -1,0 +1,279 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.5864777410170063,
+    "client_elapsed_s": 0.6525953140226193,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791895640.049991,
+      "duration_s": 0.6,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 537.5,
+      "decode_ms": 106.7,
+      "decode_tok_s": 18.7,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY",
+    "reclaim": {
+      "pgmigrate_success": 135508,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 2,
+      "pswpout": 0,
+      "quiet_wait_s": 0.0,
+      "flag": true,
+      "why": [
+        "pgmigrate_success"
+      ]
+    }
+  },
+  {
+    "label": "prime-4096",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "0fa3b0416a5e935de45bc693f8aafc6f3d6ae67bbb06670197b5f0d047230289",
+    "client_ttft_s": 5.967284302983899,
+    "client_elapsed_s": 11.592712695011869,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791895643.8755379,
+      "duration_s": 11.6,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 5922.6,
+      "decode_ms": 5660.5,
+      "decode_tok_s": 45.2,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 223,
+      "drafts_accepted": 147
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a benchmark for deterministic integer transforms. At first glance, the code appears repetitive and verbose, but it offers a rich case study in algorithmic consistency, modular arithmetic, and software maintainability. Each function accepts a single integer argument, `value`, and returns an integer result derived from a linear transformation followed by a modulo operation. The core mathematical structure of every function is identical: `(value * multiplier + addend) % 100003`. This uniformity allows for a deep analysis of how deterministic systems behave under specific constraints and highlights the trade-offs between explicit code generation and dynamic abstraction.\n\nThe primary mechanism at play is a linear congruential generator (LCG) style transform, although it is not used here for random number generation but rather for deterministic hashing or state transformation. The multiplier and addend vary systematically across the functions. For the first 97 functions (`task_00000` to `task_00096`), the multiplier increases linearly from 1 to 97, while the addend corresponds to the function index. For",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 70,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-4096-run-1",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "fc9f875d0097586cef76bef9547947dffff0a9802afa331590a6399476d65cca",
+    "client_ttft_s": 5.859203947009519,
+    "client_elapsed_s": 11.266241999983322,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791895658.6532755,
+      "duration_s": 11.3,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 5815.1,
+      "decode_ms": 5441.9,
+      "decode_tok_s": 47.0,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 211,
+      "drafts_accepted": 149
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a fascinating case study in algorithmic redundancy, modular arithmetic, and software maintainability. At first glance, the code appears to be a straightforward implementation of linear transformations, but a deeper inspection reveals a pattern that highlights significant issues in code design, specifically regarding the DRY (Don't Repeat Yourself) principle. This analysis will explore the mathematical underpinnings of these functions, their computational complexity, and the broader implications for software engineering practices.\n\n### Mathematical Structure and Deterministic Transforms\n\nEach function in the module implements a deterministic integer transform of the form $f(x) = (ax + b) \\pmod m$. Here, $x$ is the input integer, $a$ is a multiplier, $b$ is an additive constant, and $m$ is the modulus, which is consistently set to $100,003$ across all functions. The number $100,003$ is a prime number, a choice that is often significant in cryptographic contexts or hash function design because it ensures that the multiplicative group modulo $m$ is cyclic. This",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 200,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-32768-run-1",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "c93bd90a5b349befdf346dbf737c975f0b1643f0926be46ad5f5d912acac2230",
+    "client_ttft_s": 43.33525060600368,
+    "client_elapsed_s": 48.71348841395229,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "total_tokens": 33024,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791895673.2357242,
+      "duration_s": 48.7,
+      "finish": "length",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 32768,
+      "prompt_read": 32768,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 43277.8,
+      "decode_ms": 5413.3,
+      "decode_tok_s": 47.3,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 214,
+      "drafts_accepted": 156
+    },
+    "text": "The provided Python module represents a synthetic benchmark designed to evaluate the performance, memory usage, and parsing capabilities of language models or code analysis tools. It consists of a series of function definitions, ranging from `task_00000` to `task_00888`, each implementing a specific linear transformation followed by a modulo operation. While the code appears repetitive, it serves as a rigorous test case for understanding deterministic integer transforms, modular arithmetic, and software maintainability principles.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nAt the core of every function in this module is a deterministic integer transform. A deterministic transform is a function where the output is entirely determined by the input, with no randomness or side effects. In this context, each function takes an integer `value` and applies a linear equation of the form $f(x) = (ax + b) \\pmod m$. Here, $a$ is the multiplier, $b$ is the additive constant, and $m$ is the modulus, which is consistently set to `100003` across all functions.\n\nThe choice of `100003` as the modulus is significant. It is a prime number, which is a common requirement in cryptographic applications",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 1107,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-128000-run-1",
+    "expected_prompt_tokens": 128000,
+    "request_sha256": "0cf06c37bb49249d0918f655a1d2383e98b79afbc16d152fa75829d10fcb2324",
+    "client_ttft_s": 190.27374981797766,
+    "client_elapsed_s": 195.86499044898665,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 128000,
+      "completion_tokens": 256,
+      "total_tokens": 128256,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791895725.8594954,
+      "duration_s": 195.8,
+      "finish": "length",
+      "prompt_tokens": 128000,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 128000,
+      "prompt_read": 128000,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 190170.9,
+      "decode_ms": 5627.2,
+      "decode_tok_s": 45.5,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 209,
+      "drafts_accepted": 154
+    },
+    "text": "The provided Python module represents a synthetic, highly repetitive codebase designed to test the limits of static analysis, code generation, and human readability. It consists of thousands of individual function definitions, each named sequentially (e.g., `task_00000`, `task_00001`, etc.), that perform a specific linear transformation on an integer input. While the code is syntactically valid and functionally correct, it serves as a prime example of \"code bloat\" and poor software design principles, specifically regarding maintainability and scalability.\n\n### Deterministic Integer Transforms and Modulo Arithmetic\n\nAt the core of every function in this module is a deterministic integer transform. A deterministic transform is a function where the same input always produces the same output, with no side effects or reliance on external state. The formula used in each function is a variation of a linear congruential generator (LCG) step, specifically:\n\n$$ f(x) = (a \\cdot x + c) \\pmod m $$\n\nWhere:\n*   $x$ is the input `value`.\n*   $a$ is the multiplier (coefficient).\n*   $c$ is the additive constant.\n*   $m$ is the",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 9855,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  }
+]

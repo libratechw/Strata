@@ -1,0 +1,125 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.2910335320048034,
+    "client_elapsed_s": 0.3558495379984379,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791871342.192259,
+      "duration_s": 0.4,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 241.7,
+      "decode_ms": 105.9,
+      "decode_tok_s": 18.9,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY"
+  },
+  {
+    "label": "tokens-4096-run-1",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "cbacc5713694a38ea95da2429c6363613d9e9a43e28e3a4193c820f7dc892057",
+    "client_ttft_s": 6.065482167003211,
+    "client_elapsed_s": 11.489657632948365,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791871342.6808906,
+      "duration_s": 11.5,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 6022.2,
+      "decode_ms": 5459.5,
+      "decode_tok_s": 46.9,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 219,
+      "drafts_accepted": 150
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a benchmark for deterministic integer transforms. At first glance, the code appears repetitive and verbose, but it offers a rich case study in algorithmic consistency, modular arithmetic, and software maintainability. Each function accepts a single integer argument, `value`, and returns an integer result derived from a linear transformation followed by a modulo operation. The core formula for each function can be generalized as $f_n(x) = (x \\cdot (n + 1) + n) \\pmod{100003}$, where $n$ is the integer suffix of the function name. This structure ensures that every function performs a unique, yet structurally identical, mathematical operation.\n\nThe primary mathematical concept at play is modular arithmetic, specifically using the prime number 100,003 as the modulus. The choice of a prime modulus is significant in computer science and cryptography because it ensures that the ring of integers modulo $p$ is a field, meaning every non-zero element has a multiplicative inverse. This property is crucial for certain types of hashing and random number generation. The linear transform"
+  },
+  {
+    "label": "tokens-4096-run-2",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "c046febf8ef4ee600d7ab44d7411d5b8f9671065d432ccea0caa06faa69eeff3",
+    "client_ttft_s": 5.99995112803299,
+    "client_elapsed_s": 11.392593773023691,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791871354.293436,
+      "duration_s": 11.4,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 5957.5,
+      "decode_ms": 5427.1,
+      "decode_tok_s": 47.2,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 220,
+      "drafts_accepted": 151
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a case study in algorithmic redundancy, modular arithmetic, and code maintainability. At first glance, the module appears to be a comprehensive suite of mathematical transformations, but a deeper analysis reveals a highly repetitive structure that begs for refactoring. The core logic of each function is identical in form, differing only in specific integer constants. This pattern allows for a detailed discussion on deterministic integer transforms, the role of modulo arithmetic in preventing overflow, and the critical importance of abstraction in software engineering.\n\nEach function in the module accepts a single integer argument, `value`, and returns an integer result. The transformation applied is a linear affine transformation defined by the formula $f(x) = (a \\cdot x + b) \\pmod m$, where $a$ is the multiplier, $b$ is the additive constant, and $m$ is the modulus. In this specific module, the modulus $m$ is consistently set to $100,003$, a prime number. The use of a prime modulus is significant in computer science, particularly in cryptography and hashing algorithms, as it ensures that the"
+  }
+]

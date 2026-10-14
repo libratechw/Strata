@@ -1,0 +1,125 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.27073808398563415,
+    "client_elapsed_s": 0.3295301659964025,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791870173.4894543,
+      "duration_s": 0.3,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 228.4,
+      "decode_ms": 94.6,
+      "decode_tok_s": 21.1,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY"
+  },
+  {
+    "label": "tokens-4096-run-1",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "cbacc5713694a38ea95da2429c6363613d9e9a43e28e3a4193c820f7dc892057",
+    "client_ttft_s": 3.739502837008331,
+    "client_elapsed_s": 8.904248462000396,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791870173.9410744,
+      "duration_s": 8.9,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 3701.6,
+      "decode_ms": 5195.0,
+      "decode_tok_s": 49.3,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 221,
+      "drafts_accepted": 150
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a fascinating case study in algorithmic redundancy, modular arithmetic, and software maintainability. At first glance, the code appears to be a straightforward implementation of linear transformations, but a deeper inspection reveals a pattern that is both mathematically interesting and practically problematic. The core operation in each function is a linear congruential transformation defined by the formula $f(x) = (a \\cdot x + b) \\pmod m$, where $m$ is the prime number 100,003.\n\n### Deterministic Integer Transforms and Modulo Arithmetic\n\nEach function in the module performs a deterministic integer transform. Determinism here means that for any given input `value`, the output will always be the same, assuming no external state changes. The transformation relies on two parameters: a multiplier $a$ and an addend $b$. For the first 97 functions (`task_00000` to `task_00096`), the multiplier $a$ increments by 1 for each subsequent function, starting from 1, while the addend $"
+  },
+  {
+    "label": "tokens-4096-run-2",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "c046febf8ef4ee600d7ab44d7411d5b8f9671065d432ccea0caa06faa69eeff3",
+    "client_ttft_s": 3.659718248003628,
+    "client_elapsed_s": 8.672279389982577,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791870182.9963977,
+      "duration_s": 8.7,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 3621.7,
+      "decode_ms": 5042.9,
+      "decode_tok_s": 50.8,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 223,
+      "drafts_accepted": 146
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a fascinating case study in algorithmic redundancy, modular arithmetic, and software maintainability. At first glance, the code appears to be a straightforward implementation of linear transformations, but a deeper inspection reveals a pattern that highlights significant issues in code design, specifically regarding repetition and the potential for abstraction.\n\n### Deterministic Integer Transforms and Modulo Arithmetic\n\nEach function in the module performs a deterministic integer transform. The general form of the operation is $f(x) = (x \\cdot a + b) \\pmod m$, where $m$ is the constant `100003`. This modulus is a prime number, which is a common choice in cryptographic hashing and random number generation because it ensures that the multiplicative group of integers modulo $m$ is cyclic. This property is crucial for ensuring that the transformation is bijective (one-to-one and onto) if $\\gcd(a, m) = 1$. Since $100003$ is prime, any $a$ not divisible by $100003$ will result in a permutation of the input space"
+  }
+]

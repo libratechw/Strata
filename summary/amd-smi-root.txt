@@ -1,0 +1,6 @@
+sudo amd-smi event --json (amd-smi 27.1.0), as root on this box, right after start:
+EVENT LISTENING:
+Press q and hit ENTER when you want to stop.
+Exception in thread Thread-2 (_event_thread):
+amdsmi.amdsmi_exception.AmdSmiLibraryException: Error code:
+        14 | AMDSMI_STATUS_FILE_ERROR - Error opening file

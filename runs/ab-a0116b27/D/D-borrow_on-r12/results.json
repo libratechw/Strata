@@ -1,0 +1,167 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.2916890429914929,
+    "client_elapsed_s": 0.35686547798104584,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791902891.254761,
+      "duration_s": 0.4,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 242.2,
+      "decode_ms": 107.8,
+      "decode_tok_s": 18.6,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 0,
+      "pswpout": 0,
+      "quiet_wait_s": 0.0,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "prime-4096",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "2464ba0ac15214435f4b925f683f1f44be0bedee183a1d974121138265ef5074",
+    "client_ttft_s": 6.046543090022169,
+    "client_elapsed_s": 11.84432440000819,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791902894.7775025,
+      "duration_s": 11.8,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 6002.7,
+      "decode_ms": 5832.5,
+      "decode_tok_s": 43.9,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 232,
+      "drafts_accepted": 144
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a benchmark for deterministic integer transforms. At first glance, the code appears repetitive and verbose, but it offers a rich case study in algorithmic consistency, modular arithmetic, and software maintainability. Each function accepts a single integer argument, `value`, and returns an integer result derived from a linear transformation followed by a modulo operation. The core mathematical structure of every function is identical: `(value * multiplier + addend) % 100003`. This uniformity allows for a deep analysis of how deterministic systems behave under specific constraints and highlights the trade-offs between explicit code generation and dynamic abstraction.\n\nThe primary mechanism at play is a linear congruential generator (LCG) style transform, although it is not used here for random number generation but rather for deterministic hashing or state transformation. The multiplier and addend vary systematically across the functions. For the first 97 functions (`task_00000` to `task_00096`), the multiplier increases linearly from 1 to 97, while the addend corresponds to the function index. For",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 24,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-32768-run-1",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "5014d2611906047755cdda5bd65bd2ddd0069bc1ea1f4ad686d51d5a6c4d5c45",
+    "client_ttft_s": 43.55855837999843,
+    "client_elapsed_s": 49.05076638999162,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "total_tokens": 33024,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791902909.9365528,
+      "duration_s": 49.0,
+      "finish": "length",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 32768,
+      "prompt_read": 32768,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 43501.0,
+      "decode_ms": 5526.9,
+      "decode_tok_s": 46.3,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 221,
+      "drafts_accepted": 155
+    },
+    "text": "The provided Python module represents a synthetic, highly repetitive codebase designed to test specific aspects of code generation, parsing, and execution environments. At its core, the module defines a series of functions, named sequentially from `task_00000` to `task_00888`, each performing a deterministic integer transformation. While the code appears verbose and redundant, it serves as an excellent case study for discussing algorithmic patterns, modular arithmetic, software maintainability, and the trade-offs between explicit definition and dynamic generation.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nEach function in the module follows a strict mathematical pattern: `return (value * multiplier + offset) % 100003`. This is a linear congruential generator (LCG) step, a common primitive in pseudorandom number generation and cryptographic hashing. The operation consists of three parts: multiplication, addition, and modulo reduction.\n\n1.  **Multiplication and Addition**: The input `value` is scaled by a `multiplier` and shifted by an `offset`. In the first block of functions (`task_00000` to `task_00096`), the multiplier increases linearly from 1 to 9",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 50,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  }
+]

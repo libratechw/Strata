@@ -1,0 +1,13 @@
+EVENT LISTENING:
+
+Press q and hit ENTER when you want to stop.
+[
+    {
+        "gpu": 0,
+        "event": "PROCESS_START",
+        "message": {
+            "PID": "3113349",
+            "task": "strata"
+        }
+    }
+]

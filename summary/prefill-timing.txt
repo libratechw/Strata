@@ -1,0 +1,16 @@
+== pt-0-5 read in 7083 ms
+ embed+steps 21 (0.3%) hc read 555 (8.2%) gdn 478 (7.1%) qsa proj 315 (4.7%) qsa indexer 1 (0.0%) qsa select 24 (0.4%) qsa attn 873 (12.9%) router+shared 110 (1.6%) host grouping 18 (0.3%) gather 62 (0.9%) wait copy 1 (0.0%) dequant 549 (8.2%) gemm gate/up 2293 (34.0%) gemm down 626 (9.3%) combine 230 (3.4%) ple 22 (0.3%) kv stage 0 (0.0%) gdn conv+gates 64 (0.9%) gdn recurrence 192 (2.8%) gdn out proj 306 (4.5%)
+== pt-0-8 read in 6219 ms
+ embed+steps 2 (0.0%) hc read 581 (9.9%) gdn 461 (7.8%) qsa proj 311 (5.3%) qsa indexer 1 (0.0%) qsa select 24 (0.4%) qsa attn 873 (14.9%) router+shared 109 (1.9%) host grouping 18 (0.3%) gather 63 (1.1%) wait copy 1 (0.0%) dequant 548 (9.3%) gemm gate/up 1252 (21.3%) gemm down 821 (14.0%) combine 229 (3.9%) ple 22 (0.4%) kv stage 0 (0.0%) gdn conv+gates 64 (1.1%) gdn recurrence 191 (3.2%) gdn out proj 305 (5.2%)
+== pt-0-10 read in 6361 ms
+ embed+steps 6 (0.1%) hc read 868 (14.4%) gdn 496 (8.2%) qsa proj 309 (5.1%) qsa indexer 1 (0.0%) qsa select 24 (0.4%) qsa attn 877 (14.6%) router+shared 110 (1.8%) host grouping 19 (0.3%) gather 63 (1.0%) wait copy 1 (0.0%) dequant 550 (9.1%) gemm gate/up 1249 (20.8%) gemm down 627 (10.4%) combine 231 (3.8%) ple 21 (0.4%) kv stage 0 (0.0%) gdn conv+gates 63 (1.0%) gdn recurrence 192 (3.2%) gdn out proj 313 (5.2%)
+== pt-0-4 read in 6045 ms
+ embed+steps 2 (0.0%) hc read 574 (10.1%) gdn 473 (8.3%) qsa proj 315 (5.5%) qsa indexer 1 (0.0%) qsa select 24 (0.4%) qsa attn 873 (15.3%) router+shared 110 (1.9%) host grouping 17 (0.3%) gather 62 (1.1%) wait copy 1 (0.0%) dequant 553 (9.7%) gemm gate/up 1250 (22.0%) gemm down 624 (11.0%) combine 230 (4.0%) ple 22 (0.4%) kv stage 0 (0.0%) gdn conv+gates 64 (1.1%) gdn recurrence 191 (3.4%) gdn out proj 309 (5.4%)
+== vm-0-5 read in 6294 ms
+ embed+steps 3 (0.0%) hc read 613 (10.3%) gdn 685 (11.5%) qsa proj 315 (5.3%) qsa indexer 1 (0.0%) qsa select 24 (0.4%) qsa attn 877 (14.8%) router+shared 109 (1.8%) host grouping 18 (0.3%) gather 62 (1.0%) wait copy 1 (0.0%) dequant 548 (9.2%) gemm gate/up 1246 (21.0%) gemm down 624 (10.5%) combine 228 (3.8%) ple 22 (0.4%) kv stage 0 (0.0%) gdn conv+gates 64 (1.1%) gdn recurrence 191 (3.2%) gdn out proj 311 (5.2%)
+== vm-0-7 read in 7565 ms
+ embed+steps 5 (0.1%) hc read 576 (8.0%) gdn 460 (6.4%) qsa proj 309 (4.3%) qsa indexer 1 (0.0%) qsa select 24 (0.3%) qsa attn 872 (12.1%) router+shared 109 (1.5%) host grouping 16 (0.2%) gather 63 (0.9%) wait copy 1 (0.0%) dequant 548 (7.6%) gemm gate/up 2793 (38.8%) gemm down 621 (8.6%) combine 229 (3.2%) ple 22 (0.3%) kv stage 0 (0.0%) gdn conv+gates 64 (0.9%) gdn recurrence 192 (2.7%) gdn out proj 305 (4.2%)
+== vm-0-1 read in 6008 ms
+ embed+steps 10 (0.2%) hc read 578 (10.2%) gdn 463 (8.2%) qsa proj 312 (5.5%) qsa indexer 1 (0.0%) qsa select 24 (0.4%) qsa attn 868 (15.3%) router+shared 108 (1.9%) host grouping 15 (0.3%) gather 62 (1.1%) wait copy 1 (0.0%) dequant 547 (9.7%) gemm gate/up 1243 (21.9%) gemm down 621 (11.0%) combine 229 (4.0%) ple 22 (0.4%) kv stage 0 (0.0%) gdn conv+gates 64 (1.1%) gdn recurrence 189 (3.3%) gdn out proj 307 (5.4%)
+== nouserptr-0-7 read in 7341 ms
+strata prefill timing: 4089 tokens, GPU timeline 5719 ms, wall 5746 ms, host staging 262 ms: embed+steps 3 (0.1%) hc rea

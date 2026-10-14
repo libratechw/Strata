@@ -1,0 +1,125 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.2939887880347669,
+    "client_elapsed_s": 0.3590877500246279,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791938359.144502,
+      "duration_s": 0.4,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 244.6,
+      "decode_ms": 108.0,
+      "decode_tok_s": 18.5,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY"
+  },
+  {
+    "label": "tokens-4096-run-1",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "4c394485a3d75ac55f7fba3614580b41fcb7edec88778c04876681e6d6df5d64",
+    "client_ttft_s": 6.04842730902601,
+    "client_elapsed_s": 11.85003491200041,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791938359.6552105,
+      "duration_s": 11.8,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 6005.0,
+      "decode_ms": 5836.4,
+      "decode_tok_s": 43.9,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 234,
+      "drafts_accepted": 146
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a benchmark for deterministic integer transforms. At first glance, the code appears repetitive and verbose, but it offers a rich case study in algorithmic consistency, modular arithmetic, and software maintainability. Each function accepts a single integer argument, `value`, and returns an integer result derived from a linear transformation followed by a modulo operation. The core mathematical pattern across all functions is consistent: `return (value * multiplier + addend) % 100003`. This structure ensures that the output is always constrained within the range `[0, 100002]`, regardless of the magnitude of the input `value`.\n\nThe choice of `100003` as the modulus is significant. It is a prime number, which is a common practice in hashing algorithms and pseudo-random number generators to ensure better distribution of results and to avoid certain periodic patterns that composite moduli might introduce. By applying this modulus, the functions transform potentially unbounded integer inputs into a fixed-size output space. This is a classic example of a deterministic integer transform, where the same input always yields the"
+  },
+  {
+    "label": "tokens-4096-run-2",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "05a85caa39b93de8cfe75deb9bc1cdf0687a0eaffebd2cb87fcd38ede0956e55",
+    "client_ttft_s": 6.009355333982967,
+    "client_elapsed_s": 11.798278051952366,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1791938371.633299,
+      "duration_s": 11.8,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 5968.4,
+      "decode_ms": 5823.4,
+      "decode_tok_s": 44.0,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 235,
+      "drafts_accepted": 143
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, that serve as a benchmark for deterministic integer transforms. At first glance, the code appears repetitive and verbose, but it offers a rich case study in algorithmic consistency, modular arithmetic, and software maintainability. Each function accepts a single integer argument, `value`, and returns an integer result derived from a linear transformation followed by a modulo operation. The core formula for each function can be generalized as $f_n(x) = (x \\cdot (n + 1) + n) \\pmod{100003}$, where $n$ is the integer suffix of the function name. This structure ensures that every function performs a unique, yet structurally identical, mathematical operation.\n\nThe primary mathematical concept at play is deterministic integer transformation. Determinism is crucial in testing and benchmarking because it guarantees that the same input will always produce the same output, regardless of the environment or execution time. This predictability allows developers to create robust unit tests where expected outputs can be pre-calculated. The transformation itself is linear, involving multiplication and addition, which are fundamental arithmetic operations. However, the inclusion of the"
+  }
+]

@@ -1,0 +1,8 @@
+# bootstrap: 10,000 resamples of the 11 log ratios, 2.5 and 97.5 percentiles of the mean, exp; seed 1
+# 11-pair 4K A/B, same engines: the first 4K prompt of each engine (RUN=1) and the second (RUN=2); ratio off/on
+## first
+F   4096: n=11 median 1.0170 geomean 1.0257 95% CI [0.9789, 1.0782] faster 8/11 sign p=0.2266 t-test p=0.3562 min 0.911 max 1.194 pairs dropped (reclaim) 0
+D   4096: n=11 median 1.0108 geomean 1.0339 95% CI [0.9930, 1.0976] faster 9/11 sign p=0.0654 t-test p=0.2704 min 0.950 max 1.353 pairs dropped (reclaim) 0
+## second
+F   4096: n=11 median 1.0180 geomean 1.0182 95% CI [1.0163, 1.0200] faster 11/11 sign p=0.0010 t-test p=0.0000 min 1.013 max 1.023 pairs dropped (reclaim) 0
+D   4096: n=11 median 1.0146 geomean 1.0136 95% CI [1.0108, 1.0160] faster 11/11 sign p=0.0010 t-test p=0.0000 min 1.004 max 1.019 pairs dropped (reclaim) 0

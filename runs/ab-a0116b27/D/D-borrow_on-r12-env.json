@@ -1,0 +1,4 @@
+{
+  "STRATA_HIPBLASLT_TUNING": "/data/ssd/llm-src/strata-gdnc/tools/hip/gfx1151-hipblaslt-100401.txt",
+  "STRATA_GDN_CHUNKED": "1"
+}

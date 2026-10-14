@@ -1,0 +1,73 @@
+{"timestamp": 1791870096.161003, "event": "server-start", "arm": "F-borrow@off", "round": 0, "pid": 3128102}
+{"timestamp": 1791870124.1807353, "event": "server-ready", "arm": "F-borrow@off", "round": 0}
+{"timestamp": 1791870142.8512077, "event": "client-done", "arm": "F-borrow@off", "round": 0, "returncode": 0}
+{"timestamp": 1791870145.1728716, "event": "server-start", "arm": "F-borrow@on", "round": 0, "pid": 3128455}
+{"timestamp": 1791870173.184989, "event": "server-ready", "arm": "F-borrow@on", "round": 0}
+{"timestamp": 1791870191.7276726, "event": "client-done", "arm": "F-borrow@on", "round": 0, "returncode": 0}
+{"timestamp": 1791870194.0194302, "event": "server-start", "arm": "F-borrow@off", "round": 1, "pid": 3128613}
+{"timestamp": 1791870224.0398736, "event": "server-ready", "arm": "F-borrow@off", "round": 1}
+{"timestamp": 1791870243.5411212, "event": "client-done", "arm": "F-borrow@off", "round": 1, "returncode": 0}
+{"timestamp": 1791870246.2894838, "event": "server-start", "arm": "F-borrow@on", "round": 1, "pid": 3128756}
+{"timestamp": 1791870276.3005216, "event": "server-ready", "arm": "F-borrow@on", "round": 1}
+{"timestamp": 1791870294.8916774, "event": "client-done", "arm": "F-borrow@on", "round": 1, "returncode": 0}
+{"timestamp": 1791870297.3688836, "event": "server-start", "arm": "F-borrow@on", "round": 2, "pid": 3128990}
+{"timestamp": 1791870325.381387, "event": "server-ready", "arm": "F-borrow@on", "round": 2}
+{"timestamp": 1791870343.922115, "event": "client-done", "arm": "F-borrow@on", "round": 2, "returncode": 0}
+{"timestamp": 1791870346.245434, "event": "server-start", "arm": "F-borrow@off", "round": 2, "pid": 3129145}
+{"timestamp": 1791870376.299148, "event": "server-ready", "arm": "F-borrow@off", "round": 2}
+{"timestamp": 1791870395.903087, "event": "client-done", "arm": "F-borrow@off", "round": 2, "returncode": 0}
+{"timestamp": 1791870398.6266704, "event": "server-start", "arm": "F-borrow@off", "round": 3, "pid": 3129277}
+{"timestamp": 1791870426.6396778, "event": "server-ready", "arm": "F-borrow@off", "round": 3}
+{"timestamp": 1791870445.437613, "event": "client-done", "arm": "F-borrow@off", "round": 3, "returncode": 0}
+{"timestamp": 1791870447.7081728, "event": "server-start", "arm": "F-borrow@on", "round": 3, "pid": 3129436}
+{"timestamp": 1791870477.725672, "event": "server-ready", "arm": "F-borrow@on", "round": 3}
+{"timestamp": 1791870496.274199, "event": "client-done", "arm": "F-borrow@on", "round": 3, "returncode": 0}
+{"timestamp": 1791870498.7519567, "event": "server-start", "arm": "F-borrow@on", "round": 4, "pid": 3129565}
+{"timestamp": 1791870528.7689497, "event": "server-ready", "arm": "F-borrow@on", "round": 4}
+{"timestamp": 1791870547.1501763, "event": "client-done", "arm": "F-borrow@on", "round": 4, "returncode": 0}
+{"timestamp": 1791870549.4727173, "event": "server-start", "arm": "F-borrow@off", "round": 4, "pid": 3129707}
+{"timestamp": 1791870579.4947126, "event": "server-ready", "arm": "F-borrow@off", "round": 4}
+{"timestamp": 1791870599.068951, "event": "client-done", "arm": "F-borrow@off", "round": 4, "returncode": 0}
+{"timestamp": 1791870601.8433237, "event": "server-start", "arm": "F-borrow@off", "round": 5, "pid": 3129866}
+{"timestamp": 1791870633.859206, "event": "server-ready", "arm": "F-borrow@off", "round": 5}
+{"timestamp": 1791870652.862046, "event": "client-done", "arm": "F-borrow@off", "round": 5, "returncode": 0}
+{"timestamp": 1791870655.2031689, "event": "server-start", "arm": "F-borrow@on", "round": 5, "pid": 3130015}
+{"timestamp": 1791870683.2188597, "event": "server-ready", "arm": "F-borrow@on", "round": 5}
+{"timestamp": 1791870702.6196578, "event": "client-done", "arm": "F-borrow@on", "round": 5, "returncode": 0}
+{"timestamp": 1791870704.9937305, "event": "server-start", "arm": "F-borrow@on", "round": 6, "pid": 3130171}
+{"timestamp": 1791870735.0072997, "event": "server-ready", "arm": "F-borrow@on", "round": 6}
+{"timestamp": 1791870753.7929103, "event": "client-done", "arm": "F-borrow@on", "round": 6, "returncode": 0}
+{"timestamp": 1791870756.1169224, "event": "server-start", "arm": "F-borrow@off", "round": 6, "pid": 3130341}
+{"timestamp": 1791870784.1310024, "event": "server-ready", "arm": "F-borrow@off", "round": 6}
+{"timestamp": 1791870802.7735019, "event": "client-done", "arm": "F-borrow@off", "round": 6, "returncode": 0}
+{"timestamp": 1791870805.0950444, "event": "server-start", "arm": "F-borrow@off", "round": 7, "pid": 3130480}
+{"timestamp": 1791870835.1152284, "event": "server-ready", "arm": "F-borrow@off", "round": 7}
+{"timestamp": 1791870854.1626487, "event": "client-done", "arm": "F-borrow@off", "round": 7, "returncode": 0}
+{"timestamp": 1791870856.8920417, "event": "server-start", "arm": "F-borrow@on", "round": 7, "pid": 3130624}
+{"timestamp": 1791870884.9083097, "event": "server-ready", "arm": "F-borrow@on", "round": 7}
+{"timestamp": 1791870903.9969878, "event": "client-done", "arm": "F-borrow@on", "round": 7, "returncode": 0}
+{"timestamp": 1791870906.2211776, "event": "server-start", "arm": "F-borrow@on", "round": 8, "pid": 3130772}
+{"timestamp": 1791870936.2355273, "event": "server-ready", "arm": "F-borrow@on", "round": 8}
+{"timestamp": 1791870954.8730772, "event": "client-done", "arm": "F-borrow@on", "round": 8, "returncode": 0}
+{"timestamp": 1791870957.3044505, "event": "server-start", "arm": "F-borrow@off", "round": 8, "pid": 3130918}
+{"timestamp": 1791870985.3220422, "event": "server-ready", "arm": "F-borrow@off", "round": 8}
+{"timestamp": 1791871004.821977, "event": "client-done", "arm": "F-borrow@off", "round": 8, "returncode": 0}
+{"timestamp": 1791871007.493291, "event": "server-start", "arm": "F-borrow@off", "round": 9, "pid": 3131077}
+{"timestamp": 1791871039.505972, "event": "server-ready", "arm": "F-borrow@off", "round": 9}
+{"timestamp": 1791871057.8962774, "event": "client-done", "arm": "F-borrow@off", "round": 9, "returncode": 0}
+{"timestamp": 1791871060.184733, "event": "server-start", "arm": "F-borrow@on", "round": 9, "pid": 3131219}
+{"timestamp": 1791871090.2016017, "event": "server-ready", "arm": "F-borrow@on", "round": 9}
+{"timestamp": 1791871108.897088, "event": "client-done", "arm": "F-borrow@on", "round": 9, "returncode": 0}
+{"timestamp": 1791871111.1862102, "event": "server-start", "arm": "F-borrow@on", "round": 10, "pid": 3131349}
+{"timestamp": 1791871141.2038884, "event": "server-ready", "arm": "F-borrow@on", "round": 10}
+{"timestamp": 1791871160.0446377, "event": "client-done", "arm": "F-borrow@on", "round": 10, "returncode": 0}
+{"timestamp": 1791871162.47346, "event": "server-start", "arm": "F-borrow@off", "round": 10, "pid": 3131515}
+{"timestamp": 1791871192.4892392, "event": "server-ready", "arm": "F-borrow@off", "round": 10}
+{"timestamp": 1791871211.2769508, "event": "client-done", "arm": "F-borrow@off", "round": 10, "returncode": 0}
+{"timestamp": 1791871213.5670767, "event": "server-start", "arm": "F-borrow@off", "round": 11, "pid": 3131657}
+{"timestamp": 1791871243.5822978, "event": "server-ready", "arm": "F-borrow@off", "round": 11}
+{"timestamp": 1791871261.9619918, "event": "client-done", "arm": "F-borrow@off", "round": 11, "returncode": 0}
+{"timestamp": 1791871264.2344406, "event": "server-start", "arm": "F-borrow@on", "round": 11, "pid": 3131876}
+{"timestamp": 1791871294.2626383, "event": "server-ready", "arm": "F-borrow@on", "round": 11}
+{"timestamp": 1791871313.0549994, "event": "client-done", "arm": "F-borrow@on", "round": 11, "returncode": 0}
+{"timestamp": 1791871315.7459083, "event": "done"}
