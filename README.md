@@ -31,3 +31,12 @@ prompt_ms ratio with a 95% bootstrap interval; `pairs-N.txt` (`scripts/pairs-ab.
   77506be1. `f16-*-run.txt`: 77506be1's test with the switch (the K-quant pairs, then the default pairs). `kl/`: first-token KL
   (`klrun.py` per arm; R no switches, B the section-5 switches with STRATA_PF_SWITCH_MIN_T=0 and STRATA_PF_FUSED=1, plus
   STRATA_PF_FUSED_KQ=1 for UD-Q4_K_XL, C = B + STRATA_PF_F16=1), `summary.json` with each request's hash and value.
+- `2019q/`: #2019 (STRATA_QPREP, after the attention gate was split off). Both arms run the branch's binary (d61666ed's
+  code), `F-borrow` without and `F-borrow_on` with `STRATA_QPREP=1`. `extra/`: a local copy of `hip_prefill_q_prep` widened
+  to 72 combinations (none / linear / YaRN scaling, the angle table on / off, MRoPE on / off, 1 / 65 / 513 tokens, start
+  positions 0 / 8,190), its log and result, linked against the build that carried both fusions (the same `q_prep` code).
+- `2019g/`: STRATA_ATTN_GATE (split off #2019). Both arms run the branch's binary (b496d3fb's code), `F-borrow` without and
+  `F-borrow_on` with `STRATA_ATTN_GATE=1`. `default-path-hash.txt`: `hip_prompt_attn_wmma 32768 2048 3` without the switch,
+  STRATA_PA_FAST=0 / 1, two rounds, the output hash per case, 296b59d2 against the build that carried both fusions (whose
+  attention files are this branch's). `extra/`: a local copy of the gated check with an output row stride of 6,152 and the
+  padding filled with a sentinel, and its log (its FAIL lines are the fast kernel against FP64, which it misses by design).

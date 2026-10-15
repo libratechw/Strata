@@ -1,0 +1,11 @@
+strata: STRATA_HIP_WMMA: the prompt attention on matrix cores on (gfx1151)
+NEWHASH dffd3e15bcfe6da6
+PASS gated epilogue: 0 of 3149824 FP16 values differ from the attention + gate_attn
+FAIL int8 ctx 32768, 512 queries: vs FP64 old 1.77e-06 new 0.00193 (output scale 3.17); new vs old 0.00442 (0.0012 of scale); 17.966 -> 3.239 ms per chunk (5.55x)
+NEWHASH e9461630abd7d3e3
+PASS gated epilogue: 0 of 3149824 FP16 values differ from the attention + gate_attn
+FAIL int8 ctx 1500, 512 queries: vs FP64 old 1.75e-06 new 0.00252 (output scale 3.76); new vs old 0.00301 (0.0008 of scale); 10.428 -> 1.774 ms per chunk (5.88x)
+NEWHASH a4729d041cb910c0
+PASS gated epilogue: 0 of 1574912 FP16 values differ from the attention + gate_attn
+FAIL int8 ctx 2100, 256 queries: vs FP64 old 2.03e-06 new 0.00204 (output scale 3.61); new vs old 0.00289 (0.0008 of scale); 7.961 -> 1.357 ms per chunk (5.86x)
+FAILURES: 0

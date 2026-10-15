@@ -1,0 +1,13 @@
+{
+  "completed_at": "2026-10-15T13:19:04.221325+09:00",
+  "command": [
+    "qprep_extended_checked"
+  ],
+  "returncode": 0,
+  "seconds": 2.1211304664611816,
+  "passed_cases": 72,
+  "registration_checks_active": true,
+  "source_head": "ee0195ca0dc3d7551ed87f164a298e6d86884da6",
+  "exe_sha256": "ebf34c7b01ab83f334cb4df5cb2b55f4b63ebe2d93da2c67857cbcaf104c82a6",
+  "test_source_sha256": "597132e9d5b5945c6ce5f310c7578c0fc6454461c58bc9d7a8a15284fc1b9aed"
+}
