@@ -1,0 +1,167 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.35857587098143995,
+    "client_elapsed_s": 0.42579700995702296,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792037226.6909883,
+      "duration_s": 0.4,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 291.0,
+      "decode_ms": 129.2,
+      "decode_tok_s": 15.5,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY",
+    "reclaim": {
+      "pgmigrate_success": 4832,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 1,
+      "pswpout": 0,
+      "quiet_wait_s": 0.0,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "prime-4096",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "ef2430ed217c6b691f5d5f6dbed375e26482a8e32034a83e8e588fa845b688f4",
+    "client_ttft_s": 3.3181159859523177,
+    "client_elapsed_s": 9.046946906950325,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792037231.0524032,
+      "duration_s": 9.0,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 3275.2,
+      "decode_ms": 5761.7,
+      "decode_tok_s": 44.4,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 220,
+      "drafts_accepted": 144
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, each designed to perform a specific deterministic integer transformation. At first glance, the code appears to be a generated dataset or a benchmarking harness, likely used for testing compiler optimizations, static analysis tools, or cryptographic hash functions. The core logic of each function is deceptively simple: it takes an integer input, applies a linear transformation, and reduces the result modulo a large prime number. Despite the repetitive nature of the code, analyzing it reveals significant insights into modular arithmetic, software maintainability, and the trade-offs between explicit definition and dynamic generation.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nEach function follows a strict pattern: `return (value * multiplier + addend) % 100003`. This is a linear congruential generator (LCG) step, a fundamental concept in pseudorandom number generation and cryptography. The operation `(a * x + c) % m` is deterministic, meaning that for any given input `value`, the output will always be the same. This property is crucial for reproducible testing and debugging.\n\nThe modulus used is `1000",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 100,
+      "pswpout": 0,
+      "quiet_wait_s": 3.77,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-32768-run-1",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "c19ea14b3dd9a6e3de4ead5096565cc7f41ad17b0a4e39d58ec4019cb567050e",
+    "client_ttft_s": 23.126675895997323,
+    "client_elapsed_s": 28.587063057988416,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "total_tokens": 33024,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792037243.4145362,
+      "duration_s": 28.6,
+      "finish": "length",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 32768,
+      "prompt_read": 32768,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 23072.4,
+      "decode_ms": 5492.7,
+      "decode_tok_s": 46.6,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 215,
+      "drafts_accepted": 158
+    },
+    "text": "The provided Python module represents a synthetic benchmark designed to evaluate the performance, memory usage, and parsing capabilities of code generation models or static analysis tools. The module consists of 889 distinct functions, ranging from `task_00000` to `task_00888`. Each function accepts a single integer argument, `value`, and returns an integer result derived from a specific linear transformation followed by a modulo operation. This structure serves as a stress test for handling repetitive, high-volume code patterns while maintaining strict syntactic and semantic correctness.\n\n### Deterministic Integer Transforms and Modulo Arithmetic\n\nAt the core of every function in this module is a deterministic linear congruential generator (LCG) style transform. The general formula for any function `task_NNNNN` is:\n\n$$ f(v) = (v \\times A + B) \\pmod{M} $$\n\nWhere:\n*   $v$ is the input integer.\n*   $A$ is the multiplier.\n*   $B$ is the additive constant.\n*   $M$ is the modulus, fixed at `100003` for all functions.\n\nThe modulus `100003` is a",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 1157,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  }
+]

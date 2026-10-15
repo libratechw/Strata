@@ -1,0 +1,169 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.31059090298367664,
+    "client_elapsed_s": 0.6421421929844655,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792036868.4676976,
+      "duration_s": 0.6,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 263.3,
+      "decode_ms": 373.1,
+      "decode_tok_s": 5.4,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY",
+    "reclaim": {
+      "pgmigrate_success": 80824,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 73472,
+      "pgscan_direct": 0,
+      "pswpin": 1,
+      "pswpout": 0,
+      "quiet_wait_s": 0.0,
+      "flag": true,
+      "why": [
+        "pgmigrate_success"
+      ]
+    }
+  },
+  {
+    "label": "prime-4096",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "19446b1b55cd59c959d50a68c5dbf83e11a6d7d097090c4e9c75bb7d82aaa233",
+    "client_ttft_s": 3.314688673999626,
+    "client_elapsed_s": 8.76761506398907,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792036872.284512,
+      "duration_s": 8.8,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 3272.1,
+      "decode_ms": 5485.8,
+      "decode_tok_s": 46.7,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 210,
+      "drafts_accepted": 148
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, each designed to perform a specific deterministic integer transformation. At first glance, the code appears to be a generated dataset or a benchmarking harness, likely used for testing compiler optimizations, static analysis tools, or cryptographic hash functions. The core logic of each function is deceptively simple: it takes an integer input, applies a linear transformation, and reduces the result modulo a large prime number. Despite the repetitive nature of the code, analyzing it reveals significant insights into modular arithmetic, code maintainability, and the trade-offs between explicit definition and dynamic generation.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nEach function follows a strict pattern: `return (value * multiplier + offset) % 100003`. This is a linear congruential generator (LCG) step, a fundamental concept in pseudorandom number generation and cryptography. The operation ensures that the output is always within the range `[0, 100002]`, regardless of the magnitude of the input `value`. The modulus, `100003`, is a prime number. Using a prime modulus is",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 55,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  },
+  {
+    "label": "tokens-32768-run-1",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "022d85471d4158438e17bae31f1756f797570c67c4de2d986f414cbff0a5c280",
+    "client_ttft_s": 23.223191070952453,
+    "client_elapsed_s": 28.747857587994076,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "total_tokens": 33024,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792036884.3634322,
+      "duration_s": 28.7,
+      "finish": "length",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 32768,
+      "prompt_read": 32768,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 23168.4,
+      "decode_ms": 5557.3,
+      "decode_tok_s": 46.1,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 222,
+      "drafts_accepted": 155
+    },
+    "text": "The provided Python module represents a synthetic benchmark designed to evaluate the performance, correctness, and maintainability of code generation or execution systems. It consists of a series of functions, named `task_00000` through `task_00888`, each implementing a specific deterministic integer transform. While the code appears repetitive at first glance, a deeper analysis reveals a structured pattern involving linear congruential generators, modular arithmetic, and systematic naming conventions. This review explores the mathematical underpinnings, structural design, and practical implications of this module.\n\n### Mathematical Structure and Deterministic Transforms\n\nAt its core, every function in this module implements a linear transformation followed by a modulo operation. The general form of each function is:\n\n```python\ndef task_NNNNN(value: int) -> int:\n    return (value * A + B) % 100003\n```\n\nHere, `A` is the multiplier, `B` is the additive constant, and `100003` is the modulus. The modulus `100003` is a prime number, which is a critical choice in modular arithmetic. Using a prime modulus ensures that the multiplicative group of integers modulo `1",
+    "reclaim": {
+      "pgmigrate_success": 4720,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 17186,
+      "pswpout": 0,
+      "quiet_wait_s": 3.02,
+      "flag": false,
+      "why": []
+    }
+  }
+]

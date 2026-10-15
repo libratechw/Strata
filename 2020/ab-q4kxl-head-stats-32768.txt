@@ -1,0 +1,4 @@
+rounds measured 6, clean 5; flagged (round, arm): [(5, 'F-borrow')]
+F-borrow         tok/s median  1248.8  min  1239.6  max  1249.4  (n=5)
+F-borrow_on      tok/s median  1421.9  min  1414.3  max  1426.7  (n=5)
+prompt_ms F-borrow / F-borrow_on: median 1.139  95% [1.137, 1.142]
