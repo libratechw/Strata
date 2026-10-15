@@ -118,6 +118,11 @@ export STRATA_PF_SWITCH_MIN_T=4096
 export STRATA_PREFILL_STREAM_MIN=128   # prompt reads of 128-1,023 tokens on the fused experts too (below)
 ```
 
+With `STRATA_HC_UPMIX=1`, `STRATA_HC_UPMIX_ROLL=1` partially unrolls the upmix K loop in pairs instead of fully
+unrolling it. It keeps the BF16 inputs, FP32 accumulation order and mix epilogue. It is off by default; this is a
+gfx1151 experiment, not a speed claim for other cards. `hip_prefill_upmix_default` and `hip_prefill_upmix_roll`
+check the production entry against FP64 dot products, partial tiles, optional output images and buffer guards.
+
 `STRATA_PF_FUSED=1` reaches only chunks of `STRATA_PREFILL_STREAM_MIN` tokens or more (1,024 by default, the floor measured on
 a discrete card, where a smaller chunk does not pay for streaming every expert); a smaller read runs its experts through MMQ.
 With every expert in the unified memory nothing streams, and MMQ is the slow part: an agent's turn - a tool result of ~1,000

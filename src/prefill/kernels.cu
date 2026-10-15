@@ -2160,6 +2160,7 @@ __device__ __forceinline__ um_b16 um_frag(const uint16_t* p) {   // 16 BF16 (32 
 }
 // The block's w_up rows (16 columns x 4 streams x all 320 k) are staged in LDS once; each wave streams its own 16
 // tokens' lo16 rows from global memory (every A fragment feeds the 4 streams' WMMAs) - one barrier per block.
+template<int KUnroll>
 __global__ void __launch_bounds__(256) gr_upmix_kernel(const uint16_t* __restrict__ lo16, const uint16_t* __restrict__ wu,
                                                        const float* __restrict__ R, const float* __restrict__ rs,
                                                        const float* __restrict__ w, float* __restrict__ mixed,
@@ -2183,7 +2184,7 @@ __global__ void __launch_bounds__(256) gr_upmix_kernel(const uint16_t* __restric
     um_f8 acc[HC];
 #pragma unroll
     for (int c = 0; c < HC; ++c) acc[c] = um_f8{0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f, 0.f};
-#pragma unroll
+#pragma unroll KUnroll
     for (int ks = 0; ks < LR; ks += 16) {
         const um_b16 a = um_frag(arow + ks);
 #pragma unroll
@@ -2273,8 +2274,19 @@ bool gr_upmix(const uint16_t* lo16, const uint16_t* w_up, const float* R, const 
         return strata::kernels::gfx_arch_is_gfx11_wmma(p.gcnArchName);
     }();
     if (!gfx11 || T <= 0) return false;
-    gr_upmix_kernel<<<dim3(N / UM_D, (unsigned) ((T + UM_T - 1) / UM_T)), 256, 0, (cudaStream_t) stream>>>(
-        lo16, w_up, R, rs, w_norm, mixed, mixed16, mixed_h, T);
+    // Pairwise K-loop unrolling retains the WMMA accumulation order while shortening live ranges.
+    // Keep the existing fully unrolled path unless the gfx1151 experiment is explicitly requested.
+    static const bool roll = [] {
+        const char* e = std::getenv("STRATA_HC_UPMIX_ROLL");
+        return e != nullptr && e[0] == '1';
+    }();
+    if (roll) {
+        gr_upmix_kernel<2><<<dim3(N / UM_D, (unsigned) ((T + UM_T - 1) / UM_T)), 256, 0, (cudaStream_t) stream>>>(
+            lo16, w_up, R, rs, w_norm, mixed, mixed16, mixed_h, T);
+    } else {
+        gr_upmix_kernel<20><<<dim3(N / UM_D, (unsigned) ((T + UM_T - 1) / UM_T)), 256, 0, (cudaStream_t) stream>>>(
+            lo16, w_up, R, rs, w_norm, mixed, mixed16, mixed_h, T);
+    }
     check("gr_upmix");
     return true;
 #else
