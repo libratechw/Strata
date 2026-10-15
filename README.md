@@ -24,7 +24,8 @@ prompt_ms ratio with a 95% bootstrap interval; `pairs-N.txt` (`scripts/pairs-ab.
 - `2078/`: #2078 (STRATA_REFILL_PARTS). Arm `F-borrow` runs 296b59d2's binary, `F-borrow_pr` the branch's (9066c1f8, the
   same tree as the PR head), both with the same variables; the switch comes from gfx1151's table.
 - `2020/`: #2020 (STRATA_PF_F16). Both arms run the branch's binary, `F-borrow` without and `F-borrow_on` with
-  `STRATA_PF_F16=1`. `ab-q4kxl-head/` is of 77506be1 (the PR's code: its head differs only in a test comment and the doc text); `ab-q4kxl-earlier/` and `ab-iq4xs-earlier/` of an earlier
+  `STRATA_PF_F16=1`. `ab-q4kxl-head/` is of 77506be1, whose gfx1151 kernels, dispatch and shared header are the PR head's (the head adds
+  gfx906 stubs in `moe_f16_kq.hpp`, the K-quant ctest's environment, a test comment and doc text); `ab-q4kxl-earlier/` and `ab-iq4xs-earlier/` of an earlier
   head with the same kernels (before the K-quant alignment check and the test changes), as is `layer-earlier.txt`
   (`hip_prefill_fused_iq --no-ref --only=<pair> --chunks=16384`, STRATA_PF_F16=0 / 1, three rounds: the output bits hash and
   the layer time per line). `default-path-hash.txt`: the same tool's output hashes without the switch, 296b59d2 against
