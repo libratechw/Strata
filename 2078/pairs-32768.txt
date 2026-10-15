@@ -1,0 +1,9 @@
+round  0  F-borrow   1238.1 tok/s  F-borrow_pr   1250.7 tok/s  (not counted)
+round  1  F-borrow   1238.5 tok/s  F-borrow_pr   1257.9 tok/s  ratio 1.0156
+round  2  F-borrow   1242.2 tok/s  F-borrow_pr   1256.4 tok/s  ratio 1.0114
+round  3  F-borrow   1242.7 tok/s  F-borrow_pr   1255.1 tok/s  ratio 1.0100
+round  4  F-borrow   1246.1 tok/s  F-borrow_pr   1255.6 tok/s  ratio 1.0076
+round  5  F-borrow   1242.0 tok/s  F-borrow_pr   1253.6 tok/s  ratio 1.0093
+round  6  F-borrow   1241.2 tok/s  F-borrow_pr   1255.4 tok/s  ratio 1.0114
+round  7  F-borrow   1241.5 tok/s  F-borrow_pr   1246.4 tok/s FLAGGED  (not counted)
+round  8  F-borrow   1241.8 tok/s  F-borrow_pr   1253.5 tok/s  ratio 1.0094
