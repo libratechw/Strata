@@ -1,0 +1,152 @@
+[
+  {
+    "index": 1,
+    "prompt_tokens": 1500,
+    "seconds": 1.7778162699978566,
+    "token": "Pro"
+  },
+  {
+    "index": 2,
+    "prompt_tokens": 1700,
+    "seconds": 1.8542996380128898,
+    "token": "pro"
+  },
+  {
+    "index": 3,
+    "prompt_tokens": 1899,
+    "seconds": 2.058693769009551,
+    "token": "Pro"
+  },
+  {
+    "index": 4,
+    "prompt_tokens": 2100,
+    "seconds": 2.2679406700044638,
+    "token": "Pro"
+  },
+  {
+    "index": 5,
+    "prompt_tokens": 2400,
+    "seconds": 2.4698793130082777,
+    "token": "Pro"
+  },
+  {
+    "index": 6,
+    "prompt_tokens": 2700,
+    "seconds": 2.717370258003939,
+    "token": "Pro"
+  },
+  {
+    "index": 7,
+    "prompt_tokens": 3000,
+    "seconds": 2.9249256839975715,
+    "token": "Pro"
+  },
+  {
+    "index": 8,
+    "prompt_tokens": 3400,
+    "seconds": 3.162154734003707,
+    "token": "Code"
+  },
+  {
+    "index": 9,
+    "prompt_tokens": 3800,
+    "seconds": 3.6283617629960645,
+    "token": "Code"
+  },
+  {
+    "index": 10,
+    "prompt_tokens": 4200,
+    "seconds": 3.832719758996973,
+    "token": "Code"
+  },
+  {
+    "index": 11,
+    "prompt_tokens": 4800,
+    "seconds": 4.283509600994876,
+    "token": "Code"
+  },
+  {
+    "index": 12,
+    "prompt_tokens": 5300,
+    "seconds": 4.701017978004529,
+    "token": "Code"
+  },
+  {
+    "index": 13,
+    "prompt_tokens": 6000,
+    "seconds": 5.289838636992499,
+    "token": "Code"
+  },
+  {
+    "index": 14,
+    "prompt_tokens": 6700,
+    "seconds": 5.795810864001396,
+    "token": "Code"
+  },
+  {
+    "index": 15,
+    "prompt_tokens": 7600,
+    "seconds": 6.526319566997699,
+    "token": "Code"
+  },
+  {
+    "index": 16,
+    "prompt_tokens": 8500,
+    "seconds": 7.173246252990793,
+    "token": "Code"
+  },
+  {
+    "index": 17,
+    "prompt_tokens": 9500,
+    "seconds": 8.060701454000082,
+    "token": "Code"
+  },
+  {
+    "index": 18,
+    "prompt_tokens": 10700,
+    "seconds": 9.005386807999457,
+    "token": "Code"
+  },
+  {
+    "index": 19,
+    "prompt_tokens": 12000,
+    "seconds": 10.038014395002392,
+    "token": "Code"
+  },
+  {
+    "index": 20,
+    "prompt_tokens": 13500,
+    "seconds": 11.152179130993318,
+    "token": "code"
+  },
+  {
+    "index": 21,
+    "prompt_tokens": 15100,
+    "seconds": 12.343099046003772,
+    "token": "Code"
+  },
+  {
+    "index": 22,
+    "prompt_tokens": 17000,
+    "seconds": 14.346528168010991,
+    "token": "Code"
+  },
+  {
+    "index": 23,
+    "prompt_tokens": 19000,
+    "seconds": 15.914694944993244,
+    "token": "Code"
+  },
+  {
+    "index": 24,
+    "prompt_tokens": 21400,
+    "seconds": 17.498920480007655,
+    "token": "Code"
+  },
+  {
+    "index": 25,
+    "prompt_tokens": 24000,
+    "seconds": 19.865641669995966,
+    "token": "Code"
+  }
+]

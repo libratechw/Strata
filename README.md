@@ -41,3 +41,20 @@ prompt_ms ratio with a 95% bootstrap interval; `pairs-N.txt` (`scripts/pairs-ab.
   STRATA_PA_FAST=0 / 1, two rounds, the output hash per case, 296b59d2 against the build that carried both fusions (whose
   attention files are this branch's). `extra/`: a local copy of the gated check with an output row stride of 6,152 and the
   padding filled with a sentinel, and its log (its FAIL lines are the fast kernel against FP64, which it misses by design).
+
+## Re-check on the maintainer's main (`main477/`, base 477ac13c)
+
+Same machine and toolchain; `<checkout of 477ac13c>` and `<build 477ac13c>` are the merged main, `<build 296b59d2>` the earlier base.
+Engine logs are left out; the arms' `config.json` and `env.json` give the engine arguments and the `STRATA_*` variables.
+
+- `2018/`: #2018 on the merged build. `ab/` is the 32K prompt A/B (`scripts/ab-guard.py`): arm `F-borrow` runs 296b59d2's binary,
+  `F-borrow_m` the merged build's, both with `STRATA_PF_FUSED_KQ=1`; round 3 of `F-borrow_m` met a reclaim during its prompt and is
+  dropped (`stats-32768.txt`, `pairs-32768.txt`). The arms differ by every change between the two builds, not by #2018 alone.
+  `fused.txt`: `hip_prefill_fused_iq` layer timings (three rounds); `hashes.txt`: its output hashes, shared with 296b59d2.
+- `gdn-ctest.log`: `ctest -R gdn` on the merged build (#2299).
+- `2020/`: #2020. `kl/`: first-token KL of 25 prompts (`lengths.txt`), per model `R` (no switches), `B` (the section-5 switches with
+  `STRATA_PF_SWITCH_MIN_T=0`, `STRATA_PF_FUSED=1`, plus `STRATA_PF_FUSED_KQ=1` for UD-Q4_K_XL) and `F` (= B + `STRATA_PF_F16=1`);
+  `rows.json` per arm, `<model>.txt` is `klcompare.py`'s output. `task/`: `taskcheck.py` with arms B and F (the same switches, plus
+  `STRATA_PREFILL_STREAM_MIN=16` so that short prompts take the prompt-expert path): HumanEval problems 0, 2, ..., 162 (82, EvalPlus 0.3.1
+  base and plus) and 30 generated reasoning tasks, greedy, reasoning off, one run per arm; `graded.json` has the per-problem results,
+  `*-samples.json` the responses.

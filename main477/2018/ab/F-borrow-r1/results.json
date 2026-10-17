@@ -1,0 +1,172 @@
+[
+  {
+    "label": "warmup",
+    "expected_prompt_tokens": null,
+    "request_sha256": "b63e57873441a996a529b246a66cf12de70a7c671777f99329354d5c195f788f",
+    "client_ttft_s": 0.30904637300409377,
+    "client_elapsed_s": 0.37428658999851905,
+    "finish_reason": "stop",
+    "usage": {
+      "prompt_tokens": 19,
+      "completion_tokens": 2,
+      "total_tokens": 21,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792224842.8922386,
+      "duration_s": 0.4,
+      "finish": "stop",
+      "prompt_tokens": 19,
+      "reused": 0,
+      "output_tokens": 2,
+      "prompt_total": 19,
+      "prompt_read": 19,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 2,
+      "prompt_ms": 266.6,
+      "decode_ms": 103.0,
+      "decode_tok_s": 19.4,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 3,
+      "drafts_accepted": 3
+    },
+    "text": "READY",
+    "reclaim": {
+      "pgmigrate_success": 0,
+      "compact_stall": 1,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 73664,
+      "pgscan_direct": 0,
+      "pswpin": 0,
+      "pswpout": 0,
+      "quiet_wait_s": 0.0,
+      "flag": true,
+      "why": [
+        "compact_stall"
+      ]
+    }
+  },
+  {
+    "label": "prime-4096",
+    "expected_prompt_tokens": 4096,
+    "request_sha256": "19446b1b55cd59c959d50a68c5dbf83e11a6d7d097090c4e9c75bb7d82aaa233",
+    "client_ttft_s": 3.846545028005494,
+    "client_elapsed_s": 9.126210034002725,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 4096,
+      "completion_tokens": 256,
+      "total_tokens": 4352,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792224846.6739633,
+      "duration_s": 9.1,
+      "finish": "length",
+      "prompt_tokens": 4096,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 4096,
+      "prompt_read": 4096,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 3805.6,
+      "decode_ms": 5312.7,
+      "decode_tok_s": 48.2,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 231,
+      "drafts_accepted": 158
+    },
+    "text": "The provided Python module presents a synthetic collection of functions, labeled `task_00000` through `task_00111`, each designed to perform a specific deterministic integer transformation. At first glance, the code appears repetitive and verbose, but it serves as an excellent case study for understanding linear congruential generators, modular arithmetic, and the trade-offs between explicit definition and programmatic generation in software engineering.\n\n### Deterministic Integer Transforms and Modular Arithmetic\n\nEach function in this module implements a linear transformation of the form $f(x) = (ax + b) \\pmod m$, where $m$ is the constant `100003`. This modulus is significant because 100,003 is a prime number. In cryptography and random number generation, using a prime modulus ensures that the multiplicative group of integers modulo $m$ has desirable properties, such as every non-zero element having a multiplicative inverse.\n\nThe general pattern for `task_NNNNN` (for indices 0 to 96) is:\n$$ f(x) = (x \\cdot (N + 1) + N) \\pmod{100003} $$\nFor example, `task",
+    "reclaim": {
+      "pgmigrate_success": 105489,
+      "compact_stall": 2,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 73664,
+      "pgscan_direct": 0,
+      "pswpin": 5,
+      "pswpout": 0,
+      "quiet_wait_s": 3.26,
+      "flag": true,
+      "why": [
+        "pgmigrate_success",
+        "compact_stall"
+      ]
+    }
+  },
+  {
+    "label": "tokens-32768-run-1",
+    "expected_prompt_tokens": 32768,
+    "request_sha256": "022d85471d4158438e17bae31f1756f797570c67c4de2d986f414cbff0a5c280",
+    "client_ttft_s": 26.08265241299523,
+    "client_elapsed_s": 32.14372731199546,
+    "finish_reason": "length",
+    "usage": {
+      "prompt_tokens": 32768,
+      "completion_tokens": 256,
+      "total_tokens": 33024,
+      "prompt_tokens_details": {
+        "cached_tokens": 0
+      }
+    },
+    "engine": {
+      "projection": null,
+      "time": 1792224859.1216443,
+      "duration_s": 32.1,
+      "finish": "length",
+      "prompt_tokens": 32768,
+      "reused": 0,
+      "output_tokens": 256,
+      "prompt_total": 32768,
+      "prompt_read": 32768,
+      "reasoning_recoveries": 0,
+      "reasoning_repeat_coverage": 0.0,
+      "engine_generated": 256,
+      "prompt_ms": 26033.0,
+      "decode_ms": 6093.4,
+      "decode_tok_s": 42.0,
+      "hit_rate": null,
+      "pcie_share": null,
+      "ram_blobs": 0,
+      "file_blobs": 0,
+      "file_mb": 0,
+      "drafts_offered": 240,
+      "drafts_accepted": 143
+    },
+    "text": "The provided Python module represents a synthetic benchmark designed to evaluate computational throughput, memory management, and code generation capabilities within a constrained environment. The module consists of 889 distinct functions, ranging from `task_00000` to `task_00888`, each implementing a specific linear congruential transformation followed by a modulo operation. This analysis explores the mathematical underpinnings, structural design, performance implications, and maintainability challenges inherent in this codebase.\n\n### Mathematical Structure: Deterministic Integer Transforms\n\nAt its core, every function in this module executes a deterministic integer transform defined by the formula:\n$$ f(x) = (x \\cdot A + B) \\pmod M $$\nwhere $M$ is the constant modulus `100003`, and $A$ and $B$ are coefficients that vary per function. This structure is characteristic of Linear Congruential Generators (LCGs), a class of pseudorandom number generators, although here they are used as deterministic hash-like functions or stress-test operations rather than for randomness.\n\nThe modulus `100003` is a prime number. Using a prime modulus is significant in modular arithmetic because it ensures that the multiplicative group",
+    "reclaim": {
+      "pgmigrate_success": 11794,
+      "compact_stall": 0,
+      "allocstall_normal": 0,
+      "allocstall_movable": 0,
+      "allocstall_dma32": 0,
+      "pgscan_kswapd": 0,
+      "pgscan_direct": 0,
+      "pswpin": 9931,
+      "pswpout": 0,
+      "quiet_wait_s": 3.01,
+      "flag": false,
+      "why": []
+    }
+  }
+]

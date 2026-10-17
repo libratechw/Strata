@@ -1,0 +1,33 @@
+{
+  "exe": "<build 477ac13c>/strata",
+  "args": [
+    "--pack",
+    "<model dir iq4xs>/pack",
+    "--native",
+    "<model dir iq4xs>/UD-IQ4_XS/Qwen3.8-Flash-Next-UD-IQ4_XS-00001-of-00003.gguf",
+    "--expert-profile",
+    "<checkout of 477ac13c>/data/expert-profile.bin",
+    "--expert-cache",
+    "auto",
+    "--resident-budget-gib",
+    "55",
+    "--prefill",
+    "16384",
+    "--spec",
+    "4",
+    "--max-context",
+    "131072",
+    "--kv",
+    "int8",
+    "--kv-resident",
+    "32768"
+  ],
+  "cwd": "<checkout of 477ac13c>",
+  "tokenizer": "<model dir iq4xs>/pack/tokenizer",
+  "model_name": "strata",
+  "log": "<run dir>",
+  "host": "127.0.0.1",
+  "port": 18772,
+  "parallel": 1,
+  "open_browser": false
+}

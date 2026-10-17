@@ -1,0 +1,15 @@
+Test project <build 477ac13c>
+    Start 34: hip_gdn_rec_head
+1/5 Test #34: hip_gdn_rec_head .................   Passed    1.68 sec
+    Start 35: hip_gdn_chunked
+2/5 Test #35: hip_gdn_chunked ..................   Passed    4.75 sec
+    Start 36: hip_gdn_chunked_off
+3/5 Test #36: hip_gdn_chunked_off ..............   Passed    0.97 sec
+    Start 37: hip_gdn_chunked_default
+4/5 Test #37: hip_gdn_chunked_default ..........   Passed    0.97 sec
+    Start 53: gdn_parity
+5/5 Test #53: gdn_parity .......................   Passed    0.42 sec
+
+100% tests passed, 0 tests failed out of 5
+
+Total Test time (real) =   8.81 sec
